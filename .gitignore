@@ -6,6 +6,10 @@ node_modules/
 dist/
 build/
 out/
+.next/
+
+# Generated at build time by scripts/build-zips.mjs from /skills — never hand-edit these
+public/downloads/*.zip
 
 # IDE
 .idea/
