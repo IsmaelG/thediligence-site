@@ -153,5 +153,5 @@ export const rules = [
   },
 ];
 
-export const GITHUB_URL = "https://github.com/IsmaelG/the-diligence-stack";
+export const GITHUB_URL = "https://github.com/IsmaelG/diligence-stack-skills";
 export const AUTHOR_LINKEDIN_URL = "https://www.linkedin.com/in/ismaelghozael";

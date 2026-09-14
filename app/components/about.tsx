@@ -8,8 +8,8 @@ export function About() {
           </span>
           <div className="max-w-3xl space-y-4 text-muted">
             <p>
-              The Diligence Stack is a set of Claude Skills built for
-              investment and diligence work — the kind of research an
+              The Diligence Stack is a set of Claude skills for investors,
+              operators and product people — the kind of research an
               analyst, a partner, or a founder does before a meeting, a term
               sheet, or a board pack. Ask Claude for a company brief, a
               people map, a retention analysis, or an outreach plan, and it

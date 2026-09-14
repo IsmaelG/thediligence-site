@@ -5,7 +5,7 @@ export function Hero() {
     <section className="border-b border-border">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-          Claude Skills for investors and operators
+          Claude skills for investors, operators and product people
         </p>
         <h1 className="mt-6 max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-6xl">
           Know more about a company than the person across the table.

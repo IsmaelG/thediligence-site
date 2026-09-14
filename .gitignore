@@ -8,7 +8,11 @@ build/
 out/
 .next/
 
-# Generated at build time by scripts/build-zips.mjs from /skills — never hand-edit these
+# Fetched at build time by scripts/fetch-skills.mjs from
+# github.com/IsmaelG/diligence-stack-skills (the single source of truth) —
+# never hand-edit these here.
+/skills
+/packs
 public/downloads/*.zip
 
 # IDE

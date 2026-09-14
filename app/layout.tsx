@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 const title = "The Diligence Stack";
 const description =
-  "Claude Skills for investment and diligence work — company diligence, product diligence, people mapping, outreach, cohort analysis, and value-creation planning.";
+  "Claude skills for investors, operators and product people — company diligence, product diligence, people mapping, outreach, cohort analysis, and value-creation planning.";
 
 export const metadata: Metadata = {
   title,
