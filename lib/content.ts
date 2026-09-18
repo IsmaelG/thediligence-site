@@ -155,3 +155,4 @@ export const rules = [
 
 export const GITHUB_URL = "https://github.com/IsmaelG/diligence-stack-skills";
 export const AUTHOR_LINKEDIN_URL = "https://www.linkedin.com/in/ismaelghozael";
+export const AUTHOR_ABOUT_URL = "https://ismaelghozael.vercel.app";

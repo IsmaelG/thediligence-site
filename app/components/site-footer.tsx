@@ -1,13 +1,8 @@
-import { AUTHOR_LINKEDIN_URL, GITHUB_URL } from "@/lib/content";
+import { AUTHOR_ABOUT_URL, GITHUB_URL } from "@/lib/content";
 
 export function SiteFooter() {
   return (
     <footer className="mt-auto">
-      {/*
-        About the author — placeholder section.
-        Ismael asked to keep this slot reserved; the full story goes here later.
-        Update the copy below in place, no structural changes needed.
-      */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
@@ -15,16 +10,16 @@ export function SiteFooter() {
           </span>
           <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
             <p className="max-w-xl text-muted">
-              Built by Ismael Ghozael. The full story behind the Diligence
-              Stack is coming soon.
+              Built by Ismael Ghozael — 20+ years in product and platforms,
+              competition-level freediver.
             </p>
             <a
-              href={AUTHOR_LINKEDIN_URL}
+              href={AUTHOR_ABOUT_URL}
               target="_blank"
               rel="noreferrer noopener"
               className="rounded-md border border-border px-4 py-2 text-sm transition hover:border-accent hover:text-accent"
             >
-              Ismael Ghozael on LinkedIn ↗
+              About Ismael Ghozael ↗
             </a>
           </div>
         </div>
@@ -49,7 +44,7 @@ export function SiteFooter() {
           rel="noreferrer noopener"
           className="hover:text-accent"
         >
-          github.com/IsmaelG/the-diligence-stack
+          github.com/IsmaelG/diligence-stack-skills
         </a>
       </div>
     </footer>
