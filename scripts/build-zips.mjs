@@ -29,6 +29,7 @@ const PACKS = {
     "interviewlog",
     "onbrand",
   ],
+  "technical-diligence-stack": ["technicaldd", "interviewlog", "onbrand"],
 };
 
 function zip(outFile, cwd, entries) {

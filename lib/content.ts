@@ -78,6 +78,14 @@ const valuecreation: Skill = {
     "Turns findings into a plan: three to five sized levers, a 100-day plan, the metrics that prove it worked, and the exact asks for the board.",
 };
 
+const technicaldd: Skill = {
+  slug: "technicaldd",
+  command: "/technicaldd",
+  title: "Technical due diligence",
+  blurb:
+    "Turns vendor claims — 'API-first', 'enterprise-grade', 'proprietary' — into evidence across 6 axes: APIs, agent readiness, integration time, architecture, SLA/uptime, and security & compliance.",
+};
+
 export const packs: Pack[] = [
   {
     slug: "company-diligence-stack",
@@ -99,6 +107,19 @@ export const packs: Pack[] = [
   },
 ];
 
+// Not yet added to `packs` (which drives the live homepage) — used by the
+// /proto-* prototype routes while a design direction for the third stack is
+// still being reviewed. Fold it into `packs` once a direction is picked.
+export const technicalDiligenceStack: Pack = {
+  slug: "technical-diligence-stack",
+  name: "Technical Diligence Stack",
+  tagline:
+    "Everything you need to turn a vendor's technical claims — 'API-first', 'enterprise-grade', 'proprietary' — into evidence, once a target is on the table.",
+  flow: "/duediligence or /productdd → /technicaldd",
+  question: "Does the technology hold up under the hood?",
+  skills: [technicaldd, interviewlog, onbrand],
+};
+
 export const allSkills: Skill[] = [
   duediligence,
   companypeople,
@@ -109,6 +130,11 @@ export const allSkills: Skill[] = [
   interviewlog,
   onbrand,
 ];
+
+// Proto-only, same reasoning as `technicalDiligenceStack` above: not used by
+// the live homepage until a direction is picked.
+export const allPacks: Pack[] = [...packs, technicalDiligenceStack];
+export const allSkillsWithTechnical: Skill[] = [...allSkills, technicaldd];
 
 export const evidenceMarks = [
   {
