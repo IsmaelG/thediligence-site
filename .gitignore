@@ -15,6 +15,9 @@ out/
 /packs
 public/downloads/*.zip
 
+# Uploaded chat attachments
+.intent/
+
 # IDE
 .idea/
 .vscode/
