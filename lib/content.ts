@@ -19,7 +19,7 @@ const duediligence: Skill = {
   command: "/duediligence",
   title: "Due diligence",
   blurb:
-    "Give it a company name, get back a decision-grade brief: financials (or proxy signals when there are none), strategy, ownership, an evidence-backed SWOT, and the org chart with the digital leader identified.",
+    "Give it a company name, get back a decision-grade brief: financials (or proxy signals when there are none), strategy, ownership, an evidence-backed SWOT, and the org chart with the digital leader identified. Runs a market deep-dive on the sector automatically first, via the bundled marketdd skill.",
 };
 
 const companypeople: Skill = {
@@ -92,7 +92,7 @@ export const packs: Pack[] = [
     name: "Company Diligence Stack",
     tagline:
       "Everything you need to walk into a meeting, a board seat, or a first call knowing more about a company than the person across the table.",
-    flow: "/duediligence → /companypeople → /targetpeople",
+    flow: "/duediligence (+ /marketdd auto) → /companypeople → /targetpeople",
     question: "Is it a good company, and who do I talk to?",
     skills: [duediligence, companypeople, targetpeople, interviewlog, onbrand],
   },

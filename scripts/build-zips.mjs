@@ -17,6 +17,7 @@ const OUT_DIR = path.join(ROOT, "public", "downloads");
 const PACKS = {
   "company-diligence-stack": [
     "duediligence",
+    "marketdd",
     "companypeople",
     "targetpeople",
     "interviewlog",
@@ -30,6 +31,15 @@ const PACKS = {
     "onbrand",
   ],
   "technical-diligence-stack": ["technicaldd", "interviewlog", "onbrand"],
+};
+
+// Some skills bundle a dependency into their own individual zip so they
+// work standalone without also grabbing the dependency separately —
+// e.g. duediligence auto-chains into marketdd (see its Step 0b) but
+// marketdd isn't sold as its own site download, so it has to travel
+// with duediligence's zip specifically.
+const BUNDLES = {
+  duediligence: ["marketdd"],
 };
 
 function zip(outFile, cwd, entries) {
@@ -53,9 +63,16 @@ function main() {
   );
 
   // One zip per individual skill, e.g. downloads/duediligence.zip -> duediligence/SKILL.md
+  // (plus any bundled dependency folders from BUNDLES, e.g. marketdd rides
+  // along inside duediligence.zip).
   for (const name of skillNames) {
     const outFile = path.join(OUT_DIR, `${name}.zip`);
-    zip(outFile, SKILLS_DIR, [name]);
+    const entries = [name, ...(BUNDLES[name] ?? [])];
+    const missingBundle = entries.filter((e) => !skillNames.includes(e));
+    if (missingBundle.length) {
+      throw new Error(`Skill "${name}" bundles missing skills: ${missingBundle.join(", ")}`);
+    }
+    zip(outFile, SKILLS_DIR, entries);
     console.log(`built ${path.relative(ROOT, outFile)}`);
   }
 
