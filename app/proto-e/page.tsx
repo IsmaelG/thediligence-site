@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Hero } from "@/app/components/hero";
-import { AboutThreePacks } from "@/app/components/proto/about-three-packs";
+import { About } from "@/app/components/about";
 import { StackPromptPicker } from "@/app/components/proto/stack-prompt-picker";
 import { PackSelectorTabsControlled } from "@/app/components/proto/pack-selector-tabs-controlled";
 import { RulesSection } from "@/app/components/rules-section";
@@ -10,16 +10,17 @@ import { InstallSection } from "@/app/components/install-section";
 import { DownloadsSection } from "@/app/components/downloads-section";
 import { SiteHeader } from "@/app/components/site-header";
 import { SiteFooter } from "@/app/components/site-footer";
-import { allPacks, allSkillsWithTechnical } from "@/lib/content";
+import { allSkills, packs } from "@/lib/content";
 
 // Proto E — a free-text "what are you trying to figure out?" prompt above
-// the (proto-d) tab picker. Answering highlights the matched stack and
-// scrolls to it, but never hides the other two — a wrong guess is a
+// the (now-production) tab picker. Answering highlights the matched stack
+// and scrolls to it, but never hides the other two — a wrong guess is a
 // one-click recovery, not a dead end. The match itself is a local
 // keyword-score mock (see mock-classify-stack.ts), not a real model call,
-// per the "prototype the interaction first" decision.
+// per the "prototype the interaction first" decision. Not yet promoted to
+// the real homepage — proto-d's tab picker was (see PackSelector).
 export default function ProtoE() {
-  const [activeSlug, setActiveSlug] = useState(allPacks[0].slug);
+  const [activeSlug, setActiveSlug] = useState(packs[0].slug);
 
   const handleMatch = (slug: string) => {
     setActiveSlug(slug);
@@ -33,8 +34,8 @@ export default function ProtoE() {
       <SiteHeader />
       <main>
         <Hero />
-        <AboutThreePacks />
-        <StackPromptPicker packs={allPacks} onMatch={handleMatch} />
+        <About />
+        <StackPromptPicker packs={packs} onMatch={handleMatch} />
         <section className="border-b border-border">
           <div className="mx-auto max-w-6xl px-6 py-20">
             <div className="mb-10 max-w-2xl">
@@ -46,7 +47,7 @@ export default function ProtoE() {
               </h2>
             </div>
             <PackSelectorTabsControlled
-              packs={allPacks}
+              packs={packs}
               activeSlug={activeSlug}
               onSelect={setActiveSlug}
             />
@@ -54,7 +55,7 @@ export default function ProtoE() {
         </section>
         <RulesSection />
         <InstallSection />
-        <DownloadsSection packs={allPacks} allSkills={allSkillsWithTechnical} />
+        <DownloadsSection packs={packs} allSkills={allSkills} />
       </main>
       <SiteFooter />
     </>

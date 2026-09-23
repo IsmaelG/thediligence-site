@@ -11,10 +11,11 @@ export function Hero() {
           Know more about a company than the person across the table.
         </h1>
         <p className="mt-6 max-w-2xl text-balance text-lg text-muted">
-          Eight Claude Skills that turn a company name, a call transcript, or
+          Nine Claude Skills that turn a company name, a call transcript, or
           a sales export into decision-grade diligence — company research,
-          people maps, outreach, cohort analysis, and value-creation plans.
-          Every number marked, every claim sourced.
+          people maps, outreach, technical verification, cohort analysis,
+          and value-creation plans. Every number marked, every claim
+          sourced.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a

@@ -105,20 +105,16 @@ export const packs: Pack[] = [
     question: "Will the product keep growing?",
     skills: [productdd, cohortlab, valuecreation, interviewlog, onbrand],
   },
+  {
+    slug: "technical-diligence-stack",
+    name: "Technical Diligence Stack",
+    tagline:
+      "Everything you need to turn a vendor's technical claims — 'API-first', 'enterprise-grade', 'proprietary' — into evidence, once a target is on the table.",
+    flow: "/duediligence or /productdd → /technicaldd",
+    question: "Does the technology hold up under the hood?",
+    skills: [technicaldd, interviewlog, onbrand],
+  },
 ];
-
-// Not yet added to `packs` (which drives the live homepage) — used by the
-// /proto-* prototype routes while a design direction for the third stack is
-// still being reviewed. Fold it into `packs` once a direction is picked.
-export const technicalDiligenceStack: Pack = {
-  slug: "technical-diligence-stack",
-  name: "Technical Diligence Stack",
-  tagline:
-    "Everything you need to turn a vendor's technical claims — 'API-first', 'enterprise-grade', 'proprietary' — into evidence, once a target is on the table.",
-  flow: "/duediligence or /productdd → /technicaldd",
-  question: "Does the technology hold up under the hood?",
-  skills: [technicaldd, interviewlog, onbrand],
-};
 
 export const allSkills: Skill[] = [
   duediligence,
@@ -129,12 +125,8 @@ export const allSkills: Skill[] = [
   valuecreation,
   interviewlog,
   onbrand,
+  technicaldd,
 ];
-
-// Proto-only, same reasoning as `technicalDiligenceStack` above: not used by
-// the live homepage until a direction is picked.
-export const allPacks: Pack[] = [...packs, technicalDiligenceStack];
-export const allSkillsWithTechnical: Skill[] = [...allSkills, technicaldd];
 
 export const evidenceMarks = [
   {

@@ -3,10 +3,12 @@
 import { useState } from "react";
 import type { Pack } from "@/lib/content";
 
-// Proto C: all 3 stacks behind a segmented control instead of a static
-// grid — click a stack name to reveal its full card. Scales cleanly if a
-// 4th stack is ever added.
-export function PackSelectorTabs({ packs }: { packs: Pack[] }) {
+// Segmented-control stack picker: leads with the question (the problem
+// you're solving), not the pack name — tab buttons show the question as
+// the primary line, the pack name as a small secondary label — and the
+// active tab is a solid accent fill so it's unmistakable which one is
+// selected.
+export function PackSelector({ packs }: { packs: Pack[] }) {
   const [activeSlug, setActiveSlug] = useState(packs[0].slug);
   const active = packs.find((p) => p.slug === activeSlug) ?? packs[0];
 
@@ -25,7 +27,7 @@ export function PackSelectorTabs({ packs }: { packs: Pack[] }) {
         <div
           role="tablist"
           aria-label="Diligence stacks"
-          className="mb-8 flex flex-wrap gap-2 border-b border-border pb-4"
+          className="mb-8 grid gap-3 sm:grid-cols-3"
         >
           {packs.map((pack) => {
             const isActive = pack.slug === activeSlug;
@@ -36,14 +38,22 @@ export function PackSelectorTabs({ packs }: { packs: Pack[] }) {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveSlug(pack.slug)}
-                className={`rounded-md px-4 py-2 text-left text-sm transition ${
+                className={`rounded-lg px-5 py-4 text-left transition ${
                   isActive
-                    ? "border border-accent bg-surface text-foreground"
-                    : "border border-transparent text-muted hover:border-border hover:text-foreground"
+                    ? "bg-accent text-accent-foreground shadow-[0_0_0_2px_var(--accent)]"
+                    : "border border-border bg-surface text-muted hover:border-accent/60 hover:text-foreground"
                 }`}
               >
-                <span className="block font-medium">{pack.name}</span>
-                <span className="block text-xs text-muted">{pack.question}</span>
+                <span className="block text-sm font-medium leading-snug">
+                  {pack.question}
+                </span>
+                <span
+                  className={`mt-2 block font-mono text-[11px] uppercase tracking-[0.15em] ${
+                    isActive ? "text-accent-foreground/70" : "text-muted"
+                  }`}
+                >
+                  {pack.name}
+                </span>
               </button>
             );
           })}

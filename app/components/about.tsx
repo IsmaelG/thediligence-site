@@ -12,20 +12,24 @@ export function About() {
               operators and product people — the kind of research an
               analyst, a partner, or a founder does before a meeting, a term
               sheet, or a board pack. Ask Claude for a company brief, a
-              people map, a retention analysis, or an outreach plan, and it
-              runs the skill instead of guessing at the format.
+              people map, a technical scorecard, a retention analysis, or an
+              outreach plan, and it runs the skill instead of guessing at
+              the format.
             </p>
             <p>
-              It ships as two packs.{" "}
+              It ships as three packs.{" "}
               <span className="text-foreground">Company Diligence Stack</span>{" "}
               answers &ldquo;is this a good company, and who do I talk
               to?&rdquo;.{" "}
               <span className="text-foreground">Product Diligence Stack</span>{" "}
               answers &ldquo;will the product keep growing, and what breaks
-              at 10x?&rdquo;. Two skills —{" "}
+              at 10x?&rdquo;.{" "}
+              <span className="text-foreground">Technical Diligence Stack</span>{" "}
+              answers &ldquo;does the technology hold up under the
+              hood?&rdquo;. Two skills —{" "}
               <code className="font-mono text-sm">interviewlog</code> and{" "}
-              <code className="font-mono text-sm">onbrand</code> — are shared
-              by both.
+              <code className="font-mono text-sm">onbrand</code> — are
+              shared across all three.
             </p>
           </div>
         </div>
