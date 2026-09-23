@@ -22,6 +22,14 @@ const duediligence: Skill = {
     "Give it a company name, get back a decision-grade brief: financials (or proxy signals when there are none), strategy, ownership, an evidence-backed SWOT, and the org chart with the digital leader identified. Runs a market deep-dive on the sector automatically first, via the bundled marketdd skill.",
 };
 
+const marketdd: Skill = {
+  slug: "marketdd",
+  command: "/marketdd",
+  title: "Market due diligence",
+  blurb:
+    "A sourced, chart-heavy deep dive on a whole sector or software category: market size and growth, where value sits in the chain, who plays where, M&A moves, and the 5 customer trends for the next 5-10 years. Bundled into duediligence — runs automatically when there's no recent market report — but works standalone too.",
+};
+
 const companypeople: Skill = {
   slug: "companypeople",
   command: "/companypeople",
@@ -118,6 +126,7 @@ export const packs: Pack[] = [
 
 export const allSkills: Skill[] = [
   duediligence,
+  marketdd,
   companypeople,
   targetpeople,
   productdd,
