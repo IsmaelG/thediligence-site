@@ -5,6 +5,7 @@ import { VizShell } from "@/app/components/viz/viz-shell";
 import { TypingIntro } from "@/app/components/viz/typing-intro";
 import { SubwayMap } from "@/app/components/viz/subway-map";
 import { StationInfo } from "@/app/components/viz/station-info";
+import { SharedUtilitiesBar } from "@/app/components/viz/shared-utilities-bar";
 import { firstMeetingRoute, stationById } from "@/lib/subway";
 
 export default function ProtoVizM() {
@@ -25,6 +26,7 @@ export default function ProtoVizM() {
           onCurrentChange={setCurrentId}
         />
         {play && <StationInfo station={stationById(currentId)} />}
+        <SharedUtilitiesBar />
       </div>
     </VizShell>
   );

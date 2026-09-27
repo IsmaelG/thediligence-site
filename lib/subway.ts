@@ -155,27 +155,31 @@ export const stations: Station[] = [
     produces: "6-axis scorecard, Invest / Conditional / Pass",
     interchange: true,
   },
+];
+
+// Not map stops — these two quietly improve any artifact produced on any
+// line, at any point. Drawing them as stations with dashed lines across
+// the map read as clutter; they're a persistent "always on" strip instead
+// (see shared-utilities-bar.tsx), never part of the animated route.
+export type SharedUtility = {
+  command: string;
+  label: string;
+  question: string;
+  produces: string;
+};
+
+export const sharedUtilities: SharedUtility[] = [
   {
-    id: "interviewlog",
     command: "/interviewlog",
     label: "Interviews",
-    x: 300,
-    y: 480,
-    lines: ["shared"],
-    question: "What did people actually say, in citable form?",
-    takesIn: "Notes, memos, VTT/SRT, emails",
-    produces: "Source log — one entry per call, verbatims",
+    question: "Feeds evidence into every memo",
+    produces: "Notes and transcripts turned into a citable source log",
   },
   {
-    id: "onbrand",
     command: "/onbrand",
     label: "On-Brand",
-    x: 620,
-    y: 480,
-    lines: ["shared"],
-    question: "Can this land as if it came from inside their house?",
-    takesIn: "Any finished Word memo + target website",
-    produces: "Re-skinned, co-branded document",
+    question: "Ships any memo in the target's own brand",
+    produces: "Co-branded work sample, target's real palette",
   },
 ];
 
@@ -201,30 +205,24 @@ export const segments: Segment[] = [
   { id: "dd-tech", from: "duediligence", to: "technicaldd", line: "technical" },
   { id: "tech-pdd", from: "technicaldd", to: "productdd", line: "technical" },
   { id: "tech-vc", from: "technicaldd", to: "valuecreation", line: "technical" },
-
-  { id: "il-pdd", from: "interviewlog", to: "productdd", line: "shared", dashed: true },
-  { id: "il-dd", from: "interviewlog", to: "duediligence", line: "shared", dashed: true },
-  { id: "vc-onbrand", from: "valuecreation", to: "onbrand", line: "shared", dashed: true },
 ];
 
 export const stationById = (id: string) => stations.find((s) => s.id === id)!;
 
 // The literal route from the feedback: ACME -> Market Diligence -> Company
-// Brief (marketdd + duediligence = "Report 1") -> interviews feed in along
-// the way -> Who Decides -> Outreach Plan. Matches the PDF's "First
-// meeting" run, with /interviewlog folded in as the aside it is.
+// Brief (marketdd + duediligence = "Report 1") -> Who Decides -> Outreach
+// Plan. Matches the PDF's "First meeting" run.
 export const firstMeetingRoute = [
   "start",
   "marketdd",
   "duediligence",
-  "interviewlog",
   "companypeople",
   "targetpeople",
 ];
 
-// Every stop, in an order that keeps most consecutive pairs on a real
-// segment (so their line lights up as it's reached) — company line, a
-// technical detour, then product line, then the shared line.
+// Every real map stop, in an order that keeps most consecutive pairs on a
+// real segment (so their line lights up as it's reached) — company line,
+// a technical detour, then product line.
 export const fullSystemRoute = [
   "start",
   "marketdd",
@@ -236,6 +234,4 @@ export const fullSystemRoute = [
   "personapanel",
   "productdd",
   "valuecreation",
-  "interviewlog",
-  "onbrand",
 ];

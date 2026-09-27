@@ -5,6 +5,7 @@ import { VizShell } from "@/app/components/viz/viz-shell";
 import { TypingIntro } from "@/app/components/viz/typing-intro";
 import { SubwayMap } from "@/app/components/viz/subway-map";
 import { StationInfo } from "@/app/components/viz/station-info";
+import { SharedUtilitiesBar } from "@/app/components/viz/shared-utilities-bar";
 import { fullSystemRoute, stationById } from "@/lib/subway";
 
 export default function ProtoVizN() {
@@ -15,7 +16,7 @@ export default function ProtoVizN() {
     <VizShell
       eyebrow="Orchestration — proto N"
       title="Type a company. Watch the whole network come online."
-      subtitle="Same trigger, the full map this time — all 11 stops, all 3 lines plus shared, building out from ACME one stop at a time."
+      subtitle="Same trigger, the full map this time — all 9 report-producing stops across 3 lines, building out from ACME one stop at a time."
     >
       <div className="space-y-6">
         {!play && <TypingIntro onSubmit={() => setPlay(true)} />}
@@ -25,6 +26,7 @@ export default function ProtoVizN() {
           onCurrentChange={setCurrentId}
         />
         {play && <StationInfo station={stationById(currentId)} />}
+        <SharedUtilitiesBar />
       </div>
     </VizShell>
   );
