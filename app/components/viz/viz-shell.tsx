@@ -6,11 +6,18 @@ export function VizShell({
   title,
   subtitle,
   children,
+  afterContent,
 }: {
   eyebrow: string;
   title: string;
   subtitle: string;
   children: React.ReactNode;
+  // Rendered after the bordered content section and before the footer, at
+  // full width (unwrapped) — for previewing a real, standalone page section
+  // (with its own background/padding) directly after a proto, without
+  // nesting it inside this shell's own padded container. Optional and
+  // unused by every existing proto-viz-* page, so nothing else changes.
+  afterContent?: React.ReactNode;
 }) {
   return (
     <>
@@ -30,6 +37,7 @@ export function VizShell({
         <section className="border-b border-border bg-surface">
           <div className="mx-auto max-w-6xl px-6 py-16">{children}</div>
         </section>
+        {afterContent}
       </main>
       <SiteFooter />
     </>

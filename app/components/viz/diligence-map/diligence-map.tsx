@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TypingIntro } from "@/app/components/viz/typing-intro";
 import { MapSvg } from "./map-svg";
 import { NowPanel } from "./now-panel";
 import { RouteControls } from "./route-controls";
 import { StationCard } from "./station-card";
-import { MockDownloads } from "./mock-downloads";
+import { Legend } from "./legend";
+import { DownloadCta } from "./download-cta";
 import { routeById, linesForRoute } from "@/lib/diligence-map";
 
 const DWELL_MS = 3600;
@@ -21,6 +22,7 @@ export function DiligenceMap() {
   );
   const [progress, setProgress] = useState(0);
   const [cardId, setCardId] = useState<string | null>(null);
+  const mapBoxRef = useRef<HTMLDivElement>(null);
 
   const route = routeById(routeId);
 
@@ -72,7 +74,7 @@ export function DiligenceMap() {
 
           <NowPanel route={route} stepIndex={stepIndex} progress={progress} />
 
-          <div className="relative rounded-lg border border-border bg-background p-6">
+          <div ref={mapBoxRef} className="relative rounded-lg border border-border bg-background p-6">
             {/* Only the SVG scrolls horizontally on narrow screens — the
                 hover/tap card renders outside this scroller so it never gets
                 clipped by the scroll container's implicit overflow-y. */}
@@ -81,6 +83,7 @@ export function DiligenceMap() {
                 <MapSvg
                   activeIds={activeIds}
                   currentId={currentStationId}
+                  hoverId={cardId}
                   onEnter={(id) => setCardId(id)}
                   onLeave={() => setCardId(null)}
                   onSelect={(id) => setCardId((cur) => (cur === id ? null : id))}
@@ -92,11 +95,13 @@ export function DiligenceMap() {
                 stationId={cardId}
                 onMouseEnter={() => setCardId(cardId)}
                 onMouseLeave={() => setCardId(null)}
+                containerRef={mapBoxRef}
               />
             )}
           </div>
 
-          <MockDownloads activeLines={linesForRoute(route)} />
+          <Legend />
+          <DownloadCta activeLines={linesForRoute(route)} />
         </>
       )}
     </div>
