@@ -13,7 +13,7 @@ export function SiteHeader() {
         </Link>
         <nav className="flex items-center gap-6 text-sm text-muted">
           <a href="#stacks" className="hidden hover:text-foreground sm:inline">
-            Stacks
+            How it works
           </a>
           <a href="#rules" className="hidden hover:text-foreground sm:inline">
             The rules
