@@ -4,20 +4,27 @@ import { stationByIdSafe, lineColor, lineLabel, githubUrlFor, type Station } fro
 // why, GitHub link — shared verbatim between the desktop floating
 // StationCard and the mobile stepper's inline-expanded current row, so the
 // two never drift apart.
-export function StationDetail({ station }: { station: Station }) {
+//
+// `showHeader` defaults to true (StationCard's only way to show the
+// command/line label/Coming badge). The mobile stepper sets it false: its
+// own row header already shows the command, so repeating it here would
+// duplicate it — the row header carries the line label/badge instead.
+export function StationDetail({ station, showHeader = true }: { station: Station; showHeader?: boolean }) {
   return (
     <>
-      <div className="flex items-center gap-2">
-        <span className="h-2 w-2 rounded-full" style={{ backgroundColor: lineColor[station.line] }} />
-        <span className="font-mono text-xs text-foreground">{station.command}</span>
-        <span className="text-xs text-muted">· {lineLabel[station.line]}</span>
-        {station.coming && (
-          <span className="rounded-md border border-accent/50 px-1.5 py-0.5 text-[9px] uppercase tracking-wide text-accent">
-            Coming
-          </span>
-        )}
-      </div>
-      <p className="mt-1.5 text-sm font-semibold leading-snug text-foreground">{station.q}</p>
+      {showHeader && (
+        <div className="flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full" style={{ backgroundColor: lineColor[station.line] }} />
+          <span className="font-mono text-xs text-foreground">{station.command}</span>
+          <span className="text-xs text-muted">· {lineLabel[station.line]}</span>
+          {station.coming && (
+            <span className="rounded-md border border-accent/50 px-1.5 py-0.5 text-[9px] uppercase tracking-wide text-accent">
+              Coming
+            </span>
+          )}
+        </div>
+      )}
+      <p className={`${showHeader ? "mt-1.5" : ""} text-sm font-semibold leading-snug text-foreground`}>{station.q}</p>
 
       <dl className="mt-2 space-y-1.5 text-xs">
         <div>

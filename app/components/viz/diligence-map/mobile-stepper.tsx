@@ -1,4 +1,4 @@
-import { stationById, lineColor, type Route } from "@/lib/diligence-map";
+import { stationById, lineColor, lineLabel, type Route } from "@/lib/diligence-map";
 import { StationDetail } from "./station-detail";
 
 // Mobile replacement for the SVG subway diagram (below the `sm` breakpoint,
@@ -38,6 +38,12 @@ export function MobileStepper({
                   style={{ backgroundColor: lineColor[station.line] }}
                 />
                 <span className="font-mono text-xs text-foreground">{station.command}</span>
+                <span className="text-xs text-muted">· {lineLabel[station.line]}</span>
+                {station.coming && (
+                  <span className="shrink-0 rounded-md border border-accent/50 px-1.5 py-0.5 text-[9px] uppercase tracking-wide text-accent">
+                    Coming
+                  </span>
+                )}
                 <span className="ml-auto shrink-0 font-mono text-[10px] text-muted">
                   {i + 1}/{route.stops.length}
                 </span>
@@ -45,7 +51,7 @@ export function MobileStepper({
 
               {isCurrent ? (
                 <div className="mt-2">
-                  <StationDetail station={station} />
+                  <StationDetail station={station} showHeader={false} />
                 </div>
               ) : (
                 <p className="mt-1.5 text-sm text-muted">{station.sq}</p>
