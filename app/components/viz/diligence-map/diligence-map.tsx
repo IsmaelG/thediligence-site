@@ -7,7 +7,9 @@ import { RouteControls } from "./route-controls";
 import { StationCard } from "./station-card";
 import { MobileStepper } from "./mobile-stepper";
 import { Legend } from "./legend";
+import { MobileLegend } from "./mobile-legend";
 import { DownloadCta } from "./download-cta";
+import { MobileDownloadCta } from "./mobile-download-cta";
 import { routeById, linesForRoute } from "@/lib/diligence-map";
 
 const DWELL_MS = 3600;
@@ -21,9 +23,14 @@ export function DiligenceMap() {
   );
   const [progress, setProgress] = useState(0);
   const [cardId, setCardId] = useState<string | null>(null);
+  // Mobile accordion state — fully decoupled from the desktop autoplay
+  // model above. Mobile always shows the full-tour list (no route
+  // selection there), with at most one row open at a time, none by default.
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const mapBoxRef = useRef<HTMLDivElement>(null);
 
   const route = routeById(routeId);
+  const mobileRoute = routeById("full");
 
   useEffect(() => {
     if (!playing || cardId) return;
@@ -53,12 +60,9 @@ export function DiligenceMap() {
     setStepIndex((i) => Math.min(route.stops.length - 1, Math.max(0, i + delta)));
   };
 
-  // Mobile stepper rows jump straight to an absolute index (tap-to-select),
-  // same pause/reset semantics as the desktop prev/next buttons above.
-  const jumpTo = (index: number) => {
-    setPlaying(false);
-    setProgress(0);
-    setStepIndex(index);
+  // Mobile row tap: toggle that row open/closed; at most one open at a time.
+  const toggleExpanded = (id: string) => {
+    setExpandedId((cur) => (cur === id ? null : id));
   };
 
   const currentStationId = route.stops[stepIndex];
@@ -66,22 +70,30 @@ export function DiligenceMap() {
 
   return (
     <div className="space-y-6">
-      <RouteControls
-        activeRouteId={routeId}
-        playing={playing}
-        onSelectRoute={selectRoute}
-        onPrev={() => step(-1)}
-        onNext={() => step(1)}
-        onTogglePlay={() => setPlaying((p) => !p)}
-      />
+      {/* Route selection + transport controls + the autoplay Now panel are
+          desktop-only — mobile has no route switching (always full-tour)
+          and no autoplay to control or visualize. */}
+      <div className="hidden sm:block">
+        <RouteControls
+          activeRouteId={routeId}
+          playing={playing}
+          onSelectRoute={selectRoute}
+          onPrev={() => step(-1)}
+          onNext={() => step(1)}
+          onTogglePlay={() => setPlaying((p) => !p)}
+        />
+      </div>
 
-      <NowPanel route={route} stepIndex={stepIndex} progress={progress} />
+      <div className="hidden sm:block">
+        <NowPanel route={route} stepIndex={stepIndex} progress={progress} />
+      </div>
 
-      {/* Below `sm`, no SVG diagram at all (Option 1) — a tappable vertical
-          stepper instead, sharing the same route/step state. At `sm` and
-          above, the full subway map renders as before. */}
+      {/* Below `sm`, no SVG diagram at all (Option 1) — a plain tap-to-
+          expand/collapse accordion over the full tour instead, with no
+          autoplay. At `sm` and above, the full subway map + autoplay
+          renders as before. */}
       <div className="sm:hidden">
-        <MobileStepper route={route} stepIndex={stepIndex} onJump={jumpTo} />
+        <MobileStepper route={mobileRoute} expandedId={expandedId} onToggle={toggleExpanded} />
       </div>
 
       <div ref={mapBoxRef} className="relative hidden rounded-lg border border-border bg-background p-6 sm:block">
@@ -110,8 +122,19 @@ export function DiligenceMap() {
         )}
       </div>
 
-      <Legend />
-      <DownloadCta activeLines={linesForRoute(route)} />
+      <div className="hidden sm:block">
+        <Legend />
+      </div>
+      <div className="sm:hidden">
+        <MobileLegend />
+      </div>
+
+      <div className="hidden sm:flex">
+        <DownloadCta activeLines={linesForRoute(route)} />
+      </div>
+      <div className="sm:hidden">
+        <MobileDownloadCta />
+      </div>
     </div>
   );
 }
