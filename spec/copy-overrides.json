@@ -1,0 +1,30 @@
+{
+ "_note": "Copy overrides: the prototype sentence (matched on its first 40 characters, case-insensitive) is replaced by `use`. These implement the claims register in SPEC.md 'Copy rules'. The conformity test requires `use`, never the original.",
+ "items": [
+  {"match":"the method is open source and stays free. you can","use":"The method stays free. You can read it, run it and change it.","why":"'open source' only once the repository is public (S11)"},
+  {"match":"thediligence is a working name. the method is open","use":"TheDiligence is a working name.","why":"footer line until the trademark search is back (S13)"},
+  {"match":"sign in with an email code, connect your own model","use":"Sign in with an email code, connect your own model, plan a diligence and read the memo the same day. The method behind it stays free.","why":"no 'open source' before the repository is public"},
+  {"match":"connect your own model account, with no key to paste","use":"Connect your own model account, on your provider's own screen","why":"a pasted key exists as a last resort"},
+  {"match":"agents get a short-lived run token. you connect your","use":"Agents get a short-lived run token. You connect your provider on its own screen where it allows it, and a broker enforces the budget. A pasted key, where there is no other way, is encrypted and never visible to agents.","why":"key policy (ARCH §11b)"},
+  {"match":"open source","use":"Open method","why":"tag text; 'open source' only once public","onlyExact":true},
+  {"match":"[repository link and licence to add]","use":"The repository opens once counsel has confirmed the licence.","why":"no placeholder text in production (S11)"},
+  {"match":"approve access on your provider's own screen. nothing","use":"Approve access on your provider's own screen where it allows it. Otherwise paste a key as a last resort.","why":"key policy"},
+  {"match":"never paste.","use":"on your provider's screen.","why":"headline 'Connect, never paste.' becomes 'Connect, on your provider's screen.'"},
+  {"match":"you approve access on your provider's own screen, through a secure","use":"You approve access on your provider's own screen where the provider allows it. Where it does not, you can paste a key as a last resort: it is encrypted, never visible to agents, and you can delete it in one click.","why":"key policy"},
+  {"match":"connections to claude, openai, mistral and gemini, with no","use":"Connections to Claude, OpenAI, Mistral and Gemini, on your provider's own screen where allowed","why":"key policy"},
+  {"match":"mcp interface: your own agents and assistants follow","use":"MCP interface (Next): your own agents and assistants follow a run, read the memo and answer gates","why":"MCP is Next (ARCH §13e)"},
+  {"match":"soc 2 type i","use":"SOC 2 Type I (Later)","why":"never as achieved; carries a status tag","onlyExact":true},
+  {"match":"do i have to paste an api key?","use":"Do I have to paste an API key?","why":"unchanged question; the answer changes"},
+  {"match":"no. you connect your own provider account through a","use":"Not where your provider lets you sign in on its own screen. Where it does not, you can paste a key as a last resort. It is encrypted, never visible to agents, and you can delete it in one click.","why":"key policy"},
+  {"match":"yes. memos export as word and pdf, the ledger exports","use":"Yes. Memos export as Word and PDF, the ledger exports as a file, and your evidence goes with it. The method itself stays free, so you can run it without us.","why":"no 'open source' before public"},
+  {"match":"your own agents and personal assistants, instinct for one","use":"Your own agents and personal assistants take part through MCP (Next): start a plan, read a memo, add evidence or answer a gate.","why":"Instinct has no MCP interface (Copy rules)"},
+  {"match":"an mcp interface lets the agents and assistants you","use":"An MCP interface (Next) lets the agents and assistants you already use take part in the work. They propose and fetch. A person still opens every gate.","why":"MCP is Next"},
+  {"match":"connected, not pasted.","use":"connected on your provider's screen.","why":"key policy"},
+  {"match":"no key to paste, none to store.","use":"A pasted key is the last resort, and it is encrypted.","why":"key policy"},
+  {"match":"no key to paste.","use":"A pasted key is the last resort.","why":"key policy"},
+  {"match":"you approve access on your provider's own screen, through a third","use":"You approve access on your provider's own screen where the provider allows it, and you can revoke it at any time. Where it does not, a pasted key is the last resort: encrypted, never visible to agents, deleted in one click.","why":"key policy"},
+  {"match":"we never collect or store your key","use":"Your key, when you must paste one, is encrypted","why":"key policy"},
+  {"match":"our methods are open source and transparent.","use":"Our methods are transparent. Install the skills in your own assistant and run them on your own deals. The method stays free.","why":"no 'open source' before public"},
+  {"match":"approve access to claude, openai, mistral or gemini on","use":"Approve access to Claude, OpenAI, Mistral or Gemini on your provider's own screen where it allows it. Otherwise paste a key as a last resort: it is encrypted and never reaches the agents.","why":"key policy"}
+ ]
+}

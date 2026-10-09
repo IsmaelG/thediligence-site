@@ -1,0 +1,12 @@
+{
+  "_note": "Gates for `pnpm conformity`. They apply to every page at 1280, 768 and 390 px. Lowering a number needs Ismael's written approval in the Decisions log.",
+  "text":      { "minCoveragePct": 99 },
+  "style":     { "minExactPct": 97 },
+  "position":  { "minOkPct": 97, "xTolPx": 8, "widthTolPx": 12, "widthTolPct": 8 },
+  "boxes":     { "minExactPct": 95 },
+  "height":    { "maxDiffPct": 3 },
+  "overflowX": { "maxPx": 0 },
+  "sections":  { "mustEqual": true },
+  "visual":    { "maxDiffPct": 1.5, "widths": [1280, 390], "pixelThreshold": 0.1 },
+  "behaviour": { "minSimilarity": 0.8, "maxMissingControls": 0 }
+}

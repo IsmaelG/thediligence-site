@@ -10,7 +10,13 @@
     "lint": "biome check .",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit",
-    "copy:lint": "node scripts/copy-lint.mjs"
+    "copy:lint": "node scripts/copy-lint.mjs",
+    "spec:css": "node scripts/spec-css.mjs",
+    "spec:verify": "node scripts/verify-spec.mjs",
+    "port": "node scripts/html-to-jsx.mjs",
+    "conformity": "node scripts/conformity/run.mjs",
+    "conformity:ref": "node scripts/conformity/build-reference.mjs",
+    "prebuild": "pnpm spec:css"
   },
   "dependencies": {
     "@next/mdx": "^16.4.0",
@@ -27,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "parse5": "^7.2.1",
     "typescript": "^5"
   }
 }

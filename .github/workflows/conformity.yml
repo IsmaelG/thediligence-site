@@ -1,0 +1,24 @@
+# Required check: blocks the merge when the preview deployment drifts from spec/.
+name: conformity
+on: [pull_request]
+jobs:
+  conformity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm spec:verify
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Wait for the Vercel preview
+        uses: patrickedqvist/wait-for-vercel-preview@v1.3.2
+        id: preview
+        with: { token: '${{ secrets.GITHUB_TOKEN }}', max_timeout: 300 }
+      - run: pnpm conformity
+        env: { BASE_URL: '${{ steps.preview.outputs.url }}' }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: conformity-report, path: .conformity }

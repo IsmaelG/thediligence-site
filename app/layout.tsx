@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Newsreader, Overpass, Overpass_Mono } from "next/font/google";
-import "./globals.css";
-import { SiteHeader } from "./components/site-header";
-import { SiteFooter } from "./components/site-footer";
-import { CookieBanner } from "./components/cookie-banner";
+import "./spec.css";
 
 const overpass = Overpass({
   subsets: ["latin"],
@@ -69,21 +66,16 @@ export default function RootLayout({
           "--font-overpass": overpass.style.fontFamily,
           "--font-overpass-mono": overpassMono.style.fontFamily,
           "--font-newsreader": newsreader.style.fontFamily,
-          // Point token vars at the loaded fonts
-          "--sans": "var(--font-overpass), system-ui, -apple-system, sans-serif",
-          "--mono": "var(--font-overpass-mono), ui-monospace, Menlo, monospace",
-          "--serif": "var(--font-newsreader), Georgia, 'Times New Roman', serif",
+          "--sans": `var(--font-overpass), system-ui, -apple-system, 'Segoe UI', sans-serif`,
+          "--mono": `var(--font-overpass-mono), ui-monospace, Menlo, monospace`,
+          "--serif": `var(--font-newsreader), Georgia, 'Times New Roman', serif`,
         } as React.CSSProperties
       }
     >
       <body>
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <SiteHeader />
-        {children}
-        <SiteFooter />
-        <CookieBanner />
+        <div className="td" id="top">
+          {children}
+        </div>
       </body>
     </html>
   );
