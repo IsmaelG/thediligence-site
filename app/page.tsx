@@ -2,6 +2,7 @@
 // Demonstrates light and dark token system working correctly.
 // Importing schemas triggers build-time zod validation of all content files.
 import "@/lib/schemas";
+import { DiligenceMap } from "./components/map/diligence-map";
 
 export default function HomePage() {
   return (
@@ -54,6 +55,28 @@ export default function HomePage() {
         <p className="small" style={{ marginTop: "var(--sp-16)" }}>
           Free plan: one diligence a week.
         </p>
+      </section>
+
+      {/* Subway map preview */}
+      <section className="sec" id="map">
+        <div className="wrap">
+          <p className="eyebrow" style={{ marginBottom: "var(--sp-24)" }}>
+            The method
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--serif)",
+              fontSize: "clamp(36px,4.9vw,70px)",
+              lineHeight: 1.03,
+              letterSpacing: "-.026em",
+              color: "var(--fg)",
+              marginBottom: "var(--sp-48)",
+            }}
+          >
+            Eleven skills, four lines.
+          </h2>
+          <DiligenceMap />
+        </div>
       </section>
 
       {/* Token system smoke test — visible only in development */}
