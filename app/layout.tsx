@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Newsreader, Overpass, Overpass_Mono } from "next/font/google";
 import "./globals.css";
+import { SiteHeader } from "./components/site-header";
+import { SiteFooter } from "./components/site-footer";
+import { CookieBanner } from "./components/cookie-banner";
 
 const overpass = Overpass({
   subsets: ["latin"],
@@ -77,7 +80,10 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <SiteHeader />
         {children}
+        <SiteFooter />
+        <CookieBanner />
       </body>
     </html>
   );

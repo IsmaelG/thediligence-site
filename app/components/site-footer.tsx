@@ -1,51 +1,96 @@
-import { AUTHOR_ABOUT_URL, GITHUB_URL } from "@/lib/content";
+const FOOTER_COLS = [
+  {
+    head: "Product",
+    links: [
+      { href: "/platform",  label: "Platform"  },
+      { href: "/products",  label: "Skills"    },
+      { href: "/method",    label: "Method"    },
+      { href: "/changelog", label: "Changelog" },
+    ],
+  },
+  {
+    head: "Company",
+    links: [
+      { href: "/solutions", label: "Solutions" },
+      { href: "/about",     label: "About"     },
+      { href: "/insights",  label: "Insights"  },
+      { href: "/contact",   label: "Contact"   },
+    ],
+  },
+  {
+    head: "Legal",
+    links: [
+      { href: "/security", label: "Security" },
+      { href: "/privacy",  label: "Privacy"  },
+      { href: "/terms",    label: "Terms"    },
+      {
+        href: "https://status.thediligence.app",
+        label: "Status",
+        external: true,
+      },
+    ],
+  },
+];
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto">
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-            About the author
-          </span>
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-            <p className="max-w-xl text-muted">
-              Built by Ismael Ghozael — 20+ years in product and platforms,
-              competition-level freediver.
-            </p>
-            <a
-              href={AUTHOR_ABOUT_URL}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="rounded-md border border-border px-4 py-2 text-sm transition hover:border-accent hover:text-accent"
+    <footer className="foot">
+      <div className="wrap">
+        <div className="foot-grid">
+          {/* Brand column */}
+          <div className="foot-brand-col">
+            <p
+              className="nav-brand"
+              style={{ marginBottom: "var(--sp-12)", display: "block" }}
             >
-              About Ismael Ghozael ↗
-            </a>
+              TheDiligence
+            </p>
+            <p className="small" style={{ maxWidth: "26ch", margin: 0 }}>
+              Evidence-graded analysis, not investment advice.
+            </p>
           </div>
-        </div>
-      </section>
 
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 py-10 text-xs text-muted sm:flex-row sm:items-center">
-        <p>
-          © {new Date().getFullYear()} The Diligence Stack. Licensed under{" "}
-          <a
-            href={`${GITHUB_URL}/blob/main/LICENSE`}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="underline decoration-border underline-offset-4 hover:text-accent hover:decoration-accent"
-          >
-            CC BY-NC 4.0
-          </a>
-          .
-        </p>
-        <a
-          href={GITHUB_URL}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="hover:text-accent"
-        >
-          github.com/IsmaelG/diligence-stack-skills
-        </a>
+          {/* Link columns */}
+          {FOOTER_COLS.map((col) => (
+            <div key={col.head}>
+              <span className="foot-col-head">{col.head}</span>
+              <ul className="foot-links">
+                {col.links.map(({ href, label, external }) => (
+                  <li key={href}>
+                    <a
+                      href={href}
+                      className="foot-link"
+                      {...(external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      {label}
+                      {external && (
+                        <span aria-hidden="true" style={{ marginLeft: "2px" }}>
+                          ↗
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="foot-meta">
+          <p className="small">
+            TheDiligence is a working name.{" "}
+            <span style={{ color: "var(--mut)", opacity: 0.7 }}>
+              © {new Date().getFullYear()} TheDiligence.
+            </span>
+          </p>
+          <p className="small">
+            <a href="/contact" className="foot-link">
+              ismael.ghozael@gmail.com
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
