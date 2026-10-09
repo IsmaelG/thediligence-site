@@ -916,6 +916,7 @@ h4, .h4 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spaci
 
 /* Closing band (inverse surface section) */
 .band {
+  --band-fg: var(--bg);  /* alias for inline styles in band children */
   background: var(--fg);
   color: var(--bg);
   padding: var(--sec-sm-y) 0;
