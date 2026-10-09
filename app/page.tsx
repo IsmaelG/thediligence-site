@@ -1,5 +1,8 @@
 // Scaffold placeholder — replaced by the full homepage in s2-core.
 // Demonstrates light and dark token system working correctly.
+// Importing schemas triggers build-time zod validation of all content files.
+import "@/lib/schemas";
+
 export default function HomePage() {
   return (
     <main id="main-content">
