@@ -1,43 +1,82 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Newsreader, Overpass, Overpass_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const overpass = Overpass({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
+  display: "swap",
+  variable: "--font-overpass",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const overpassMono = Overpass_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-overpass-mono",
 });
 
-const title = "The Diligence Stack";
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-newsreader",
+});
+
+const title = "TheDiligence";
 const description =
-  "Claude skills for investors, operators and product people — company diligence, product diligence, people mapping, outreach, cohort analysis, and value-creation planning.";
+  "Diligence built by operator-investors, for operator-investors. Evidence-graded analysis for every deal.";
 
 export const metadata: Metadata = {
-  title,
+  title: {
+    default: title,
+    template: "%s | TheDiligence",
+  },
   description,
   openGraph: {
     title,
     description,
     type: "website",
+    siteName: title,
   },
   twitter: {
     card: "summary",
     title,
     description,
   },
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000",
+  ),
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      style={
+        {
+          "--font-overpass": overpass.style.fontFamily,
+          "--font-overpass-mono": overpassMono.style.fontFamily,
+          "--font-newsreader": newsreader.style.fontFamily,
+          // Point token vars at the loaded fonts
+          "--sans": "var(--font-overpass), system-ui, -apple-system, sans-serif",
+          "--mono": "var(--font-overpass-mono), ui-monospace, Menlo, monospace",
+          "--serif": "var(--font-newsreader), Georgia, 'Times New Roman', serif",
+        } as React.CSSProperties
+      }
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

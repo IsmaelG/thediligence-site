@@ -1,40 +1,568 @@
-@import "tailwindcss";
+/* =====================================================================================
+   TheDiligence design tokens. Canonical set = the approved public site (base.css, ui.css).
+   Light is the default. Dark follows prefers-color-scheme unless [data-theme="light"] is set,
+   and [data-theme="dark"] forces it. Port of base.css:6-8,15 plus every hard-coded colour in ui.css.
+   Provenance: file:line = copied from src/base.css or src/ui.css. PROPOSED = not in the CSS,
+   chosen to complete the dark theme or to fix a contrast failure (the site value is in the comment).
+   Never hard-code a colour, radius, font or spacing in a component: use these tokens.
+   ===================================================================================== */
 
-:root {
-  --background: #0a0b0d;
-  --foreground: #ece9e2;
-  --muted: #9a978f;
-  --border: #232629;
-  --surface: #101214;
-  --accent: #e7a33e;
-  --accent-foreground: #14110a;
-  --mark-a: #6fbf8b;
-  --mark-b: #e7a33e;
-  --mark-c: #d9705a;
+/* ---------- 1. COLOUR, light (default) ---------- */
+:root{
+  color-scheme:light;
+
+  /* ---- SURFACES ---- */
+  --bg:#F5F3EE;                    /* page. base.css:6 | night base.css:15 */
+  --bg2:#ECE9E1;                   /* alt section, hover wash, current nav item. base.css:6,15 */
+  --surf:#FFFFFF;                  /* cards, inputs, panels. base.css:6,15 */
+  --surf2:#F8F7F3;                 /* rail, quiet panels, icon wells in dark. base.css:6,15 */
+  --chip:#E7E9E3;                  /* neutral chip / source chip fill. light: ui.css .src base.css:112 and .ch base.css:139; dark: PROPOSED, old map --soft dark */
+
+  /* ---- TEXT ---- */
+  --fg:#14161A;                    /* primary text, primary button fill. base.css:6,15 */
+  --fg2:#3A3F47;                   /* body text, secondary. base.css:6,15 */
+  --mut:#5A606A;                   /* labels, captions, eyebrow. base.css:6,15 */
+
+  /* ---- LINES ---- */
+  --line:#D8D4C9;                  /* card and rule border. base.css:6,15 */
+  --line2:#E8E5DC;                 /* quiet divider (nav, trust strip). base.css:6,15 */
+  --line-ui:#7C828C;               /* PROPOSED border of an interactive control (input, outline button, switch off). site uses #C2C6BD (1.73:1, fails WCAG 1.4.11). light = old map --l-sh light; dark = base.css:61 */
+
+  /* ---- ACCENTS: the three data lines of the Diligence Stack map ---- */
+  --blue:#2356C4;                  /* company line. base.css:7 | dark PROPOSED = old map --l-co dark (site .night leaves --blue unchanged, 2.86:1 on --bg) */
+  --orange:#D9640F;                /* product line. base.css:7 | dark PROPOSED = old map --l-pr dark = .night --orange-t */
+  --green:#12855A;                 /* technology line. base.css:7 | dark PROPOSED = old map --l-te dark */
+  --blue-t:#2356C4;                /* blue as text. base.css:7 | night base.css:15 */
+  --orange-t:#A84A00;              /* orange as text. base.css:7 | night base.css:15 */
+  --green-t:#0E6B48;               /* green as text and check icons. base.css:7 | night base.css:15 */
+  --amber:#B7791F;                 /* the Next / stale accent. ui.css:396,416 */
+  --shared:var(--fg);              /* shared line (Interviews, Verifier, Vault). ui.js LINE.shared */
+
+  /* ---- FOCUS ---- */
+  --focus:#8A5A00;                 /* focus ring. light PROPOSED (site #E8A33D is 1.94:1 on --bg, base.css:65); dark = base.css:65 (8.71:1) */
+
+  /* ---- INVERSE SURFACE (primary button, verdict, fl-key, door-dark). Flips with the theme ---- */
+  --inv-bg:var(--fg);              /* base.css:54, ui.css:74,169 */
+  --inv-fg:var(--bg);              /* base.css:54 */
+  --inv-fg2:#C4C8CE;               /* secondary text on the inverse surface. ui.css:75,170 (light); dark PROPOSED = light --fg2 */
+  --inv-mut:#9AA1AB;               /* labels on the inverse surface. ui.css:85,88 (light); dark PROPOSED = light --mut */
+  --inv-line:#6B727C;              /* outline on the inverse surface. base.css:61, ui.css:172 */
+
+  /* ---- BUTTONS AND CHROME ---- */
+  --btn-p-hover:var(--fg2);        /* base.css:55 | night base.css:60 */
+  --btn-s-bd:var(--fg);            /* base.css:56 | night base.css:61 */
+  --nav-bg:rgba(245,243,238,.9);   /* sticky nav. base.css:74 | dark PROPOSED = --bg at .9 */
+  --glow-0:#FFFFFF;                /* hero radial glow centre. ui.css:14 | dark PROPOSED */
+  --glow-1:rgba(245,243,238,0);    /* hero radial glow edge. ui.css:14 | dark PROPOSED */
+
+  /* ---- TONES: bg / fg / border. One recipe for status chips, confidence, who-chips, banners ---- */
+  --tn-green-bg:#DFF1E8;           /* At launch, High, delivered, Connected. ui.css:194,95 | night ui.css:197 */
+  --tn-green-fg:#0B5B3C;           /* ui.css:194,95 | night ui.css:197 */
+  --tn-green-bd:#BFE3D1;           /* ui.css:95 | dark PROPOSED */
+  --tn-amber-bg:#FBF0D6;           /* Next, Medium. ui.css:195,96 | night ui.css:198 */
+  --tn-amber-fg:#6E4300;           /* ui.css:195,96 | night ui.css:198 */
+  --tn-amber-bd:#EBD59B;           /* ui.css:96 | dark PROPOSED */
+  --tn-orange-bg:#FBE9D9;          /* Low, needs-you tag, Product who-chip. base.css:140, ui.css:97 | dark PROPOSED */
+  --tn-orange-fg:#8B3D00;          /* base.css:140, ui.css:97 | dark PROPOSED */
+  --tn-orange-bd:#EFC9A8;          /* ui.css:97 | dark PROPOSED */
+  --tn-blue-bg:#E3EBFA;            /* Running chip, Agent who-chip. base.css:140, ui.css:501 | dark PROPOSED */
+  --tn-blue-fg:#1B3F94;            /* base.css:140, ui.css:501 | dark PROPOSED = night --blue-t */
+  --tn-blue-bd:#C5D4F2;            /* PROPOSED, no border in the site */
+
+  /* ---- WASHES: tinted panels (gate, banner, ledger rows, stk) ---- */
+  --wash-warn-bg:#FFF6E8;          /* needs-you: gate, banner-w, new ledger row. ui.css:52,130,134 | dark PROPOSED */
+  --wash-warn-bd:#EBD59B;          /* ui.css:52,134 | dark PROPOSED */
+  --wash-stale-bg:#FDF1E4;         /* stale: ledger row, stk .st. ui.css:131,140 | dark PROPOSED */
+  --wash-stale-bd:#EBC9A0;         /* ui.css:140 | dark PROPOSED */
+  --wash-ok-bg:#E9F5EE;            /* delivered / rebuilt: banner-g, stk .ok, lock. ui.css:135,141,147 | dark PROPOSED */
+  --wash-ok-bd:#BFE3D1;            /* ui.css:135,141 | dark PROPOSED */
+
+  /* ---- EVIDENCE GRADES AND BAR ---- */
+  --gr-a-fg:#FFFFFF;               /* text on a grade A chip (fill is --fg). base.css:108 | night base.css:110 */
+  --ev-a:var(--fg);                /* evidence bar, A. ui.css:526 */
+  --ev-b:#7E8AA6;                  /* evidence bar, B. ui.css:527 */
+  --ev-c1:#E9C9A8;                 /* evidence bar, C stripe 1. ui.css:528 | dark PROPOSED */
+  --ev-c2:#F5E4D0;                 /* evidence bar, C stripe 2. ui.css:528 | dark PROPOSED */
+
+  /* ---- CONTROLS ---- */
+  --track:#E2E4DD;                 /* bar, meter, skeleton track. base.css:149, ui.css:60,119,324 | dark PROPOSED */
+  --sw-off:var(--line-ui);         /* switch, off. site #B9BDB4 (1.9:1), base.css:155 */
+  --sw-on:var(--green);            /* switch, on. base.css:157 */
+  --sw-knob:#FFFFFF;               /* switch knob. base.css:156 | dark PROPOSED */
+  --link-bd:#B9C9EE;               /* underline of a [[wikilink]]. ui.css:146 | dark PROPOSED */
+
+  /* ---- TERMINAL (always dark, both themes) ---- */
+  --term-bg:#15171C;               /* ui.css:273 */
+  --term-bar:#1E2227;              /* ui.css:274 */
+  --term-fg:#ECEAE4;               /* ui.css:273 */
+  --term-mut:#9AA1AB;              /* ui.css:276,279 */
+  --term-acc:#8FAEF5;              /* ui.css:278 */
+  --term-bd:#2A3038;               /* ui.css:274 */
+
+  /* ---- SHADOW COLOUR ---- */
+  --sh-rgb:20,22,26;               /* rgb triple used by every shadow. ui.css:7,97 | dark PROPOSED */
+
+  /* ---------- 3. TYPOGRAPHY (base.css:8,9,19-30; ui.css) ---------- */
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;          /* base.css:8 */
+  --sans:'Overpass',system-ui,-apple-system,'Segoe UI',sans-serif; /* base.css:8 */
+  --mono:'Overpass Mono',ui-monospace,Menlo,monospace;            /* base.css:8 */
+
+  --fw-regular:400; --fw-medium:500; --fw-semibold:600; --fw-bold:700;   /* Overpass 400/500/600/700, Overpass Mono 400/500/600, Newsreader 400 + italic 400 */
+
+  /* display and text sizes, copied from the CSS, clamp() values untouched */
+  --fs-h1:clamp(46px,7.4vw,108px);        /* .h1 base.css:22 */
+  --fs-h1-page:clamp(44px,6.2vw,92px);    /* .page-hero .h1 ui.css:23 */
+  --fs-h2:clamp(36px,4.9vw,70px);         /* .h2 base.css:23 */
+  --fs-h2-s:clamp(32px,3.8vw,52px);       /* Solutions fit heading, inline in Solutions.html:20 */
+  --fs-h3:clamp(26px,2.7vw,38px);         /* .h3 base.css:24 */
+  --fs-h4:19px;                           /* .h4 base.css:25 */
+  --fs-hero-sub:clamp(26px,3.3vw,48px);   /* .hero-sub ui.css:481 */
+  --fs-lead:clamp(18px,1.7vw,21px);       /* .lead base.css:27 */
+  --fs-body:17px;                         /* .td base.css:9 */
+  --fs-small:14px;                        /* .small base.css:29 */
+  --fs-tiny:12px;                         /* .tiny, .eyebrow base.css:21,30 */
+  --fs-num:clamp(44px,5vw,72px);          /* .num base.css:99 */
+  --fs-metro:clamp(19px,1.7vw,24px);      /* .metro p ui.css:158 */
+  --fs-msg:clamp(22px,2.4vw,30px);        /* .evmsg ui.css:535 */
+  --fs-btn:16px;                          /* .btn base.css:53 */
+  --fs-btn-sm:15px;                       /* .btn-sm base.css:58 */
+  --fs-brand:25px;                        /* .brand base.css:76 */
+  /* product window scale (px) */
+  --fs-app:14px;                          /* .app base.css:119 */
+  --fs-app-row:13.5px;                    /* td, side items, btn-a, pr, ag-n b */
+  --fs-app-sm:12.5px;                     /* pr-s, tr, gate-t span, rail notes */
+  --fs-app-xs:12px;                       /* ag-t, ag-c, msec-s */
+  --fs-label:10.5px;                      /* .app .lab, th, conf, meter-l */
+  --fs-chip:11.5px;                       /* .ch, .status, .lock */
+  --fs-app-h:17px;                        /* .app h4, .t */
+  --fs-app-big:24px;                      /* .app .big */
+  --fs-verdict-word:40px;                 /* .v-t ui.css:86 (34px at <=560, ui.css:232) */
+  --fs-note-title:30px;                   /* .note-t ui.css:144 */
+  --fs-total:34px;                        /* .ptot-v ui.css:123 */
+
+  --lh-body:1.55; --lh-lead:1.5; --lh-small:1.5; --lh-tiny:1.4; --lh-app:1.45;
+  --lh-h1:.98; --lh-h2:1.03; --lh-h3:1.1; --lh-h4:1.3; --lh-tight:1;
+
+  --ls-h1:-.032em; --ls-h2:-.026em; --ls-h3:-.016em; --ls-h4:-.005em; --ls-num:-.03em;
+  --ls-brand:-.02em; --ls-hero-sub:-.018em; --ls-big:-.02em;
+  --ls-eyebrow:.12em;    /* .eyebrow, .foot h4 */
+  --ls-label:.1em;       /* .app .lab, th, .tbl th, .grp, .bk-k */
+  --ls-tag:.08em;        /* .tag, .meta dt */
+  --ls-chip:.04em;       /* .status, .conf, .pp */
+  --ls-who:.06em;        /* .who, .lw, .metro b */
+
+  /* ---------- 4. SPACING: every px value used in gap / padding / margin ---------- */
+  --sp-2:2px; --sp-4:4px; --sp-6:6px; --sp-8:8px; --sp-10:10px; --sp-12:12px; --sp-14:14px; --sp-16:16px;
+  --sp-18:18px; --sp-20:20px; --sp-22:22px; --sp-24:24px; --sp-26:26px; --sp-28:28px; --sp-30:30px; --sp-32:32px;
+  --sp-36:36px; --sp-40:40px; --sp-44:44px; --sp-48:48px; --sp-56:56px; --sp-64:64px; --sp-72:72px;
+  --sp-80:80px; --sp-88:88px; --sp-96:96px; --sp-104:104px; --sp-128:128px;
+  /* semantic spacing */
+  --gap-s:12px; --gap-m:24px; --gap-l:40px;           /* .stack-s / m / l base.css:38-40 */
+  --gap-grid:24px;                                    /* .g2 .g3 .g4 base.css:44-46 */
+  --gap-split:72px;                                   /* .split base.css:47 (40px at <=960) */
+  --pad-card:36px;                                    /* .card base.css:94 (28px 22px at <=960) */
+  --sec-y:128px;     --sec-y-m:80px;                  /* .sec / .band base.css:36, ui.css:161 */
+  --sec-sm-y:88px;   --sec-sm-y-m:64px;               /* .sec-sm base.css:37 */
+  --head-mb:64px;    --head-mb-m:40px;                /* .head base.css:41 */
+
+  /* ---------- 5. CONTAINERS AND GUTTERS ---------- */
+  --wrap:1240px; --wrap-n:920px; --gutter:32px; --gutter-m:24px;   /* base.css:34,35,192 */
+  --head-max:820px; --hero-max:980px; --stage-max:1180px;          /* base.css:41,90; ui.css:20 */
+  --measure-hero:44ch; --measure-page:56ch; --measure-prose:70ch;  /* ui.css:17,24,192 */
+  --nav-h:72px;                                                    /* .navin min-height base.css:75 */
+  --win-bar-h:44px; --win-side:196px; --win-rail:288px;            /* .app-bar, .app-body base.css:122,126 */
+  --shell-nav-w:232px; --shell-rail-w:400px;                       /* DERIVED AGENTS.md "Layout" */
+
+  /* ---------- 6. RADII ---------- */
+  --r-2:2px; --r-3:3px; --r-4:4px; --r-5:5px; --r-6:6px; --r-7:7px; --r-8:8px; --r-9:9px; --r-10:10px; --r-12:12px;
+  --r-14:14px; --r-16:16px; --r-18:18px; --r-20:20px; --r-22:22px; --r-26:26px; --r-28:28px; --r-pill:999px; --r-round:50%;
+  --r-card:22px; --r-card-m:18px;      /* .card base.css:94, 201 */
+  --r-ctrl:12px;                       /* .field input base.css:169 */
+  --r-chip:7px;                        /* .app .ch base.css:139 */
+  --r-win:18px;                        /* .app base.css:119 */
+
+  /* ---------- 7. BORDERS ---------- */
+  --bw:1px; --bw-ctrl:1.5px; --bw-dash:1.5px; --bw-stn:3.5px;  /* card 1px; btn/field/choice/ask 1.5px; metro station ring 3.5px (6px large) */
+
+  /* ---------- 8. SHADOWS (rgb from --sh-rgb so dark can deepen them) ---------- */
+  --sh-card:0 24px 48px -28px rgba(var(--sh-rgb),.35);     /* .card-lift:hover base.css:97 */
+  --sh-menu:0 30px 60px -24px rgba(var(--sh-rgb),.4);      /* .menu-p ui.css:7 */
+  --sh-win:0 60px 110px -40px rgba(var(--sh-rgb),.45),0 22px 44px -22px rgba(var(--sh-rgb),.28); /* .app base.css:119 */
+  --sh-term:0 40px 80px -40px rgba(var(--sh-rgb),.5);      /* .term ui.css:273 */
+  --sh-step:0 18px 36px -24px rgba(var(--sh-rgb),.35);     /* .stp[aria-pressed=true] ui.css:349 */
+  --sh-ring:0 0 0 3px rgba(var(--sh-rgb),.08);             /* .choice[aria-pressed=true] base.css:173 */
+  --sh-ring-hi:0 0 0 3px rgba(var(--sh-rgb),.06);          /* .plan.hi ui.css:383 */
+  --sh-lift:0 1px 2px rgba(var(--sh-rgb),.12);             /* .app-side .on base.css:131 */
+  --sh-lift-2:0 1px 3px rgba(var(--sh-rgb),.18);           /* current .mrow, pages/Method.js style string */
+
+  /* ---------- 9. MOTION ---------- */
+  --dur-fast:.2s;     /* btn base.css:53; choice base.css:172; switch knob base.css:156; stp ui.css:347; ask ui.css:490; lay ui.css:512 */
+  --dur-lift:.25s;    /* .card-lift base.css:96 */
+  --dur-row:.3s;      /* .mrow ui.css:315 */
+  --dur-fade:.35s;    /* .chap opacity ui.css:310 */
+  --dur-bar:.45s;     /* .evbar width ui.css:525 */
+  --dur-in:.5s;       /* .fade keyframes ui.css:325 */
+  --dur-loop:1.4s;    /* .ag.live .bar i stripes ui.css:50 */
+  --ease:ease;        /* ui.css:325,525; every other transition uses the browser default, which is ease */
+  --ease-linear:linear;
+
+  /* ---------- 10. Z-INDEX ---------- */
+  --z-base:1; --z-raise:2;      /* routes under window, window over routes, .hero .wrap. ui.css:15,20,21 */
+  --z-nav:30; --z-menu:40; --z-skip:50;   /* base.css:49,74 ui.css:7 */
+  --z-scrim:60; --z-drawer:61; --z-toast:70; --z-modal:80;   /* PROPOSED for the app */
+
+  /* ---------- 11. BREAKPOINTS (media queries cannot read these; keep in sync, used by JS) ---------- */
+  --bp-wide:1100px;    /* @media (max-width:1100px) and (min-width:1101px) */
+  --bp-lg:960px;       /* nav collapses, grids stack, section rhythm shrinks */
+  --bp-md:760px;       /* .hf lanes stack, ui.css:507 */
+  --bp-sm:560px;       /* buttons full width, single column */
+  --bp-shell:900px;    /* DERIVED AGENTS.md: nav becomes a drawer, rail a bottom sheet */
+  --bp-phone:390px;    /* reference phone width for QA, not a media query */
+
+
+  /* ---------- 12. COMPATIBILITY ALIASES for the older "Diligence Stack map" token names ---------- */
+  /* --bg keeps its name; only its value changes (#F2F3EF -> #F5F3EE light, #111317 -> #0F1216 dark). */
+  --card:var(--surf);     /* #FFFFFF / #1A1D23  -> #FFFFFF / #181C22 */
+  --ink:var(--fg);        /* #15171C / #ECEEF1  -> #14161A / #ECEAE4 */
+  --muted:var(--mut);     /* #5B616C / #9AA1AC  -> #5A606A / #9AA1AB */
+  --rule:var(--line);     /* #D3D6CF / #2C3038  -> #D8D4C9 / #2A3038 */
+  --soft:var(--chip);     /* #E7E9E3 / #20242B  -> #E7E9E3 / #20242B (same values) */
+  --l-co:var(--blue);     /* #2356C4 / #6F97F2  -> #2356C4 / #6F97F2 (same values) */
+  --l-pr:var(--orange);   /* #D9640F / #F49A4C  -> #D9640F / #F49A4C (same values) */
+  --l-te:var(--green);    /* #12855A / #42C28B  -> #12855A / #42C28B (same values) */
+  --l-sh:var(--shared);   /* #7C828C / #8A919C  -> #14161A / #ECEAE4 (VALUE CHANGE: shared line is now ink, as on the site) */
+
+
+  /* ---------- 13. STATE LANGUAGE (AGENTS.md "UI conventions"): dot colours. Chip tones are in section 2 ---------- */
+  /* values are existing tokens; the mapping is DERIVED from the mock-ups (see DESIGN-SYSTEM.md section 2.5). Never use the dot alone: pair it with the word. */
+  --state-idle:var(--mut);            /* idle: grey, solid dot */
+  --state-planned:var(--mut);         /* planned: grey, dashed ring (hollow) */
+  --state-running:var(--blue);        /* running: blue, striped bar (ui.css:50) */
+  --state-stale:var(--amber);         /* stale: amber, warm wash */
+  --state-delivered:var(--green);     /* delivered: green */
+  --state-needs-you:var(--orange);    /* needs-you: orange, warm wash */
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --color-surface: var(--surface);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+/* ---------- 2. COLOUR, dark: follows the system unless the light theme is forced ---------- */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+
+    /* ---- SURFACES ---- */
+    --bg:#0F1216;                    /* page. base.css:6 | night base.css:15 */
+    --bg2:#161A20;                   /* alt section, hover wash, current nav item. base.css:6,15 */
+    --surf:#181C22;                  /* cards, inputs, panels. base.css:6,15 */
+    --surf2:#1E232A;                 /* rail, quiet panels, icon wells in dark. base.css:6,15 */
+    --chip:#20242B;                  /* neutral chip / source chip fill. light: ui.css .src base.css:112 and .ch base.css:139; dark: PROPOSED, old map --soft dark */
+
+    /* ---- TEXT ---- */
+    --fg:#ECEAE4;                    /* primary text, primary button fill. base.css:6,15 */
+    --fg2:#C4C8CE;                   /* body text, secondary. base.css:6,15 */
+    --mut:#9AA1AB;                   /* labels, captions, eyebrow. base.css:6,15 */
+
+    /* ---- LINES ---- */
+    --line:#2A3038;                  /* card and rule border. base.css:6,15 */
+    --line2:#222830;                 /* quiet divider (nav, trust strip). base.css:6,15 */
+    --line-ui:#6B727C;               /* PROPOSED border of an interactive control (input, outline button, switch off). site uses #C2C6BD (1.73:1, fails WCAG 1.4.11). light = old map --l-sh light; dark = base.css:61 */
+
+    /* ---- ACCENTS: the three data lines of the Diligence Stack map ---- */
+    --blue:#6F97F2;                  /* company line. base.css:7 | dark PROPOSED = old map --l-co dark (site .night leaves --blue unchanged, 2.86:1 on --bg) */
+    --orange:#F49A4C;                /* product line. base.css:7 | dark PROPOSED = old map --l-pr dark = .night --orange-t */
+    --green:#42C28B;                 /* technology line. base.css:7 | dark PROPOSED = old map --l-te dark */
+    --blue-t:#8FAEF5;                /* blue as text. base.css:7 | night base.css:15 */
+    --orange-t:#F49A4C;              /* orange as text. base.css:7 | night base.css:15 */
+    --green-t:#46C48E;               /* green as text and check icons. base.css:7 | night base.css:15 */
+
+    /* ---- FOCUS ---- */
+    --focus:#E8A33D;                 /* focus ring. light PROPOSED (site #E8A33D is 1.94:1 on --bg, base.css:65); dark = base.css:65 (8.71:1) */
+
+    /* ---- INVERSE SURFACE (primary button, verdict, fl-key, door-dark). Flips with the theme ---- */
+    --inv-fg2:#3A3F47;               /* secondary text on the inverse surface. ui.css:75,170 (light); dark PROPOSED = light --fg2 */
+    --inv-mut:#5A606A;               /* labels on the inverse surface. ui.css:85,88 (light); dark PROPOSED = light --mut */
+
+    /* ---- BUTTONS AND CHROME ---- */
+    --btn-p-hover:#FFFFFF;           /* base.css:55 | night base.css:60 */
+    --btn-s-bd:#6B727C;              /* base.css:56 | night base.css:61 */
+    --nav-bg:rgba(15,18,22,.9);      /* sticky nav. base.css:74 | dark PROPOSED = --bg at .9 */
+    --glow-0:#1E232A;                /* hero radial glow centre. ui.css:14 | dark PROPOSED */
+    --glow-1:rgba(15,18,22,0);       /* hero radial glow edge. ui.css:14 | dark PROPOSED */
+
+    /* ---- TONES: bg / fg / border. One recipe for status chips, confidence, who-chips, banners ---- */
+    --tn-green-bg:#12382A;           /* At launch, High, delivered, Connected. ui.css:194,95 | night ui.css:197 */
+    --tn-green-fg:#7BE0B4;           /* ui.css:194,95 | night ui.css:197 */
+    --tn-green-bd:#1F5A44;           /* ui.css:95 | dark PROPOSED */
+    --tn-amber-bg:#3A2C10;           /* Next, Medium. ui.css:195,96 | night ui.css:198 */
+    --tn-amber-fg:#F2C877;           /* ui.css:195,96 | night ui.css:198 */
+    --tn-amber-bd:#5A4519;           /* ui.css:96 | dark PROPOSED */
+    --tn-orange-bg:#3A2210;          /* Low, needs-you tag, Product who-chip. base.css:140, ui.css:97 | dark PROPOSED */
+    --tn-orange-fg:#F49A4C;          /* base.css:140, ui.css:97 | dark PROPOSED */
+    --tn-orange-bd:#5E3A1B;          /* ui.css:97 | dark PROPOSED */
+    --tn-blue-bg:#172544;            /* Running chip, Agent who-chip. base.css:140, ui.css:501 | dark PROPOSED */
+    --tn-blue-fg:#8FAEF5;            /* base.css:140, ui.css:501 | dark PROPOSED = night --blue-t */
+    --tn-blue-bd:#26396B;            /* PROPOSED, no border in the site */
+
+    /* ---- WASHES: tinted panels (gate, banner, ledger rows, stk) ---- */
+    --wash-warn-bg:#2A2112;          /* needs-you: gate, banner-w, new ledger row. ui.css:52,130,134 | dark PROPOSED */
+    --wash-warn-bd:#5A4519;          /* ui.css:52,134 | dark PROPOSED */
+    --wash-stale-bg:#2B2016;         /* stale: ledger row, stk .st. ui.css:131,140 | dark PROPOSED */
+    --wash-stale-bd:#5E3A1B;         /* ui.css:140 | dark PROPOSED */
+    --wash-ok-bg:#11291F;            /* delivered / rebuilt: banner-g, stk .ok, lock. ui.css:135,141,147 | dark PROPOSED */
+    --wash-ok-bd:#1F5A44;            /* ui.css:135,141 | dark PROPOSED */
+
+    /* ---- EVIDENCE GRADES AND BAR ---- */
+    --gr-a-fg:#0F1216;               /* text on a grade A chip (fill is --fg). base.css:108 | night base.css:110 */
+    --ev-c1:#C99560;                 /* evidence bar, C stripe 1. ui.css:528 | dark PROPOSED */
+    --ev-c2:#8A6540;                 /* evidence bar, C stripe 2. ui.css:528 | dark PROPOSED */
+
+    /* ---- CONTROLS ---- */
+    --track:#2A3038;                 /* bar, meter, skeleton track. base.css:149, ui.css:60,119,324 | dark PROPOSED */
+    --sw-knob:#0F1216;               /* switch knob. base.css:156 | dark PROPOSED */
+    --link-bd:#26396B;               /* underline of a [[wikilink]]. ui.css:146 | dark PROPOSED */
+
+    /* ---- SHADOW COLOUR ---- */
+    --sh-rgb:0,0,0;                  /* rgb triple used by every shadow. ui.css:7,97 | dark PROPOSED */
+  }
 }
 
-* {
-  border-color: var(--border);
+
+/* dark, forced by the theme switch (identical declarations) */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+
+  /* ---- SURFACES ---- */
+  --bg:#0F1216;
+  --bg2:#161A20;
+  --surf:#181C22;
+  --surf2:#1E232A;
+  --chip:#20242B;
+
+  /* ---- TEXT ---- */
+  --fg:#ECEAE4;
+  --fg2:#C4C8CE;
+  --mut:#9AA1AB;
+
+  /* ---- LINES ---- */
+  --line:#2A3038;
+  --line2:#222830;
+  --line-ui:#6B727C;
+
+  /* ---- ACCENTS: the three data lines of the Diligence Stack map ---- */
+  --blue:#6F97F2;
+  --orange:#F49A4C;
+  --green:#42C28B;
+  --blue-t:#8FAEF5;
+  --orange-t:#F49A4C;
+  --green-t:#46C48E;
+
+  /* ---- FOCUS ---- */
+  --focus:#E8A33D;
+
+  /* ---- INVERSE SURFACE (primary button, verdict, fl-key, door-dark). Flips with the theme ---- */
+  --inv-fg2:#3A3F47;
+  --inv-mut:#5A606A;
+
+  /* ---- BUTTONS AND CHROME ---- */
+  --btn-p-hover:#FFFFFF;
+  --btn-s-bd:#6B727C;
+  --nav-bg:rgba(15,18,22,.9);
+  --glow-0:#1E232A;
+  --glow-1:rgba(15,18,22,0);
+
+  /* ---- TONES: bg / fg / border. One recipe for status chips, confidence, who-chips, banners ---- */
+  --tn-green-bg:#12382A;
+  --tn-green-fg:#7BE0B4;
+  --tn-green-bd:#1F5A44;
+  --tn-amber-bg:#3A2C10;
+  --tn-amber-fg:#F2C877;
+  --tn-amber-bd:#5A4519;
+  --tn-orange-bg:#3A2210;
+  --tn-orange-fg:#F49A4C;
+  --tn-orange-bd:#5E3A1B;
+  --tn-blue-bg:#172544;
+  --tn-blue-fg:#8FAEF5;
+  --tn-blue-bd:#26396B;
+
+  /* ---- WASHES: tinted panels (gate, banner, ledger rows, stk) ---- */
+  --wash-warn-bg:#2A2112;
+  --wash-warn-bd:#5A4519;
+  --wash-stale-bg:#2B2016;
+  --wash-stale-bd:#5E3A1B;
+  --wash-ok-bg:#11291F;
+  --wash-ok-bd:#1F5A44;
+
+  /* ---- EVIDENCE GRADES AND BAR ---- */
+  --gr-a-fg:#0F1216;
+  --ev-c1:#C99560;
+  --ev-c2:#8A6540;
+
+  /* ---- CONTROLS ---- */
+  --track:#2A3038;
+  --sw-knob:#0F1216;
+  --link-bd:#26396B;
+
+  /* ---- SHADOW COLOUR ---- */
+  --sh-rgb:0,0,0;
+}
+
+
+/* ---------- 3. REDUCED MOTION: the site sets transition:none and animation:none (base.css:217-220) ---------- */
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-fast:0s;--dur-lift:0s;--dur-row:0s;--dur-fade:0s;--dur-bar:0s;--dur-in:0s;--dur-loop:0s}
+}
+
+
+/* =============================================================================
+   Base styles for thediligence.app
+   All values use tokens from above — no hard-coded colours, sizes or fonts.
+   ============================================================================= */
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling, respecting reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Root */
+html {
+  font-family: var(--sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100dvh;
+  margin: 0;
 }
 
-.text-balance {
-  text-wrap: balance;
+/* Typography scale */
+h1, .h1 { font-size: var(--fs-h1); font-weight: var(--fw-bold); letter-spacing: var(--ls-h1); line-height: var(--lh-h1); }
+h2, .h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold); letter-spacing: var(--ls-h2); line-height: var(--lh-h2); }
+h3, .h3 { font-size: var(--fs-h3); font-weight: var(--fw-semibold); letter-spacing: var(--ls-h3); line-height: var(--lh-h3); }
+h4, .h4 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-h4); line-height: var(--lh-h4); }
+
+.serif { font-family: var(--serif); }
+.mono  { font-family: var(--mono); }
+
+.lead  { font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--fg2); }
+.body  { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg2); }
+.small { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--mut); }
+.tiny  { font-size: var(--fs-tiny); line-height: var(--lh-tiny); color: var(--mut); }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--mut);
+}
+
+/* Layout helpers */
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.sec {
+  padding-block: var(--sec-y);
+}
+.sec.alt {
+  background: var(--bg2);
+}
+
+/* Focus ring — visible keyboard focus on all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: var(--sp-8);
+  top: var(--sp-8);
+  z-index: var(--z-skip);
+  padding: var(--sp-8) var(--sp-16);
+  background: var(--inv-bg);
+  color: var(--inv-fg);
+  font-family: var(--sans);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--r-8);
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform var(--dur-fast);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+  padding: var(--sp-12) var(--sp-24);
+  border-radius: var(--r-pill);
+  font-family: var(--sans);
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: var(--bw-ctrl) solid transparent;
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+.btn-p {
+  background: var(--inv-bg);
+  color: var(--inv-fg);
+  border-color: var(--inv-bg);
+}
+.btn-p:hover {
+  background: var(--btn-p-hover);
+  border-color: var(--btn-p-hover);
+}
+.btn-s {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--btn-s-bd);
+}
+.btn-s:hover {
+  border-color: var(--fg);
+}
+
+/* Status chips */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: var(--r-pill);
+  font-family: var(--mono);
+  font-size: var(--fs-chip);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-chip);
+  white-space: nowrap;
+}
+.st-live  { background: var(--tn-green-bg); color: var(--tn-green-fg); }
+.st-build { background: var(--tn-amber-bg); color: var(--tn-amber-fg); }
+.st-plan  { background: var(--bg2); color: var(--fg2); border: var(--bw-dash) dashed var(--mut); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

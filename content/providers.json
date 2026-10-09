@@ -1,0 +1,37 @@
+{
+  "$schema": "./schemas/providers.schema.json",
+  "providers": [
+    {
+      "id": "claude",
+      "name": "Claude",
+      "description": "Your Anthropic account",
+      "oauth_status": "available",
+      "tag": "At launch",
+      "note": "In v1 the memo writers run on Claude. Sign in with your provider where the provider allows it, on the provider's own screen. Where it does not, you can paste a key as a last resort. It is encrypted, never visible to agents, and you can delete it in one click."
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "description": "Your OpenAI account",
+      "oauth_status": "pending",
+      "tag": "At launch",
+      "note": "Pasted key at launch. Sign-in is Next until approved by OpenAI."
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral",
+      "description": "Europe-hosted models",
+      "oauth_status": "pending",
+      "tag": "At launch",
+      "note": "Pasted key. Runs the independent check alongside Claude in v1."
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "description": "Your Google account",
+      "oauth_status": "pending",
+      "tag": "At launch",
+      "note": "Pasted key. Sign-in is Next until prototyped."
+    }
+  ]
+}

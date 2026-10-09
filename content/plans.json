@@ -1,0 +1,55 @@
+{
+  "$schema": "./schemas/plans.schema.json",
+  "published": false,
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free",
+      "tagline": "Solo advisors and angels",
+      "limit": "1 diligence a week",
+      "price": null,
+      "features": [
+        "One diligence a week, with a plan and a price each time",
+        "Up to three members and ten targets kept",
+        "Drop zone for your documents and data",
+        "A hosted vault, encrypted in your browser",
+        "Your own model account, connected",
+        "Export to Word, PDF, Google Doc or Notion"
+      ],
+      "cta": "Start free",
+      "ctaHref": "/app"
+    },
+    {
+      "id": "pro",
+      "name": "Pro",
+      "tagline": "Teams that keep notes",
+      "limit": "Everything in Free, plus",
+      "price": null,
+      "features": [
+        "No weekly limit",
+        "More members, and an archive of targets",
+        "Obsidian plugin for your vault",
+        { "text": "Email ingestion", "status": "Next" },
+        { "text": "Europe sandboxes", "status": "Next" }
+      ],
+      "cta": "Talk to the team",
+      "ctaHref": "/contact"
+    },
+    {
+      "id": "fund",
+      "name": "Fund",
+      "tagline": "Funds with a security review",
+      "limit": "Everything in Pro, plus",
+      "price": null,
+      "features": [
+        { "text": "Single sign-on", "status": "Later" },
+        { "text": "Europe-only mode", "status": "Later" },
+        { "text": "Audit log", "status": "Later" },
+        { "text": "Data-room connectors", "status": "Later" },
+        "Onboarding with us"
+      ],
+      "cta": "Talk to the team",
+      "ctaHref": "/contact"
+    }
+  ]
+}

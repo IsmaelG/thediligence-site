@@ -1,0 +1,88 @@
+{
+  "$schema": "./schemas/claims.schema.json",
+  "claims": [
+    {
+      "id": "c-years-combined",
+      "value": "40",
+      "unit": "years combined",
+      "context": "Operating on hyperscale platforms: PayPal, Amazon, Safran, Decathlon and more.",
+      "source": "SPEC.md About section",
+      "grade": "B",
+      "pages": ["about"]
+    },
+    {
+      "id": "c-continents",
+      "value": "4",
+      "unit": "continents",
+      "context": "North America, Europe, Africa and the Middle East.",
+      "source": "SPEC.md About section",
+      "grade": "A",
+      "pages": ["about"]
+    },
+    {
+      "id": "c-cities",
+      "value": "2",
+      "unit": "cities",
+      "context": "Where we are based.",
+      "source": "SPEC.md About section",
+      "grade": "A",
+      "pages": ["about"]
+    },
+    {
+      "id": "c-stages",
+      "value": "5",
+      "unit": "stages",
+      "context": "From the market to the first 100 days, in one method.",
+      "source": "diligence-map-SPEC.md §3",
+      "grade": "A",
+      "pages": ["about", "solutions"]
+    },
+    {
+      "id": "c-free-diligences",
+      "value": "1",
+      "unit": "diligence per rolling 7 days",
+      "context": "Free plan limit.",
+      "source": "SPEC.md decisions, ARCH §3b",
+      "grade": "A",
+      "pages": ["landing", "platform"]
+    },
+    {
+      "id": "c-skills",
+      "value": "11",
+      "unit": "skills",
+      "context": "The eleven stations of the method.",
+      "source": "diligence-map-SPEC.md §3",
+      "grade": "A",
+      "pages": ["landing", "method", "solutions"]
+    },
+    {
+      "id": "c-no-train",
+      "value": "never train or fine-tune",
+      "unit": "sentence",
+      "context": "We never train or fine-tune a model on customer data; with your opt-in, redacted feedback may inform changes to prompts, skills and tests.",
+      "source": "ARCH §11b, counsel read pending S13",
+      "grade": "A",
+      "pages": ["platform", "privacy", "security"]
+    },
+    {
+      "id": "c-stays-free",
+      "value": "stays free",
+      "unit": "sentence",
+      "context": "The method is open source (Apache-2.0) and stays free.",
+      "source": "SPEC.md copy rules, counsel read pending S13",
+      "grade": "A",
+      "pages": ["method", "solutions"],
+      "requiresFlag": "repo_public"
+    },
+    {
+      "id": "c-reply-one-day",
+      "value": "one business day",
+      "unit": "reply commitment",
+      "context": "We reply within one business day.",
+      "source": "SPEC.md S13 gate — must be confirmed or removed before launch",
+      "grade": "C",
+      "pages": ["contact"],
+      "gateS13": true
+    }
+  ]
+}
