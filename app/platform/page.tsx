@@ -5,637 +5,425 @@ import { platformOpen } from "@/lib/flags";
 import { PlatformSteps } from "../components/platform-steps";
 
 export const metadata = {
-  title: "Platform — TheDiligence",
+  title: "Platform and plans — TheDiligence",
   description:
-    "Start free. Read your first memo today. Connect your own model, approve the plan and its price, then follow the run.",
+    "Connect your model provider. Name a company. Specialist agents run the method and deliver a memo where every claim has a grade and a source.",
 };
 
-// ------------------------------------------------------------------------
-// Step illustrations (server-rendered JSX passed as props)
-// ------------------------------------------------------------------------
+/* ─── Onboarding step illustrations ─────────────────────────────── */
 
-function StepSignIn(): ReactNode {
+function ConnectIll() {
   return (
-    <div>
-      <p style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-16)" }}>Sign in · Illustrative</p>
-      <div style={{ padding: "var(--sp-16)", background: "var(--bg2)", borderRadius: "var(--r-4)" }}>
-        <p style={{ color: "var(--fg2)", marginBottom: "var(--sp-12)" }}>Work email</p>
-        <div style={{ padding: "var(--sp-10) var(--sp-12)", background: "var(--bg)", borderRadius: "var(--r-4)", border: "1px solid var(--line)", color: "var(--fg3)", marginBottom: "var(--sp-12)" }}>
-          you@yourfund.com
-        </div>
-        <div style={{ padding: "var(--sp-10) var(--sp-16)", background: "var(--fg)", color: "var(--bg)", borderRadius: "var(--r-4)", textAlign: "center" }}>
-          Send me a code
-        </div>
+    <div style={{ background: "var(--surf)", border: "1px solid var(--line)", borderRadius: "var(--r-win)", boxShadow: "var(--sh-win)", overflow: "hidden", fontFamily: "var(--sans)", fontSize: 13, userSelect: "none" }} aria-hidden="true">
+      <div style={{ height: 44, background: "var(--surf2)", borderBottom: "1px solid var(--line)", display: "flex", alignItems: "center", padding: "0 20px" }}>
+        <span style={{ fontWeight: 700, fontSize: 13, color: "var(--fg)" }}>Connect a model provider</span>
       </div>
-      <p style={{ marginTop: "var(--sp-12)", color: "var(--fg3)", fontFamily: "var(--sans)" }}>
-        One-time codes expire fast and work once. There is no password to choose, lose or reuse.
-      </p>
-    </div>
-  );
-}
-
-function StepConnect(): ReactNode {
-  return (
-    <div>
-      <p style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-16)" }}>Settings · Connections · Illustrative</p>
-      <div className="stack" style={{ gap: "var(--sp-8)" }}>
-        {providerList.map((p) => (
-          <div
-            key={p.id}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "var(--sp-12)",
-              background: "var(--bg2)",
-              borderRadius: "var(--r-4)",
-              border: "1px solid var(--line)",
-            }}
-          >
-            <div>
-              <p style={{ fontWeight: "var(--fw-semi)", fontFamily: "var(--sans)" }}>{p.name}</p>
-              <p style={{ color: "var(--fg3)", fontFamily: "var(--sans)", fontSize: "var(--fs-tiny)" }}>{p.description}</p>
-            </div>
-            <span
-              style={{
-                padding: "var(--sp-4) var(--sp-10)",
-                background: p.oauth_status === "available" ? "var(--green)" : "var(--bg)",
-                color: p.oauth_status === "available" ? "var(--bg)" : "var(--fg2)",
-                border: "1px solid var(--line)",
-                borderRadius: "var(--r-4)",
-                fontSize: "var(--fs-tiny)",
-              }}
-            >
-              {p.oauth_status === "available" ? "Connected" : "Connect"}
-            </span>
-          </div>
-        ))}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "var(--sp-12)",
-            background: "var(--bg2)",
-            borderRadius: "var(--r-4)",
-            border: "1px dashed var(--line)",
-          }}
-        >
-          <p style={{ color: "var(--fg3)", fontFamily: "var(--sans)" }}>Another provider?</p>
-          <span style={{ padding: "var(--sp-4) var(--sp-10)", background: "var(--bg)", border: "1px solid var(--line)", borderRadius: "var(--r-4)", fontSize: "var(--fs-tiny)" }}>Ask</span>
-        </div>
-      </div>
-      <p style={{ marginTop: "var(--sp-12)", color: "var(--fg3)", fontFamily: "var(--sans)" }}>
-        You approve access on your provider's own screen. Your key is encrypted and never visible to agents.
-      </p>
-    </div>
-  );
-}
-
-function StepPlan(): ReactNode {
-  return (
-    <div>
-      <p style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-16)" }}>New target · Northwind · Illustrative</p>
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-        <thead>
-          <tr style={{ borderBottom: "1px solid var(--line)" }}>
-            <th style={{ textAlign: "left", padding: "var(--sp-6) 0", fontSize: "var(--fs-tiny)", fontWeight: "var(--fw-semi)" }}>Agent</th>
-            <th style={{ textAlign: "right", padding: "var(--sp-6) 0", fontSize: "var(--fs-tiny)", fontWeight: "var(--fw-semi)" }}>Tier</th>
-            <th style={{ textAlign: "right", padding: "var(--sp-6) 0", fontSize: "var(--fs-tiny)", fontWeight: "var(--fw-semi)" }}>Est.</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[
-            ["Market", "Standard", "2.31"],
-            ["Company", "Frontier", "2.78"],
-            ["Interviews", "Light", "0.41"],
-            ["Cohorts", "Standard", "0.33"],
-            ["User panel", "Light", "0.98"],
-            ["Product", "Standard", "3.50"],
-            ["Verifier", "Balanced", "1.50"],
-          ].map(([name, tier, cost]) => (
-            <tr key={name} style={{ borderBottom: "1px solid var(--line)" }}>
-              <td style={{ padding: "var(--sp-6) 0", fontFamily: "var(--sans)" }}>{name}</td>
-              <td style={{ padding: "var(--sp-6) 0", textAlign: "right", color: "var(--fg3)", fontFamily: "var(--sans)" }}>{tier}</td>
-              <td style={{ padding: "var(--sp-6) 0", textAlign: "right", fontFamily: "var(--sans)" }}>{cost}</td>
-            </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={2} style={{ padding: "var(--sp-12) 0", fontWeight: "var(--fw-semi)", fontFamily: "var(--sans)" }}>Estimate</td>
-            <td style={{ padding: "var(--sp-12) 0", textAlign: "right", fontWeight: "var(--fw-semi)", fontFamily: "var(--sans)" }}>11.81</td>
-          </tr>
-        </tfoot>
-      </table>
-      <div style={{ display: "flex", gap: "var(--sp-8)", marginTop: "var(--sp-12)" }}>
-        <div style={{ flex: 1, padding: "var(--sp-10)", background: "var(--fg)", color: "var(--bg)", borderRadius: "var(--r-4)", textAlign: "center", fontFamily: "var(--sans)" }}>Approve and run</div>
-        <div style={{ flex: 1, padding: "var(--sp-10)", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-4)", textAlign: "center", color: "var(--fg2)", fontFamily: "var(--sans)" }}>Save for later</div>
-      </div>
-    </div>
-  );
-}
-
-function StepRun(): ReactNode {
-  return (
-    <div>
-      <p style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-16)" }}>Northwind · Running · Illustrative</p>
-      <div className="stack" style={{ gap: "var(--sp-6)" }}>
+      <div style={{ padding: "20px 24px", display: "flex", flexDirection: "column", gap: 12 }}>
+        <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 4 }}>Your providers</div>
         {[
-          { name: "Market", status: "Done, 14 sources", done: true },
-          { name: "Company", status: "Done, 9 claims", done: true },
-          { name: "User panel", status: "Running, 4 of 6", running: true },
-          { name: "Verifier", status: "Last step" },
-        ].map(({ name, status, done, running }) => (
-          <div
-            key={name}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "var(--sp-8)",
-              background: "var(--bg2)",
-              borderRadius: "var(--r-4)",
-              fontFamily: "var(--sans)",
-            }}
-          >
-            <span>{name}</span>
-            <span style={{ color: running ? "var(--orange)" : done ? "var(--green)" : "var(--fg3)" }}>{status}</span>
+          { name: "Claude", sub: "Anthropic · OAuth connection", status: "Connected", connected: true },
+          { name: "OpenAI", sub: "Your OpenAI account", status: "Connect", connected: false },
+          { name: "Mistral", sub: "Europe-hosted models", status: "Connect", connected: false },
+          { name: "Gemini", sub: "Your Google account", status: "Connect", connected: false },
+        ].map((p) => (
+          <div key={p.name} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", background: "var(--bg2)", border: p.connected ? "1px solid var(--green)" : "1px solid var(--line)", borderRadius: "var(--r-8)" }}>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 14, color: "var(--fg)", marginBottom: 2 }}>{p.name}</div>
+              <div style={{ fontSize: 11, color: "var(--mut)" }}>{p.sub}</div>
+            </div>
+            <div style={{ padding: "4px 12px", borderRadius: "var(--r-pill)", fontSize: 11, fontWeight: 600, background: p.connected ? "var(--green)" : "var(--fg)", color: "var(--bg)" }}>{p.status}</div>
           </div>
         ))}
-        <div style={{ marginTop: "var(--sp-8)", padding: "var(--sp-12)", background: "var(--surf)", borderRadius: "var(--r-4)", fontFamily: "var(--sans)" }}>
-          <p style={{ color: "var(--orange)", fontWeight: "var(--fw-semi)" }}>Gate: product verdict</p>
-          <p style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>The run pauses here until you decide.</p>
+        <div style={{ marginTop: 4, padding: "10px 14px", background: "var(--bg2)", border: "1px solid var(--line2)", borderRadius: "var(--r-8)" }}>
+          <div style={{ fontSize: 11, color: "var(--fg2)", lineHeight: 1.5 }}>Approve on your provider's own screen. Your key stays with your provider.</div>
         </div>
+        <p style={{ fontSize: 10, color: "var(--mut)", fontStyle: "italic", margin: 0 }}>Illustrative only.</p>
       </div>
-      <p style={{ marginTop: "var(--sp-12)", color: "var(--fg3)", fontFamily: "var(--sans)" }}>
-        Also by email. One reply from your phone and the run continues.
-      </p>
     </div>
   );
 }
 
-// Build steps array once
-const STEPS = [
-  {
-    n: "1",
-    title: "Sign in with a code",
-    description:
-      "Work email, a six-digit code, and you are in. No password to choose, lose or reuse.",
-    illustration: <StepSignIn />,
-  },
-  {
-    n: "2",
-    title: "Connect your model",
-    description:
-      "You approve access on your provider's own screen. Your key is encrypted and never visible to agents. You can revoke access from your provider at any time. Your first diligence runs as a capped trial on us.",
-    illustration: <StepConnect />,
-  },
-  {
-    n: "3",
-    title: "Read the plan and its price",
-    description:
-      "Name a company. The coordinator drafts the route in seconds: agents in order, a model tier for each, what it still needs from you, and the cost. Set a cap, then approve.",
-    illustration: <StepPlan />,
-  },
-  {
-    n: "4",
-    title: "Follow the run, answer the gates",
-    description:
-      "Watch one line per agent. Open the detail when you want it. Gates reach you by email — one reply and the run continues.",
-    illustration: <StepRun />,
-  },
-];
+function TargetIll() {
+  return (
+    <div style={{ background: "var(--surf)", border: "1px solid var(--line)", borderRadius: "var(--r-win)", boxShadow: "var(--sh-win)", overflow: "hidden", fontFamily: "var(--sans)", fontSize: 13, userSelect: "none" }} aria-hidden="true">
+      <div style={{ height: 44, background: "var(--surf2)", borderBottom: "1px solid var(--line)", display: "flex", alignItems: "center", padding: "0 20px" }}>
+        <span style={{ fontWeight: 700, fontSize: 13, color: "var(--fg)" }}>New target</span>
+      </div>
+      <div style={{ padding: "20px 24px" }}>
+        <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>Target company</div>
+        <div style={{ padding: "12px 16px", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-8)", fontSize: 14, fontWeight: 600, color: "var(--fg)", marginBottom: 16 }}>Northwind</div>
+        <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>Your thesis</div>
+        <div style={{ padding: "12px 16px", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-8)", fontSize: 13, color: "var(--fg2)", marginBottom: 16, lineHeight: 1.5 }}>Series B investment. Platform play in mid-market ERP. We believe the market is moving from point tools.</div>
+        <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>Evidence · Drop any file</div>
+        <div style={{ padding: "14px 16px", background: "var(--bg2)", border: "1.5px dashed var(--line)", borderRadius: "var(--r-8)", textAlign: "center", fontSize: 12, color: "var(--mut)", marginBottom: 16 }}>Deck, revenue export, data room link, website</div>
+        <div style={{ padding: "8px 16px", background: "var(--fg)", color: "var(--bg)", borderRadius: "var(--r-pill)", fontSize: 12, fontWeight: 600, textAlign: "center" }}>Create target and draft plan</div>
+        <p style={{ fontSize: 10, color: "var(--mut)", fontStyle: "italic", marginTop: 10, marginBottom: 0 }}>Illustrative only.</p>
+      </div>
+    </div>
+  );
+}
 
-// Compare table rows
-const COMPARE_ROWS: Array<{ label: string; category?: boolean; free: string; pro: string; fund: string }> = [
-  { label: "Work", category: true, free: "", pro: "", fund: "" },
-  { label: "Diligences", free: "1 a week", pro: "Unlimited", fund: "Unlimited" },
-  { label: "Members", free: "3", pro: "10", fund: "Unlimited" },
-  { label: "Targets kept", free: "10", pro: "Unlimited, with archive", fund: "Unlimited" },
-  { label: "Thesis", free: "One", pro: "Versioned", fund: "Versioned, per strategy" },
-  { label: "Evidence", category: true, free: "", pro: "", fund: "" },
-  { label: "Drop zone", free: "Yes", pro: "Yes", fund: "Yes" },
-  { label: "Email ingestion", free: "No", pro: "Yes · Next", fund: "Yes · Next" },
-  { label: "Data-room connectors", free: "No", pro: "No", fund: "Yes · Later" },
-  { label: "Hosted vault", free: "Yes, capped", pro: "Yes", fund: "Yes" },
-  { label: "Obsidian plugin", free: "No", pro: "Yes", fund: "Yes" },
-  { label: "Models", category: true, free: "", pro: "", fund: "" },
-  { label: "Connect your own model", free: "Yes", pro: "Yes", fund: "Yes" },
-  { label: "Security", category: true, free: "", pro: "", fund: "" },
-  { label: "Region", free: "United States", pro: "US or Europe · Next", fund: "Europe-only · Later" },
-  { label: "Single sign-on", free: "No", pro: "No", fund: "Yes · Later" },
-  { label: "Audit log", free: "No", pro: "No", fund: "Yes · Later" },
-  { label: "Support", category: true, free: "", pro: "", fund: "" },
-  { label: "Support", free: "Help docs", pro: "Email", fund: "Onboarding with us, shared channel" },
-];
+function PlanIll() {
+  return (
+    <div style={{ background: "var(--surf)", border: "1px solid var(--line)", borderRadius: "var(--r-win)", boxShadow: "var(--sh-win)", overflow: "hidden", fontFamily: "var(--sans)", fontSize: 13, userSelect: "none" }} aria-hidden="true">
+      <div style={{ height: 44, background: "var(--surf2)", borderBottom: "1px solid var(--line)", display: "flex", alignItems: "center", padding: "0 20px" }}>
+        <span style={{ fontWeight: 700, fontSize: 13, color: "var(--fg)" }}>Northwind · Plan</span>
+      </div>
+      <div style={{ padding: "16px 20px" }}>
+        <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 10 }}>Investment route · about 25 min · 1 gate</div>
+        <div style={{ display: "flex", gap: 6, marginBottom: 12 }}>
+          {["Economy", "Balanced", "Frontier"].map((t, i) => (<span key={t} style={{ padding: "3px 9px", borderRadius: "var(--r-pill)", fontSize: 11, fontWeight: i === 1 ? 600 : 400, background: i === 1 ? "var(--fg)" : "transparent", color: i === 1 ? "var(--bg)" : "var(--fg2)", border: i === 1 ? "none" : "1px solid var(--line)" }}>{t}</span>))}
+        </div>
+        {[
+          { name: "Market /marketdd", tier: "Standard", est: "2.40" },
+          { name: "Company /duediligence", tier: "Frontier", est: "2.70" },
+          { name: "Product /productdd", tier: "Frontier", est: "3.50" },
+          { name: "Technology /technicaldd", tier: "Standard", est: "2.70" },
+          { name: "Verifier", tier: "Frontier", est: "1.50" },
+        ].map((a) => (
+          <div key={a.name} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "5px 0", borderBottom: "1px solid var(--line2)" }}>
+            <span style={{ fontWeight: 500, fontSize: 11, color: "var(--fg)" }}>{a.name}</span>
+            <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+              <span style={{ fontSize: 10, color: a.tier === "Frontier" ? "var(--blue-t)" : "var(--fg2)", fontWeight: a.tier === "Frontier" ? 600 : 400 }}>{a.tier}</span>
+              <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--fg2)", minWidth: 28, textAlign: "right" }}>{a.est}</span>
+            </div>
+          </div>
+        ))}
+        <div style={{ marginTop: 10, padding: "10px 0", borderTop: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 2 }}>Estimate · cap 20.00</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 20, fontWeight: 700, color: "var(--fg)", letterSpacing: "-0.02em" }}>15.15</div>
+          </div>
+          <div style={{ padding: "5px 10px", background: "var(--fg)", color: "var(--bg)", borderRadius: "var(--r-pill)", fontSize: 11, fontWeight: 600 }}>Approve and run</div>
+        </div>
+        <p style={{ fontSize: 10, color: "var(--mut)", fontStyle: "italic", marginTop: 6, marginBottom: 0 }}>Illustrative only.</p>
+      </div>
+    </div>
+  );
+}
 
-const ROADMAP: Array<{ phase: string; items: string[] }> = [
-  {
-    phase: "At launch",
-    items: [
-      "Email sign-in, workspaces and invites",
-      "Targets with a deal stage, and an inbox of what needs you",
-      "Evidence drop zone and ledger, in three data classes",
-      "The plan with its price, a cap, and approval",
-      "Investment route: market, company, interviews, cohorts, user panel, product, and the verifier",
-      "Memo with confidence and a sources toggle",
-      "Changes, and rebuilds of only what a new source touches",
-      "Export to Word, PDF, Google Doc and Notion",
-      "Connections to Claude, OpenAI, Mistral and Gemini",
-      "Run tokens and a broker: no credential ever reaches an agent",
-      "Hosted vault, encrypted in your browser, closed to agents by default",
-      "Obsidian plugin from Pro, with no key to manage",
-      "One capped trial diligence, then your own provider",
-    ],
-  },
-  {
-    phase: "Next",
-    items: [
-      "Technology diligence and value-creation plan, in the platform",
-      "Forward an email to add evidence",
-      "MCP interface: your own agents and assistants follow a run, read the memo and answer gates",
-      "Push to your CRM, Affinity or Attio",
-      "Europe mode: sandboxes hosted in the EU",
-    ],
-  },
-  {
-    phase: "Later",
-    items: [
-      "Several writer models in one memo: Anthropic, OpenAI, Mistral",
-      "More model and vault connectors, in the order you ask for them",
-      "Brand re-skin of a memo",
-      "Fund plan: single sign-on and audit log",
-      "SOC 2 Type I — Later",
-    ],
-  },
-];
+function RunIll() {
+  return (
+    <div style={{ background: "var(--surf)", border: "1px solid var(--line)", borderRadius: "var(--r-win)", boxShadow: "var(--sh-win)", overflow: "hidden", fontFamily: "var(--sans)", fontSize: 13, userSelect: "none" }} aria-hidden="true">
+      <div style={{ height: 44, background: "var(--surf2)", borderBottom: "1px solid var(--line)", display: "flex", alignItems: "center", padding: "0 20px" }}>
+        <span style={{ fontWeight: 700, fontSize: 13, color: "var(--fg)" }}>Northwind · Run</span>
+        <span className="status st-build" style={{ marginLeft: "auto", fontSize: 11 }}>In progress</span>
+      </div>
+      <div style={{ padding: "14px 20px" }}>
+        {[
+          { name: "Market", detail: "Done, 14 sources", cost: "2.31", done: true },
+          { name: "Company", detail: "Done, 9 claims", cost: "2.78", done: true },
+          { name: "Product", detail: "Running, 4 of 6 personas", cost: "0.98", running: true },
+          { name: "Technology", detail: "Waiting for Product", cost: "2.70", waiting: true },
+          { name: "Verifier", detail: "Last", cost: "1.50", waiting: true },
+        ].map((a) => (
+          <div key={a.name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0", borderBottom: "1px solid var(--line2)" }}>
+            <div style={{ width: 7, height: 7, borderRadius: "50%", background: a.done ? "var(--green)" : a.running ? "var(--blue)" : "var(--mut)", flexShrink: 0 }} />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontWeight: 600, fontSize: 11, color: "var(--fg)" }}>{a.name}</div>
+            </div>
+            <div style={{ fontSize: 10, color: a.done ? "var(--green-t)" : "var(--mut)", flexShrink: 0 }}>{a.detail}</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 10, color: "var(--fg2)", minWidth: 28, textAlign: "right", flexShrink: 0 }}>{a.cost}</div>
+          </div>
+        ))}
+        <div style={{ marginTop: 10, display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 2 }}>Spent</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 18, fontWeight: 700, color: "var(--fg)", letterSpacing: "-0.02em" }}>6.07</div>
+            <div style={{ fontSize: 10, color: "var(--mut)" }}>of 15.15 · cap 20.00</div>
+          </div>
+          <div style={{ padding: "5px 10px", background: "var(--wash-warn-bg)", border: "1px solid var(--wash-warn-bd)", borderRadius: "var(--r-pill)", fontSize: 11, fontWeight: 600, color: "var(--fg)" }}>Gate pending</div>
+        </div>
+        <p style={{ fontSize: 10, color: "var(--mut)", fontStyle: "italic", marginTop: 10, marginBottom: 0 }}>Illustrative only.</p>
+      </div>
+    </div>
+  );
+}
 
-const FAQ: Array<{ q: string; a: string }> = [
-  {
-    q: "Do I have to paste an API key?",
-    a: "At launch you can connect Claude, OpenAI, Mistral and Gemini. Where OAuth is supported, you approve access on your provider's own screen — no key involved. Where it is not yet available, you can paste a key as a last resort: it is encrypted and never visible to agents, and you can delete it in one click. Your first diligence is a capped trial on us, so you can read a memo before you connect anything.",
-  },
-  {
-    q: "What will a diligence cost me?",
-    a: "You see it before it runs. The plan lists each agent with its model and an estimate, you can switch to a cheaper or a stronger setting and watch the total move, and you set a cap. The run stops at the cap, and the actual cost sits next to the estimate.",
-  },
-  {
-    q: "Who can read my documents?",
-    a: "Your workspace members, and nobody else. Agents work in isolated sandboxes that hold no keys and can only reach a short list of hosts. Documents that a target shared with you are only sent to model providers that do not retain or train on them. The security page has the detail.",
-  },
-  {
-    q: "Can I take my work with me?",
-    a: "Yes. Memos export as Word and PDF, the ledger exports as a file, and your evidence goes with it. The method itself is open, so you can run it without us.",
-  },
-  {
-    q: "Is this investment advice?",
-    a: "No. It produces evidence-graded analysis for the people who make the decision. You and your committee own the call, and every claim shows its source so you can check it.",
-  },
-];
+/* ─── Helpers ────────────────────────────────────────────────────── */
+
+type PlanFeature = string | { text: string; status: string };
+
+function FeatureItem({ f }: { f: PlanFeature }) {
+  const text = typeof f === "string" ? f : f.text;
+  const status = typeof f === "string" ? null : f.status;
+  return (
+    <li style={{ display: "flex", alignItems: "flex-start", gap: "var(--sp-10)", fontSize: 13, color: "var(--fg2)", lineHeight: 1.5 }}>
+      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--fg)", flexShrink: 0, marginTop: 6 }} />
+      <span>{text}</span>
+      {status && (
+        <span className={`status ${status === "Next" ? "st-build" : "st-plan"}`} style={{ fontSize: 10, flexShrink: 0, marginTop: 1 }}>{status}</span>
+      )}
+    </li>
+  );
+}
+
+/* ─── Page ───────────────────────────────────────────────────────── */
 
 export default async function PlatformPage() {
   const isOpen = await platformOpen();
-  const primaryHref = isOpen ? "/app" : "/contact";
-  const primaryLabel = isOpen ? "Start free" : "Request early access";
+  const primaryHref = isOpen ? "/app" : "/book";
+
+  const STEPS = [
+    {
+      n: "01",
+      title: "Connect a provider",
+      description: "Approve access on your provider's own screen. Claude, OpenAI, Mistral, Gemini. Usage lands in your account. Your key stays with your provider.",
+      illustration: <ConnectIll /> as ReactNode,
+    },
+    {
+      n: "02",
+      title: "Name a company",
+      description: "Type a target name and describe your thesis. Drop a deck, a revenue export or a data room link. The coordinator reads the target and picks a route.",
+      illustration: <TargetIll /> as ReactNode,
+    },
+    {
+      n: "03",
+      title: "Review the plan",
+      description: "See the sequence of agents, what each one will cost, what it still needs from you, and where it will pause for your approval. Set a cap.",
+      illustration: <PlanIll /> as ReactNode,
+    },
+    {
+      n: "04",
+      title: "Run and gate",
+      description: "Agents run in parallel where the method allows. A gate pauses the run. You review what exists and approve to continue. The run picks up exactly where it stopped.",
+      illustration: <RunIll /> as ReactNode,
+    },
+  ];
 
   return (
     <main id="main-content">
-      {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="hero sec">
-        <div className="wrap stack" style={{ maxWidth: "var(--measure-hero)" }}>
-          <p className="eyebrow">Platform</p>
-          <h1 className="head" style={{ fontFamily: "var(--serif)", fontSize: "clamp(40px, 5.5vw, 80px)", lineHeight: 1.05 }}>
-            Start free. Read your first memo today.
+      {/* Hero */}
+      <section className="hero sec" style={{ paddingBottom: "var(--sp-64)" }}>
+        <div className="wrap" style={{ maxWidth: "var(--head-max)" }}>
+          <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Platform and plans</p>
+          <h1 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h1-page)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h1)", lineHeight: "var(--lh-h1)", marginBottom: "var(--sp-24)" }}>
+            Agents that run the method, at your pace.
           </h1>
-          <p className="lead" style={{ maxWidth: "56ch" }}>
-            Sign in with an email code, connect your own model, read the plan
-            and its price, and approve. Skilled agents do the work, an
-            independent verifier checks it, and you keep every source.
+          <p className="lead" style={{ maxWidth: "60ch", marginBottom: "var(--sp-40)" }}>
+            Connect your provider. Name a company. Specialist agents run the method and deliver a memo where every claim has a grade and a source. You hold every gate.
           </p>
           <div style={{ display: "flex", gap: "var(--gap-s)", flexWrap: "wrap" }}>
-            <a href={primaryHref} className="btn btn-p">{primaryLabel}</a>
-            <a href="/contact" className="btn btn-s">Talk to the team</a>
-          </div>
-          <div style={{ display: "flex", gap: "var(--gap-m)", flexWrap: "wrap" }}>
-            <span className="body" style={{ color: "var(--fg2)" }}>1 diligence a week, free</span>
-            <span className="body" style={{ color: "var(--fg2)" }}>Connect Claude, OpenAI, Mistral or Gemini</span>
-            <span className="body" style={{ color: "var(--fg2)" }}>Price shown before launch</span>
+            <a href={primaryHref} className="btn btn-p">{isOpen ? "Start free" : "Join the waitlist"}</a>
+            <a href="/book" className="btn btn-s">Book time with us</a>
           </div>
         </div>
       </section>
 
-      {/* ── Internal nav ─────────────────────────────────────────── */}
-      <nav
-        aria-label="Platform sections"
-        style={{
-          position: "sticky",
-          top: "var(--nav-h)",
-          zIndex: 10,
-          background: "var(--bg)",
-          borderBottom: "1px solid var(--line)",
-        }}
-      >
-        <div
-          className="wrap"
-          style={{
-            display: "flex",
-            gap: "var(--gap-m)",
-            overflowX: "auto",
-            paddingBlock: "var(--sp-12)",
-            scrollbarWidth: "none",
-          }}
-        >
-          {[
-            { id: "get-started", label: "Get started" },
-            { id: "connectors", label: "Connectors" },
-            { id: "plans", label: "Plans" },
-            { id: "compare", label: "Compare" },
-            { id: "roadmap", label: "Roadmap" },
-            { id: "faq", label: "Questions" },
-          ].map(({ id, label }) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              style={{
-                fontFamily: "var(--mono)",
-                fontSize: "var(--fs-small)",
-                color: "var(--fg2)",
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-                paddingBlock: "var(--sp-4)",
-              }}
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-      </nav>
-
-      {/* ── Get started ──────────────────────────────────────────── */}
-      <section className="sec" id="get-started">
+      {/* 4-step onboarding */}
+      <section id="onboarding" className="sec alt">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-32)" }}>Get started</p>
-          <p className="body" style={{ color: "var(--fg2)", maxWidth: "56ch", marginBottom: "var(--sp-48)" }}>
-            Four steps, and you know the price at step three.
-            The windows below are illustrations of the product, not a live account.
-          </p>
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Getting started</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+              Four steps, first memo in minutes.
+            </h2>
+            <p className="lead" style={{ maxWidth: "56ch" }}>
+              No data to fill in before the platform is useful. Connect a provider, name a target, approve a plan, and the agents get to work.
+            </p>
+          </div>
           <PlatformSteps steps={STEPS} />
         </div>
       </section>
 
-      {/* ── Connectors ───────────────────────────────────────────── */}
-      <section className="sec" id="connectors" style={{ background: "var(--bg2)" }}>
+      {/* Connectors */}
+      <section id="connectors" className="sec">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-32)" }}>Connectors</p>
-          <h2 className="head" style={{ maxWidth: "44ch", marginBottom: "var(--sp-16)" }}>
-            Connect, never paste.
-          </h2>
-          <p className="body" style={{ color: "var(--fg2)", maxWidth: "56ch", marginBottom: "var(--sp-48)" }}>
-            You approve access on your provider's own screen. Your key is encrypted
-            and never visible to agents. You can revoke access whenever you like.
-            Missing one? Ask for it, and we count the demand.
-          </p>
-
-          <div className="g2" style={{ gap: "var(--gap-xl)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "var(--gap-split)", alignItems: "start" }}>
             <div>
-              <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-24)" }}>
-                Models — where the agents think
+              <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Model connectors</p>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+                Your models, your account.
+              </h2>
+              <p className="lead" style={{ maxWidth: "44ch", marginBottom: "var(--sp-32)" }}>
+                The platform does not resell a model. You connect your own provider account. Usage lands in your account, and the run is priced from your provider's list.
               </p>
-              <div className="stack" style={{ gap: "var(--sp-8)" }}>
-                {providerList.map((p) => (
-                  <div
-                    key={p.id}
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      padding: "var(--sp-16)",
-                      background: "var(--bg)",
-                      borderRadius: "var(--r-8)",
-                      border: "1px solid var(--line)",
-                    }}
-                  >
-                    <div>
-                      <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{p.name}</p>
-                      <p className="small" style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>{p.description}</p>
-                    </div>
-                    <span className="status st-live">{p.tag}</span>
-                  </div>
-                ))}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "var(--sp-16)",
-                    background: "var(--bg)",
-                    borderRadius: "var(--r-8)",
-                    border: "1px dashed var(--line)",
-                  }}
-                >
-                  <div>
-                    <p className="body" style={{ color: "var(--fg3)" }}>Another provider?</p>
-                    <p className="small" style={{ color: "var(--fg3)", marginTop: "var(--sp-4)" }}>Ask for it, and we count the demand.</p>
-                  </div>
-                  <a href="/contact" className="btn btn-s" style={{ fontSize: "var(--fs-small)" }}>Ask</a>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-24)" }}>
-                Vaults — where your notes live
-              </p>
-              <div className="stack" style={{ gap: "var(--sp-8)" }}>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-14)", marginBottom: "var(--sp-32)" }}>
                 {[
-                  { name: "Hosted vault, the default", desc: "Encrypted in your browser. We host the ciphertext and cannot read it.", tag: "At launch" },
-                  { name: "Obsidian plugin, from Pro", desc: "Connect your own vault. Notes stay on your machine.", tag: "At launch" },
-                ].map(({ name, desc, tag }) => (
-                  <div
-                    key={name}
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      padding: "var(--sp-16)",
-                      background: "var(--bg)",
-                      borderRadius: "var(--r-8)",
-                      border: "1px solid var(--line)",
-                    }}
-                  >
-                    <div>
-                      <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{name}</p>
-                      <p className="small" style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>{desc}</p>
-                    </div>
-                    <span className="status st-live">{tag}</span>
-                  </div>
+                  "Writers on the provider you pick. The method runs unchanged.",
+                  "A verifier from a different model family. It checks the writers against a different set of blind spots.",
+                  "Agents hold a run token. Your key stays on your account and never reaches an agent.",
+                  "Change the tier and the estimate moves. Economy, Balanced or Frontier, per agent.",
+                ].map((point, i) => (
+                  <li key={i} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "flex-start" }}>
+                    <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--fg)", flexShrink: 0, marginTop: 7 }} />
+                    <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55 }}>{point}</p>
+                  </li>
                 ))}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "var(--sp-16)",
-                    background: "var(--bg)",
-                    borderRadius: "var(--r-8)",
-                    border: "1px dashed var(--line)",
-                  }}
-                >
-                  <p className="body" style={{ color: "var(--fg3)" }}>Another vault?</p>
-                  <a href="/contact" className="btn btn-s" style={{ fontSize: "var(--fs-small)" }}>Ask</a>
+              </ul>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-12)" }}>
+              {providerList.map((p) => (
+                <div key={p.id} style={{ padding: "var(--sp-16) var(--sp-20)", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-card)" }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "var(--sp-8)" }}>
+                    <div style={{ fontWeight: "var(--fw-semibold)", fontSize: 16 }}>{p.name}</div>
+                    <span className="status st-live" style={{ fontSize: 11 }}>{p.tag}</span>
+                  </div>
+                  <div style={{ fontSize: 12, color: "var(--mut)", marginBottom: "var(--sp-6)" }}>{p.description}</div>
+                  <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>{p.note}</p>
                 </div>
+              ))}
+              <div style={{ padding: "var(--sp-14) var(--sp-18)", background: "var(--bg2)", border: "1px solid var(--line2)", borderRadius: "var(--r-card)" }}>
+                <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>Bedrock, Vertex, Azure, xAI and more — ask for it. The requests we count decide what comes next.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Plans ────────────────────────────────────────────────── */}
-      <section className="sec" id="plans">
+      {/* Plans */}
+      <section id="plans" className="sec alt">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-32)" }}>Plans</p>
-          <h2 className="head" style={{ maxWidth: "44ch", marginBottom: "var(--sp-16)" }}>
-            Start alone. Add the team and the vault when you need them.
-          </h2>
-          <p className="body" style={{ color: "var(--fg2)", maxWidth: "56ch", marginBottom: "var(--sp-48)" }}>
-            The free plan is a real one. We talk through prices with you, so
-            you pay for what you use. The model bill goes to your own provider,
-            and the plan shows it before you launch.
-          </p>
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Plans</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+              Start free. Move up when it fits.
+            </h2>
+            <p className="lead" style={{ maxWidth: "56ch" }}>
+              The platform is free for individual advisors and angels. Funds and teams add members, lift the weekly limit and unlock the vault plugin.
+            </p>
+          </div>
           <div className="g3">
-            {planList.map((plan) => (
-              <div
-                key={plan.id}
-                style={{
-                  padding: "var(--sp-32)",
-                  border: "1px solid var(--line)",
-                  borderRadius: "var(--r-12)",
-                  background: plan.id === "free" ? "var(--bg)" : "var(--bg2)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "var(--sp-24)",
-                }}
-              >
+            {planList.map((plan, i) => (
+              <div key={plan.id} className="card" style={{ display: "flex", flexDirection: "column", gap: "var(--sp-20)", ...(i === 0 ? { border: "2px solid var(--fg)" } : {}) }}>
                 <div>
-                  <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{plan.tagline}</p>
-                  <p
-                    style={{
-                      fontFamily: "var(--serif)",
-                      fontSize: "clamp(28px, 3vw, 44px)",
-                      color: "var(--fg)",
-                      marginTop: "var(--sp-8)",
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    {plan.name}
-                  </p>
-                  <p className="small" style={{ color: "var(--fg2)", marginTop: "var(--sp-8)" }}>{plan.limit}</p>
+                  <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: "var(--sp-8)" }}>{plan.tagline}</div>
+                  <div style={{ fontFamily: "var(--serif)", fontSize: 26, fontWeight: "var(--fw-bold)", letterSpacing: "-0.02em", marginBottom: "var(--sp-4)" }}>{plan.name}</div>
+                  {plan.price === null && (
+                    <div style={{ fontFamily: "var(--mono)", fontSize: 13, color: "var(--mut)" }}>Pricing at launch</div>
+                  )}
                 </div>
-                <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "var(--sp-12)" }}>
-                  {plan.features.map((f) => {
-                    const text = typeof f === "string" ? f : (f as { text: string; status: string }).text;
-                    const status = typeof f === "string" ? null : (f as { text: string; status: string }).status;
-                    return (
-                      <li key={text} style={{ display: "flex", gap: "var(--sp-8)", alignItems: "center" }}>
-                        <span style={{ color: "var(--green)" }}>→</span>
-                        <span className="body" style={{ color: "var(--fg2)" }}>{text}</span>
-                        {status && (
-                          <span className={`status ${status === "Next" ? "st-build" : "st-plan"}`}>
-                            {status}
-                          </span>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-                <div style={{ marginTop: "auto" }}>
-                  <a href={plan.ctaHref} className={plan.id === "free" ? "btn btn-p" : "btn btn-s"} style={{ display: "block", textAlign: "center" }}>
-                    {plan.cta}
-                  </a>
+                <div style={{ height: "1px", background: "var(--line2)" }} />
+                <div>
+                  <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: "var(--sp-12)" }}>{plan.limit}</div>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-10)" }}>
+                    {plan.features.map((f, j) => (
+                      <FeatureItem key={j} f={f as PlanFeature} />
+                    ))}
+                  </ul>
                 </div>
+                <a href={plan.id === "free" ? primaryHref : "/book"} className={`btn ${i === 0 ? "btn-p" : "btn-s"}`} style={{ marginTop: "auto" }}>
+                  {plan.id === "free" ? (isOpen ? plan.cta : "Join the waitlist") : plan.cta}
+                </a>
               </div>
             ))}
           </div>
-          <p className="small" style={{ color: "var(--fg3)", marginTop: "var(--sp-24)" }}>
-            Launch limits, which may move before general availability. Prices are agreed with you, not posted.
-          </p>
         </div>
       </section>
 
-      {/* ── Compare ──────────────────────────────────────────────── */}
-      <section className="sec" id="compare" style={{ background: "var(--bg2)" }}>
+      {/* Compare table */}
+      <section id="compare" className="sec">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-32)" }}>Compare</p>
-          <p className="body" style={{ color: "var(--fg2)", marginBottom: "var(--sp-32)" }}>Every limit, side by side.</p>
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Compare</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)" }}>
+              What is in each plan.
+            </h2>
+          </div>
           <div style={{ overflowX: "auto" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "520px" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
               <thead>
-                <tr style={{ borderBottom: "2px solid var(--line)" }}>
-                  <th style={{ textAlign: "left", padding: "var(--sp-12) var(--sp-8)", fontFamily: "var(--mono)", fontSize: "var(--fs-small)" }}>Feature</th>
-                  <th style={{ textAlign: "left", padding: "var(--sp-12) var(--sp-8)", fontFamily: "var(--mono)", fontSize: "var(--fs-small)" }}>Free</th>
-                  <th style={{ textAlign: "left", padding: "var(--sp-12) var(--sp-8)", fontFamily: "var(--mono)", fontSize: "var(--fs-small)" }}>Pro</th>
-                  <th style={{ textAlign: "left", padding: "var(--sp-12) var(--sp-8)", fontFamily: "var(--mono)", fontSize: "var(--fs-small)" }}>Fund</th>
+                <tr>
+                  <th style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", textAlign: "left", padding: "10px 14px", borderBottom: "2px solid var(--line)", width: "50%" }}>Feature</th>
+                  {planList.map((p) => (
+                    <th key={p.id} style={{ fontFamily: "var(--serif)", fontSize: 16, fontWeight: 700, color: "var(--fg)", textAlign: "center", padding: "10px 14px", borderBottom: "2px solid var(--line)" }}>{p.name}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                {COMPARE_ROWS.map(({ label, category, free, pro, fund }) =>
-                  category ? (
-                    <tr key={label}>
-                      <td
-                        colSpan={4}
-                        style={{
-                          padding: "var(--sp-20) var(--sp-8) var(--sp-8)",
-                          fontFamily: "var(--mono)",
-                          fontSize: "var(--fs-tiny)",
-                          color: "var(--fg3)",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.08em",
-                        }}
-                      >
-                        {label}
+                {[
+                  { feature: "Diligences per week", free: "1", pro: "Unlimited", fund: "Unlimited" },
+                  { feature: "Agent model providers", free: "All", pro: "All", fund: "All" },
+                  { feature: "Cost cap per run", free: "✓", pro: "✓", fund: "✓" },
+                  { feature: "Evidence ledger", free: "✓", pro: "✓", fund: "✓" },
+                  { feature: "Hosted vault", free: "✓", pro: "✓", fund: "✓" },
+                  { feature: "Export (Word, PDF, Notion)", free: "✓", pro: "✓", fund: "✓" },
+                  { feature: "Team members", free: "3", pro: "Unlimited", fund: "Unlimited" },
+                  { feature: "Targets archived", free: "10", pro: "Unlimited", fund: "Unlimited" },
+                  { feature: "Obsidian vault plugin", free: "—", pro: "✓", fund: "✓" },
+                  { feature: "Email ingestion", free: "—", pro: "Next", fund: "Next" },
+                  { feature: "Single sign-on", free: "—", pro: "—", fund: "Later" },
+                  { feature: "Europe-only sandboxes", free: "—", pro: "Next", fund: "Later" },
+                  { feature: "Audit log", free: "—", pro: "—", fund: "Later" },
+                  { feature: "Onboarding with us", free: "—", pro: "—", fund: "✓" },
+                ].map((row) => (
+                  <tr key={row.feature}>
+                    <td style={{ padding: "10px 14px", borderBottom: "1px solid var(--line2)", color: "var(--fg2)", fontSize: 13 }}>{row.feature}</td>
+                    {([row.free, row.pro, row.fund] as const).map((v, i) => (
+                      <td key={i} style={{ padding: "10px 14px", borderBottom: "1px solid var(--line2)", textAlign: "center", fontFamily: v === "✓" || v === "—" ? "var(--mono)" : undefined, fontSize: v === "✓" ? 16 : 13, color: v === "✓" ? "var(--fg)" : v === "—" ? "var(--line)" : "var(--fg2)" }}>
+                        {v === "Next" ? <span className="status st-build" style={{ fontSize: 11 }}>Next</span> : v === "Later" ? <span className="status st-plan" style={{ fontSize: 11 }}>Later</span> : v}
                       </td>
-                    </tr>
-                  ) : (
-                    <tr key={label} style={{ borderBottom: "1px solid var(--line)" }}>
-                      <td style={{ padding: "var(--sp-10) var(--sp-8)", color: "var(--fg2)" }}>{label}</td>
-                      <td style={{ padding: "var(--sp-10) var(--sp-8)" }}>{free}</td>
-                      <td style={{ padding: "var(--sp-10) var(--sp-8)" }}>{pro}</td>
-                      <td style={{ padding: "var(--sp-10) var(--sp-8)" }}>{fund}</td>
-                    </tr>
-                  )
-                )}
+                    ))}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </section>
 
-      {/* ── Roadmap ──────────────────────────────────────────────── */}
-      <section className="sec" id="roadmap">
+      {/* Roadmap */}
+      <section id="roadmap" className="sec alt">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Roadmap</p>
-          <p className="body" style={{ color: "var(--fg2)", maxWidth: "60ch", marginBottom: "var(--sp-48)" }}>
-            What is there at launch, and what comes next. We would rather tell
-            you what is not built yet than let you find out in a security review.
-            This list is the one we work from.
-          </p>
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Roadmap</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+              What is built and what is next.
+            </h2>
+            <p className="lead" style={{ maxWidth: "56ch" }}>
+              At launch means it is ready on day one. Next means it is in progress. Later means it is planned but not started.
+            </p>
+          </div>
           <div className="g3">
-            {ROADMAP.map(({ phase, items }) => (
-              <div key={phase}>
-                <div style={{ display: "flex", alignItems: "center", gap: "var(--sp-8)", marginBottom: "var(--sp-24)" }}>
-                  <span
-                    className={`status ${
-                      phase === "At launch" ? "st-live" : phase === "Next" ? "st-build" : "st-plan"
-                    }`}
-                  >
-                    {phase}
-                  </span>
-                </div>
-                <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "var(--sp-12)" }}>
-                  {items.map((item) => (
-                    <li key={item} style={{ display: "flex", gap: "var(--sp-10)", alignItems: "start" }}>
-                      <span style={{ color: "var(--fg3)", flexShrink: 0 }}>·</span>
-                      <p className="body" style={{ color: "var(--fg2)", margin: 0 }}>{item}</p>
+            {[
+              {
+                chip: "At launch",
+                chipClass: "st-live",
+                items: [
+                  "Investment route with all five stages",
+                  "Claude, OpenAI, Mistral and Gemini",
+                  "Cost cap and tier picker",
+                  "Evidence ledger and grade system",
+                  "Hosted vault, encrypted in your browser",
+                  "Gates and partial-run resume",
+                  "Export to Word, PDF, Google Doc and Notion",
+                ],
+              },
+              {
+                chip: "Next",
+                chipClass: "st-build",
+                items: [
+                  "Acquisition route",
+                  "LP route",
+                  "Email ingestion",
+                  "Europe-hosted sandboxes",
+                  "OpenAI OAuth connection",
+                  "Gemini OAuth connection",
+                  "Obsidian vault plugin",
+                  "Delta run from new evidence",
+                ],
+              },
+              {
+                chip: "Later",
+                chipClass: "st-plan",
+                items: [
+                  "Single sign-on",
+                  "Europe-only mode",
+                  "Audit log",
+                  "Data-room connectors (Datasite, IntraLinks, Dealroom)",
+                  "Hire route and partner route",
+                  "Vercel Bedrock, Azure and Vertex connectors",
+                  "MCP interface for your own agents",
+                ],
+              },
+            ].map((col) => (
+              <div key={col.chip} className="card">
+                <span className={`status ${col.chipClass}`} style={{ fontSize: 12, marginBottom: "var(--sp-16)", display: "inline-block" }}>{col.chip}</span>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-10)" }}>
+                  {col.items.map((item) => (
+                    <li key={item} style={{ display: "flex", gap: "var(--sp-10)", alignItems: "flex-start" }}>
+                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--fg)", flexShrink: 0, marginTop: 7 }} />
+                      <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.45 }}>{item}</p>
                     </li>
                   ))}
                 </ul>
@@ -645,58 +433,76 @@ export default async function PlatformPage() {
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="sec" id="faq" style={{ background: "var(--bg2)" }}>
+      {/* FAQ */}
+      <section id="faq" className="sec">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-32)" }}>Questions</p>
-          <p className="body" style={{ color: "var(--fg2)", marginBottom: "var(--sp-48)" }}>
-            Before you sign in.
-          </p>
-          <div style={{ maxWidth: "700px" }}>
-            {FAQ.map(({ q, a }) => (
-              <details
-                key={q}
-                style={{ borderTop: "1px solid var(--line)", paddingBlock: "var(--sp-20)" }}
-              >
-                <summary
-                  style={{
-                    cursor: "pointer",
-                    listStyle: "none",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: "var(--sp-16)",
-                    fontWeight: "var(--fw-semi)",
-                    color: "var(--fg)",
-                  }}
-                >
-                  {q}
-                  <span style={{ flexShrink: 0, color: "var(--fg3)" }}>+</span>
-                </summary>
-                <p className="body" style={{ color: "var(--fg2)", marginTop: "var(--sp-16)", maxWidth: "56ch" }}>{a}</p>
-              </details>
-            ))}
-            <div style={{ borderTop: "1px solid var(--line)" }} />
+          <div style={{ maxWidth: "var(--wrap-n)", margin: "0 auto" }}>
+            <div style={{ marginBottom: "var(--head-mb)" }}>
+              <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>FAQ</p>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)" }}>
+                Common questions.
+              </h2>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {[
+                {
+                  q: "Does the platform hold my model key?",
+                  a: "No. You approve access on your provider's own screen where the provider offers an OAuth connection. For providers that do not yet offer one (OpenAI, Gemini at launch), you paste a key. It is encrypted at rest, never visible to agents, and you delete it with one click. Your key stays with your provider."
+                },
+                {
+                  q: "Who pays for the model usage?",
+                  a: "You do, at your provider's own rates. The platform bills you a subscription. The model usage lands in your provider account. The plan shows the estimated cost before the run starts."
+                },
+                {
+                  q: "Can I cap what a run costs?",
+                  a: "Yes. You set a cap when you approve the plan. If a run would cross it, it stops and delivers what exists, with a clear list of what is missing and how much the remainder would cost."
+                },
+                {
+                  q: "Is the vault encrypted?",
+                  a: "Yes. The vault is hosted by us and encrypted in your browser. The key comes from your passphrase and stays with you. We store only ciphertext. Agents cannot read a vault note until you explicitly share it for a run."
+                },
+                {
+                  q: "What happens to the data I upload?",
+                  a: "Files you upload are stored in the evidence ledger for the target you created them for. They are not sent to a model until a run starts. The run mounts them read-only. They are never used to train a model."
+                },
+                {
+                  q: "Can I use my own model?",
+                  a: "If it is accessible via the Claude, OpenAI, Mistral or Gemini API, yes. Bedrock, Vertex, Azure and xAI are on the roadmap. Tell us what you want."
+                },
+                {
+                  q: "Is the method open source?",
+                  a: "Yes, MIT-licensed. The skills and templates are in a public GitHub repository. You can read them, fork them, run them in your own tools and contribute back."
+                },
+                {
+                  q: "Can I run a diligence without an agent?",
+                  a: "Yes. Download the Obsidian vault from the method page and run it yourself. The same templates and evidence rules, without agents."
+                },
+              ].map(({ q, a }) => (
+                <details key={q} style={{ borderBottom: "1px solid var(--line2)", paddingBlock: "var(--sp-20)" }}>
+                  <summary style={{ fontWeight: "var(--fw-semibold)", fontSize: 16, cursor: "pointer", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "var(--sp-20)" }}>
+                    <span>{q}</span>
+                    <span style={{ fontFamily: "var(--mono)", fontSize: 20, color: "var(--mut)", flexShrink: 0, lineHeight: 1 }}>+</span>
+                  </summary>
+                  <p className="small" style={{ margin: 0, marginTop: "var(--sp-14)", color: "var(--fg2)", lineHeight: 1.6, maxWidth: "60ch" }}>{a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── CTA band ─────────────────────────────────────────────── */}
+      {/* CTA band */}
       <section className="band">
         <div className="wrap" style={{ textAlign: "center" }}>
-          <h2
-            style={{
-              fontFamily: "var(--serif)",
-              fontSize: "clamp(24px, 3vw, 48px)",
-              color: "var(--band-fg)",
-              marginBottom: "var(--sp-24)",
-            }}
-          >
-            Read a real memo. Then decide.
+          <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", color: "var(--bg)", marginBottom: "var(--sp-24)" }}>
+            See your first plan in minutes.
           </h2>
+          <p style={{ fontSize: "var(--fs-lead)", color: "var(--bg)", opacity: 0.75, marginBottom: "var(--sp-40)", maxWidth: "44ch", marginInline: "auto" }}>
+            Name a company. The coordinator drafts the plan and the price. You decide whether to run it.
+          </p>
           <div style={{ display: "flex", gap: "var(--gap-s)", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={primaryHref} className="btn btn-p">{primaryLabel}</a>
-            <a href="/contact" className="btn btn-s">Book time with us</a>
+            <a href={primaryHref} className="btn btn-p">{isOpen ? "Start free" : "Join the waitlist"}</a>
+            <a href="/book" className="btn btn-s">Book time with us</a>
           </div>
         </div>
       </section>

@@ -4,201 +4,177 @@ import { repoPublic, platformOpen } from "@/lib/flags";
 export const metadata = {
   title: "The method — TheDiligence",
   description:
-    "The open diligence method. 11 skills, one per question an investor has to answer. Every claim graded, every source cited.",
+    "Five stages, eleven specialist agents, one evidence standard. Open source under MIT.",
 };
 
 const STAGES = [
   {
-    num: "01",
-    name: "Market",
-    q: "How big is the market, how fast does it grow, who plays, and what are the five trends?",
-    gives: "Sizing, value chain, players and five trends — the context every other section builds on.",
-    feeds: "Company, Product",
+    n: "01",
+    id: "market",
+    title: "Market",
+    q: "How big is the market, and is it moving?",
+    body: "A market deep dive across sizing, value chain, players, M&A, segments and five structural trends. The coordinator runs it first, as soon as you name a target.",
+    agents: ["marketdd"],
   },
   {
-    num: "02",
-    name: "Company",
-    q: "Is this a good company? Financials, strategy, ownership, founders?",
-    gives: "A two-page memo with exhibits: financials or proxy signals, SWOT weighted toward Strengths and Weaknesses, ownership, org chart.",
-    feeds: "Product, Technology, First 100 days",
+    n: "02",
+    id: "company",
+    title: "Company",
+    q: "Is this a good company?",
+    body: "Financials or proxy signals, strategy, ownership, founders and an evidence-backed SWOT weighted toward Strengths and Weaknesses. The org chart identifies the digital leader.",
+    agents: ["duediligence", "companypeople", "targetpeople"],
   },
   {
-    num: "03",
-    name: "Product",
-    q: "Does the product compound, and what breaks at 10x?",
-    gives: "Verdict — Invest, Conditional or Pass — with a weighted scorecard, market pyramid, positioning map and red flags.",
-    feeds: "Technology, First 100 days",
+    n: "03",
+    id: "product",
+    title: "Product",
+    q: "Does the product compound?",
+    body: "Retention triangles, NRR/GRR bridge, a persona panel, customer and expert interviews, a competitive positioning map and a red-flag appendix. Verdict: Invest, Conditional or Pass.",
+    agents: ["cohortlab", "personapanel", "productdd"],
   },
   {
-    num: "04",
-    name: "Technology",
-    q: "Can the technology carry what the product story promises?",
-    gives: "Scorecard across APIs and integrations, agent readiness, architecture, SLA, security.",
-    feeds: "First 100 days",
+    n: "04",
+    id: "technology",
+    title: "Technology",
+    q: "Does the technology back the claims?",
+    body: "Six axes: APIs and integrations, MCP readiness, real integration time, architecture and dependencies, SLA and latency, security and compliance. Same verdict scale as the product pass.",
+    agents: ["technicaldd"],
   },
   {
-    num: "05",
-    name: "First 100 days",
-    q: "What would we do in the first 100 days to make the investment thesis true?",
-    gives: "Prioritised levers with sized impact and effort, the 100-day plan, the metrics that prove it worked, and the board asks.",
-    feeds: null,
+    n: "05",
+    id: "plan",
+    title: "100-day plan",
+    q: "What do we fix first?",
+    body: "Sized levers with impact and effort, the 100-day plan, the metrics that prove it worked, and the board asks. Turns red flags into a board pack.",
+    agents: ["valuecreation"],
   },
 ];
 
-const FEEDER_SKILLS = [
-  {
-    id: "cohortlab",
-    name: "Cohort analysis",
-    line: "product",
-    q: "Does retention flatten, and where?",
-    run: "/cohortlab revenue_export.csv",
-    out: "Retention triangles, NRR and GRR bridge",
-  },
-  {
-    id: "personapanel",
-    name: "User panel",
-    line: "product",
-    q: "How does a real user experience the product?",
-    run: '/personapanel "Northwind"',
-    out: "Discovery, purchase and usage evaluation by persona",
-  },
-  {
-    id: "interviewlog",
-    name: "Interview log",
-    line: "shared",
-    q: "What do the people who have used or competed with it say?",
-    run: "/interviewlog transcript.vtt",
-    out: "Clean source log with citable quotes",
-  },
-  {
-    id: "companypeople",
-    name: "Company people",
-    line: "company",
-    q: "Who really decides, and how do I reach them?",
-    run: '/companypeople "Northwind"',
-    out: "People map, org chart, email with confidence score",
-  },
-  {
-    id: "targetpeople",
-    name: "Target people",
-    line: "company",
-    q: "How do I get a meeting with these people?",
-    run: '/targetpeople "names" --angle "why"',
-    out: "Routes ranked by probability, timed message sequence",
-  },
-  {
-    id: "valuecreation",
-    name: "Value creation",
-    line: "product",
-    q: "What would we do in the first 100 days to make the thesis true?",
-    run: '/valuecreation "Northwind DD pack"',
-    out: "Levers, 100-day plan, metrics, board asks",
-  },
-];
+function Grade({ g, filled }: { g: "A" | "B" | "C"; filled?: boolean }) {
+  return (
+    <span className={`gr${g === "A" && filled ? " gr-a" : ""}${g === "C" ? " gr-c" : ""}`} style={{ width: 20, height: 20, fontSize: 11, flexShrink: 0 }}>{g}</span>
+  );
+}
 
-const LINE_COLORS: Record<string, string> = {
-  company: "var(--blue)",
-  product: "var(--orange)",
-  tech: "var(--green)",
-  shared: "var(--shared)",
-};
+function MemoIll() {
+  const CLAIMS = [
+    { g: "A" as const, id: "P-01", text: "Retention flattens after the ninth month.", conf: "High", src: "revenue export" },
+    { g: "B" as const, id: "I-04", text: "The uptime guarantee is claimed but missing from the customer contract.", conf: "Medium", src: "call notes" },
+    { g: "C" as const, id: "S-03", text: "Demand is moving from point tools to platforms in the mid-market.", conf: "Low", src: "analyst estimate" },
+  ];
+  return (
+    <div style={{ background: "var(--surf)", border: "1px solid var(--line)", borderRadius: "var(--r-win)", boxShadow: "var(--sh-win)", overflow: "hidden", fontFamily: "var(--sans)", fontSize: 13, userSelect: "none" }} aria-hidden="true">
+      <div style={{ height: 44, background: "var(--surf2)", borderBottom: "1px solid var(--line)", display: "flex", alignItems: "center", padding: "0 20px", gap: 8 }}>
+        <span style={{ fontWeight: 700, fontSize: 13, color: "var(--fg)", marginRight: "auto" }}>Northwind · Memo</span>
+        <span className="status st-live" style={{ fontSize: 11 }}>Delivered</span>
+      </div>
+      <div style={{ padding: "18px 22px" }}>
+        <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 10 }}>Verdict</div>
+        <div style={{ fontWeight: 700, fontSize: 18, color: "var(--fg)", marginBottom: 4 }}>Conditional</div>
+        <div style={{ fontSize: 13, color: "var(--fg2)", marginBottom: 20 }}>Invest if onboarding is fixed.</div>
+        <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 10 }}>Key claims · section summary</div>
+        {CLAIMS.map((c) => (
+          <div key={c.id} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: "8px 0", borderBottom: "1px solid var(--line2)" }}>
+            <Grade g={c.g} filled={c.g === "A"} />
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: "var(--mono)", fontSize: 9, color: "var(--fg2)", letterSpacing: "0.08em", marginBottom: 3 }}>{c.conf} confidence</div>
+              <div style={{ fontSize: 12, color: "var(--fg)", lineHeight: 1.4 }}>{c.text}</div>
+            </div>
+            <div style={{ display: "flex", gap: 5, alignItems: "center", flexShrink: 0 }}>
+              <span className="src">{c.id}</span>
+              <span style={{ fontSize: 10, color: "var(--mut)" }}>{c.src}</span>
+            </div>
+          </div>
+        ))}
+        <div style={{ marginTop: 12, padding: "10px 12px", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-8)" }}>
+          <div style={{ fontFamily: "var(--mono)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 5 }}>Confidence formula</div>
+          <div style={{ fontFamily: "var(--mono)", fontSize: 12, color: "var(--fg)" }}>confidence = (A + B/2) / (A + B + C)</div>
+          <div style={{ fontFamily: "var(--mono)", fontSize: 10, color: "var(--mut)", marginTop: 3 }}>High ≥ 0.70 · Medium ≥ 0.45 · Low below that</div>
+        </div>
+        <p style={{ fontSize: 10, color: "var(--mut)", fontStyle: "italic", marginTop: 10 }}>Illustrative composite. Not a real company.</p>
+      </div>
+    </div>
+  );
+}
 
 export default async function MethodPage() {
-  const [isRepoPublic, isOpen] = await Promise.all([
-    repoPublic(),
-    platformOpen(),
-  ]);
+  const isRepoPublic = await repoPublic();
+  const isOpen = await platformOpen();
+  const primaryHref = isOpen ? "/app" : "/book";
 
-  const primaryHref = isOpen ? "/app" : "/contact";
-  const primaryLabel = isOpen ? "Start free" : "Request early access";
+  const skillRows = stations.map((s) => ({
+    name: s.id,
+    question: s.sq,
+    takes: s.takes,
+    produces: s.produces,
+    out: s.out,
+    isNew: s.isNew,
+  }));
 
   return (
     <main id="main-content">
-      {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="hero sec">
-        <div className="wrap stack" style={{ maxWidth: "var(--measure-hero)" }}>
-          <p className="eyebrow">The method</p>
-          <h1 className="head" style={{ fontFamily: "var(--serif)", fontSize: "clamp(40px, 5.5vw, 80px)", lineHeight: 1.05 }}>
-            The method is open.
+      {/* Hero */}
+      <section className="hero sec" style={{ paddingBottom: "var(--sp-64)" }}>
+        <div className="wrap" style={{ maxWidth: "var(--head-max)" }}>
+          <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>The method</p>
+          <h1 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h1-page)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h1)", lineHeight: "var(--lh-h1)", marginBottom: "var(--sp-24)" }}>
+            Five stages. One evidence standard.
           </h1>
-          <p className="lead" style={{ maxWidth: "56ch" }}>
-            Read it, run it, challenge it. All our expertise, written into
-            open methods. 11 skills, one per question an investor has to answer,
-            each a document you can read in full before you trust it.
+          <p className="lead" style={{ maxWidth: "60ch", marginBottom: "var(--sp-40)" }}>
+            A grade and a source on every claim. A confidence per section computed from the mix. A verdict that rests on evidence you can argue with, not prose you have to trust.
           </p>
-          <div style={{ display: "flex", gap: "var(--gap-s)", flexWrap: "wrap" }}>
-            {isRepoPublic ? (
-              <a href="https://github.com/thediligence/skills" className="btn btn-p" rel="noopener noreferrer">
-                Get the method
-              </a>
-            ) : (
-              <a href="/contact" className="btn btn-p">Join early access</a>
-            )}
-            <a href={primaryHref} className="btn btn-s">Run it on the platform</a>
+          <div style={{ display: "flex", gap: "var(--gap-s)", flexWrap: "wrap", marginBottom: "var(--sp-40)" }}>
+            <a href="#get" className="btn btn-p">Get the method</a>
+            <a href={primaryHref} className="btn btn-s">Run it with agents</a>
           </div>
-          <div style={{ display: "flex", gap: "var(--gap-m)", flexWrap: "wrap" }}>
-            {isRepoPublic && (
-              <>
-                <span className="body" style={{ color: "var(--fg2)" }}>Open source</span>
-                <span className="body" style={{ color: "var(--fg2)" }}>Transparent</span>
-              </>
-            )}
-            <span className="body" style={{ color: "var(--fg2)" }}>Free, and it stays free</span>
+          <div style={{ display: "flex", gap: "var(--sp-32)", flexWrap: "wrap" }}>
+            <div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "var(--fs-num)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-num)", color: "var(--fg)", lineHeight: 1 }}>5</div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--mut)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 4 }}>Stages</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "var(--fs-num)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-num)", color: "var(--fg)", lineHeight: 1 }}>11</div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--mut)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 4 }}>Skills</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "var(--fs-num)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-num)", color: "var(--fg)", lineHeight: 1 }}>3</div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--mut)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 4 }}>Grades</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "var(--fs-num)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-num)", color: "var(--fg)", lineHeight: 1 }}>MIT</div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: "11px", color: "var(--mut)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 4 }}>Licence</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Five stages ─────────────────────────────────────────── */}
-      <section className="sec" id="stages">
+      {/* Five stages */}
+      <section className="sec alt">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-32)" }}>Five stages</p>
-          <p className="body" style={{ color: "var(--fg2)", maxWidth: "56ch", marginBottom: "var(--sp-48)" }}>
-            Every claim graded. The main trunk of the method has 5 stages,
-            from the market to the first 100 days. Supporting skills feed them
-            with cohorts, interviews and a user panel.
-          </p>
-          <div className="stack">
-            {STAGES.map(({ num, name, q, gives, feeds }) => (
-              <div
-                key={num}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "3ch 1fr",
-                  gap: "var(--gap-m)",
-                  paddingBlock: "var(--sp-32)",
-                  borderTop: "1px solid var(--line)",
-                }}
-              >
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Five stages</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+              The order exists for a reason.
+            </h2>
+            <p className="lead" style={{ maxWidth: "58ch" }}>
+              Market context before product verdict. Product verdict before technology check. Technology findings before the 100-day plan. Each stage feeds the next, and each one writes down what it took as evidence.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-16)" }}>
+            {STAGES.map((stage) => (
+              <div key={stage.n} style={{ display: "grid", gridTemplateColumns: "3fr 4fr", gap: "var(--gap-split)", padding: "var(--sp-32) var(--sp-40)", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-card)", alignItems: "start" }}>
                 <div>
-                  <span
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: "var(--fs-small)",
-                      color: "var(--fg3)",
-                    }}
-                  >
-                    {num}
-                  </span>
+                  <div style={{ display: "flex", alignItems: "center", gap: "var(--sp-16)", marginBottom: "var(--sp-16)" }}>
+                    <span style={{ fontFamily: "var(--mono)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)" }}>{stage.n}</span>
+                    <span style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: 14, color: "var(--fg2)" }}>{stage.q}</span>
+                  </div>
+                  <h3 style={{ fontSize: "20px", fontWeight: "var(--fw-bold)", letterSpacing: "-0.02em", marginBottom: "var(--sp-12)" }}>{stage.title}</h3>
+                  <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.6, maxWidth: "44ch" }}>{stage.body}</p>
                 </div>
-                <div className="stack" style={{ gap: "var(--sp-8)" }}>
-                  <p
-                    style={{
-                      fontFamily: "var(--serif)",
-                      fontSize: "clamp(22px, 2.5vw, 36px)",
-                      color: "var(--fg)",
-                      fontWeight: 400,
-                      margin: 0,
-                    }}
-                  >
-                    {name}
-                  </p>
-                  <p className="body" style={{ color: "var(--fg2)" }}>{q}</p>
-                  <p className="body" style={{ color: "var(--fg2)" }}>{gives}</p>
-                  {feeds && (
-                    <p className="small" style={{ color: "var(--fg3)" }}>
-                      Feeds: {feeds}
-                    </p>
-                  )}
+                <div style={{ display: "flex", gap: "var(--sp-10)", flexWrap: "wrap" }}>
+                  {stage.agents.map((a) => (
+                    <span key={a} style={{ padding: "4px 10px", background: "var(--surf)", border: "1px solid var(--line)", borderRadius: "var(--r-pill)", fontFamily: "var(--mono)", fontSize: 12, color: "var(--fg2)" }}>/{a}</span>
+                  ))}
                 </div>
               </div>
             ))}
@@ -206,229 +182,201 @@ export default async function MethodPage() {
         </div>
       </section>
 
-      {/* ── Evidence rules ──────────────────────────────────────── */}
-      <section className="sec" id="evidence-rules" style={{ background: "var(--bg2)" }}>
+      {/* Evidence rules */}
+      <section id="evidence" className="sec">
         <div className="wrap">
-          <div className="g2" style={{ gap: "var(--gap-xl)", alignItems: "start" }}>
-            <div className="stack">
-              <p className="eyebrow">Evidence rules</p>
-              <h2 className="head">
-                Three rules make a memo defensible.
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "var(--gap-split)", alignItems: "start" }}>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Evidence rules</p>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+                A grade and a source on every claim.
               </h2>
-              <p className="body" style={{ color: "var(--fg2)" }}>
-                They are written into the method, and the platform enforces
-                them in code.
+              <p className="lead" style={{ maxWidth: "44ch", marginBottom: "var(--sp-32)" }}>
+                Claims without sources are not allowed. Estimates are allowed, and they say so. Confidence is computed, not stated.
               </p>
-            </div>
-            <div className="stack" style={{ gap: "var(--gap-m)" }}>
-              {[
-                {
-                  h: "Every claim cites a source id and carries a grade",
-                  b: "A claim with no source is rejected, unless it is graded C and says so.",
-                },
-                {
-                  h: "What cannot be checked goes to the appendix",
-                  b: "Data still needed, not into the argument.",
-                },
-                {
-                  h: "Confidence is computed, not asserted",
-                  b: "A section's confidence comes from the mix of grades behind it. High at 0.70 or above, Medium at 0.45.",
-                },
-              ].map(({ h, b }) => (
-                <div key={h} className="card">
-                  <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-8)" }}>{h}</p>
-                  <p className="body" style={{ color: "var(--fg2)" }}>{b}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Grade and source reference ──────────────────────────── */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="g3">
-            <div className="stack">
-              <p className="eyebrow">Grades</p>
-              <div className="stack" style={{ gap: "var(--sp-16)" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-20)", marginBottom: "var(--sp-40)" }}>
                 {[
-                  { grade: "A", label: "Verified", desc: "In a primary source: a filing, a contract, a data export." },
-                  { grade: "B", label: "Reported", desc: "By a credible source: a call, a trade report." },
-                  { grade: "C", label: "Estimated", desc: "Flagged as an estimate, and never presented as fact." },
-                ].map(({ grade, label, desc }) => (
-                  <div key={grade} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "start" }}>
-                    <span className={`grade grade-${grade.toLowerCase()}`} style={{ flexShrink: 0 }}>{grade}</span>
+                  {
+                    g: "A" as const,
+                    filled: true,
+                    label: "Verified",
+                    desc: "In a filing, a contract or a data export. The source exists and we have it. Chip filled, solid border.",
+                  },
+                  {
+                    g: "B" as const,
+                    label: "Reported",
+                    desc: "Reported by a credible source. A press article, an analyst report, a reference call. Chip outline, solid border.",
+                  },
+                  {
+                    g: "C" as const,
+                    label: "Estimated",
+                    desc: "An estimate, and flagged as one. A model output, a number extrapolated from proxies. Chip outline, dashed border.",
+                  },
+                ].map(({ g, filled, label, desc }) => (
+                  <div key={g} style={{ display: "flex", gap: "var(--sp-14)", alignItems: "flex-start" }}>
+                    <Grade g={g} filled={filled} />
                     <div>
-                      <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{label}</p>
-                      <p className="body" style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>{desc}</p>
+                      <div style={{ fontWeight: "var(--fw-semibold)", fontSize: 15, marginBottom: "var(--sp-4)" }}>{label}</div>
+                      <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>{desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="stack">
-              <p className="eyebrow">Source ids</p>
-              <div className="stack" style={{ gap: "var(--sp-16)" }}>
-                {[
-                  { prefix: "S-", label: "Web and public sources" },
-                  { prefix: "P-", label: "Provided by the target" },
-                  { prefix: "I-", label: "Interviews" },
-                ].map(({ prefix, label }) => (
-                  <div key={prefix} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "center" }}>
-                    <span className="source-id">{prefix}01</span>
-                    <p className="body" style={{ color: "var(--fg2)" }}>{label}</p>
-                  </div>
-                ))}
+              <div style={{ padding: "var(--sp-16) var(--sp-20)", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-8)" }}>
+                <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>Confidence formula</div>
+                <div style={{ fontFamily: "var(--mono)", fontSize: 14, fontWeight: 600, color: "var(--fg)", marginBottom: 4 }}>confidence = (A + B/2) / (A + B + C)</div>
+                <div style={{ fontSize: 12, color: "var(--fg2)" }}>High ≥ 0.70 · Medium ≥ 0.45 · Low below 0.45</div>
+                <div style={{ fontSize: 12, color: "var(--mut)", marginTop: 6, lineHeight: 1.5 }}>A section with four A claims, three B claims and one C reads: (4 + 1.5) / 8 = 0.69 · Medium.</div>
               </div>
             </div>
-            <div className="stack">
-              <p className="eyebrow">Confidence</p>
-              <p className="body" style={{ color: "var(--fg2)" }}>
-                Computed as (A + ½B) / (A + B + C).
-              </p>
-              <div className="stack" style={{ gap: "var(--sp-12)" }}>
-                {[
-                  { label: "High", threshold: "0.70 and above" },
-                  { label: "Medium", threshold: "0.45 and above" },
-                  { label: "Low", threshold: "Below 0.45" },
-                ].map(({ label, threshold }) => (
-                  <div key={label} style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--line)", paddingBottom: "var(--sp-8)" }}>
-                    <span className="body" style={{ fontWeight: "var(--fw-semi)" }}>{label}</span>
-                    <span className="body" style={{ color: "var(--fg2)", fontFamily: "var(--mono)", fontSize: "var(--fs-small)" }}>{threshold}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <MemoIll />
           </div>
         </div>
       </section>
 
-      {/* ── The 11 skills ───────────────────────────────────────── */}
-      <section className="sec" id="skills" style={{ background: "var(--bg2)" }}>
+      {/* Source IDs */}
+      <section className="sec alt">
         <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>The 11 skills</p>
-          <p className="body" style={{ color: "var(--fg2)", maxWidth: "56ch", marginBottom: "var(--sp-48)" }}>
-            One question each. One document out. Each skill asks one question,
-            takes a defined input and produces a defined output. The agents run
-            them as written.
-          </p>
-          <div className="stack">
-            {stations.map((station) => (
-              <div
-                key={station.id}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "var(--gap-m)",
-                  paddingBlock: "var(--sp-24)",
-                  borderTop: "1px solid var(--line)",
-                  alignItems: "start",
-                }}
-              >
-                <div style={{ display: "flex", gap: "var(--sp-12)", alignItems: "center", flexWrap: "wrap" }}>
-                  <span
-                    style={{
-                      width: 10,
-                      height: 10,
-                      borderRadius: "50%",
-                      background: LINE_COLORS[station.line] ?? "var(--fg3)",
-                      flexShrink: 0,
-                    }}
-                  />
-                  <div>
-                    <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{station.sq}</p>
-                    <p className="small" style={{ color: "var(--fg3)", marginTop: "var(--sp-4)" }}>
-                      Takes: {station.takes}
-                    </p>
-                  </div>
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Source IDs</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+              Every claim points at a row in the ledger.
+            </h2>
+            <p className="lead" style={{ maxWidth: "62ch", marginBottom: "var(--sp-40)" }}>
+              Sources are numbered in the evidence ledger. A claim cites the row. Click the source ID to open the original document. No source, no claim.
+            </p>
+          </div>
+          <div className="g4">
+            {[
+              { prefix: "P-", range: "P-01 – P-nn", label: "Public", desc: "Any source the agent fetched: a filing, a website, a press article, an analyst report." },
+              { prefix: "S-", range: "S-01 – S-nn", label: "Structured", desc: "A file in the evidence ledger: a revenue export, a cap table, a contract." },
+              { prefix: "I-", range: "I-01 – I-nn", label: "Interview", desc: "A call. Each call is one entry in the interviewlog, with a verbatim quote per claim it touches." },
+              { prefix: "F-", range: "F-01 – F-nn", label: "Fund-internal", desc: "A note in your vault that you shared for this run." },
+            ].map((cls) => (
+              <div key={cls.prefix} className="card">
+                <div style={{ display: "flex", alignItems: "center", gap: "var(--sp-10)", marginBottom: "var(--sp-12)" }}>
+                  <span className="src" style={{ fontSize: 12 }}>{cls.range.split(" ")[0]}</span>
+                  <span style={{ fontFamily: "var(--mono)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--mut)" }}>{cls.label}</span>
                 </div>
-                <div>
-                  <p className="small" style={{ color: "var(--fg2)", marginBottom: "var(--sp-4)" }}>
-                    {station.out}
-                  </p>
-                  <code
-                    style={{
-                      fontFamily: "var(--mono)",
-                      fontSize: "var(--fs-tiny)",
-                      color: "var(--blue)",
-                      background: "var(--bg)",
-                      padding: "var(--sp-2) var(--sp-8)",
-                      borderRadius: "var(--r-4)",
-                    }}
-                  >
-                    {station.run}
-                  </code>
-                </div>
+                <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55 }}>{cls.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Repository block (flag-gated) ────────────────────────── */}
-      {isRepoPublic && (
-        <section className="sec" id="get-the-method">
-          <div className="wrap">
-            <div className="stack" style={{ maxWidth: "60ch" }}>
-              <p className="eyebrow">Get the method</p>
-              <h2 className="head">Install it in your own assistant.</h2>
-              <p className="body" style={{ color: "var(--fg2)" }}>
-                The skills are plain documents. Add them to the assistant you
-                already use and run them on your own deals, with your own model.
-                Nothing to sign up for.
-              </p>
-              <div className="stack" style={{ gap: "var(--sp-24)" }}>
-                {[
-                  {
-                    n: "1",
-                    h: "Download the skills",
-                    b: "11 folders, one document each, with the scripts some of them use to build files.",
-                  },
-                  {
-                    n: "2",
-                    h: "Add them to your assistant",
-                    b: "Point your assistant at the folder. Nothing leaves your machine except your own calls to your own model.",
-                  },
-                  {
-                    n: "3",
-                    h: "Run one",
-                    b: 'Start with /duediligence "Company". Open the memo, and follow any claim to its source.',
-                  },
-                ].map(({ n, h, b }) => (
-                  <div key={n} style={{ display: "grid", gridTemplateColumns: "2ch 1fr", gap: "var(--sp-16)" }}>
-                    <span style={{ fontFamily: "var(--mono)", fontSize: "var(--fs-small)", color: "var(--fg3)", paddingTop: "0.1em" }}>{n}</span>
-                    <div>
-                      <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{h}</p>
-                      <p className="body" style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>{b}</p>
-                    </div>
-                  </div>
+      {/* 11 skills table */}
+      <section id="skills" className="sec">
+        <div className="wrap">
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Eleven skills</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+              One skill per question.
+            </h2>
+            <p className="lead" style={{ maxWidth: "60ch" }}>
+              Each skill is an agent prompt and a document template. They are individually runnable and composable. The coordinator chains them in the right order.
+            </p>
+          </div>
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
+              <thead>
+                <tr>
+                  {["Skill", "Question", "Takes", "Produces", "Output"].map((h) => (
+                    <th key={h} style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", textAlign: "left", padding: "10px 14px", borderBottom: "2px solid var(--line)", whiteSpace: "nowrap" }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {skillRows.map((row) => (
+                  <tr key={row.name}>
+                    <td style={{ padding: "10px 14px", borderBottom: "1px solid var(--line2)", fontFamily: "var(--mono)", fontSize: 12, color: "var(--fg)", whiteSpace: "nowrap", verticalAlign: "top" }}>
+                      /{row.name}
+                      {row.isNew && <span style={{ marginLeft: 6, padding: "1px 5px", background: "var(--blue-t-bg, #eff6ff)", color: "var(--blue-t, #2563eb)", borderRadius: 3, fontSize: 9, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" }}>New</span>}
+                    </td>
+                    <td style={{ padding: "10px 14px", borderBottom: "1px solid var(--line2)", color: "var(--fg2)", maxWidth: 240, lineHeight: 1.4, verticalAlign: "top" }}>{row.question}</td>
+                    <td style={{ padding: "10px 14px", borderBottom: "1px solid var(--line2)", color: "var(--fg2)", maxWidth: 200, lineHeight: 1.4, fontSize: 12, verticalAlign: "top" }}>{row.takes}</td>
+                    <td style={{ padding: "10px 14px", borderBottom: "1px solid var(--line2)", color: "var(--fg2)", maxWidth: 280, lineHeight: 1.4, fontSize: 12, verticalAlign: "top" }}>{row.produces}</td>
+                    <td style={{ padding: "10px 14px", borderBottom: "1px solid var(--line2)", fontFamily: "var(--mono)", fontSize: 11, color: "var(--mut)", whiteSpace: "nowrap", verticalAlign: "top" }}>{row.out}</td>
+                  </tr>
                 ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Get the method */}
+      <section id="get" className="sec alt">
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--gap-split)", alignItems: "start" }}>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Get the method</p>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+                Run it in Obsidian today.
+              </h2>
+              <p className="lead" style={{ maxWidth: "44ch", marginBottom: "var(--sp-32)" }}>
+                The method lives in a public GitHub repository, MIT-licensed. Download the vault, open it in Obsidian, and run your first diligence today.
+              </p>
+              <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-24)" }}>
+                {[
+                  { n: "1", title: "Download the vault", body: "A zip of the Obsidian vault. Every template, every evidence rule, the full method in one readable note." },
+                  { n: "2", title: "Open in Obsidian", body: 'Open Obsidian, choose "Open folder as vault", and select the unzipped folder. The vault is ready.' },
+                  { n: "3", title: "Pick a route", body: "Open the Investment route folder. One note per section, with the evidence rules built in." },
+                  { n: "4", title: "Fill the ledger", body: "Add sources to the evidence ledger as they arrive. Each one is classified, graded and tagged to the sections it touches." },
+                ].map((step) => (
+                  <li key={step.n} style={{ display: "flex", gap: "var(--sp-16)", alignItems: "flex-start" }}>
+                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--fg)", color: "var(--bg)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--mono)", fontSize: 12, fontWeight: 600, flexShrink: 0 }}>{step.n}</div>
+                    <div>
+                      <div style={{ fontWeight: "var(--fw-semibold)", fontSize: 16, marginBottom: "var(--sp-4)" }}>{step.title}</div>
+                      <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>{step.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-20)" }}>
+              <div style={{ padding: "var(--sp-32)", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-card)", display: "flex", flexDirection: "column", gap: "var(--sp-20)" }}>
+                <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)" }}>Download</div>
+                <div>
+                  <div style={{ fontWeight: "var(--fw-bold)", fontSize: 18, marginBottom: "var(--sp-4)" }}>TheDiligence vault</div>
+                  <div style={{ fontSize: 13, color: "var(--mut)", marginBottom: "var(--sp-8)" }}>MIT licence · Requires Obsidian</div>
+                  <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>An Obsidian vault with the five-route template set, the evidence ledger, the confidence formula and the changelog.</p>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-10)" }}>
+                  {isRepoPublic ? (
+                    <a href="https://github.com/thediligencestack/method" target="_blank" rel="noopener noreferrer" className="btn btn-p">Download from GitHub</a>
+                  ) : (
+                    <div className="btn btn-p" style={{ opacity: 0.45, cursor: "not-allowed", textDecoration: "none", textAlign: "center" }}>Download from GitHub · Soon</div>
+                  )}
+                  <a href="/book" className="btn btn-s">Ask us to run it instead</a>
+                </div>
               </div>
-              <a href="https://github.com/thediligence/skills" className="btn btn-p" rel="noopener noreferrer">
-                Get the method
-              </a>
+              {!isRepoPublic && (
+                <div style={{ padding: "var(--sp-14) var(--sp-18)", background: "var(--surf)", border: "1px solid var(--line2)", borderRadius: "var(--r-card)" }}>
+                  <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>The repository will be public at launch. Get on the list and we will send it to you on day one.</p>
+                </div>
+              )}
+              <div style={{ padding: "var(--sp-14) var(--sp-18)", background: "var(--bg2)", border: "1px solid var(--line2)", borderRadius: "var(--r-card)" }}>
+                <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>Already using Claude Code or another agent?</div>
+                <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>The skills are available as Claude.ai skills today. Install them from the skills directory, and run them from any prompt that can install skills.</p>
+              </div>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* ── CTA band ─────────────────────────────────────────────── */}
+      {/* CTA band */}
       <section className="band">
         <div className="wrap" style={{ textAlign: "center" }}>
-          <h2
-            style={{
-              fontFamily: "var(--serif)",
-              fontSize: "clamp(24px, 3vw, 48px)",
-              color: "var(--band-fg)",
-              marginBottom: "var(--sp-24)",
-            }}
-          >
-            {isRepoPublic ? "Take the method. Run it on the platform." : "Prefer it done for you?"}
+          <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", color: "var(--bg)", marginBottom: "var(--sp-24)" }}>
+            Run the method. Own the output.
           </h2>
+          <p style={{ fontSize: "var(--fs-lead)", color: "var(--bg)", opacity: 0.75, marginBottom: "var(--sp-40)", maxWidth: "44ch", marginInline: "auto" }}>
+            Download the vault and run it yourself. Or connect a provider and let the agents run it for you.
+          </p>
           <div style={{ display: "flex", gap: "var(--gap-s)", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={primaryHref} className="btn btn-p">{primaryLabel}</a>
-            <a href="/contact" className="btn btn-s">Book time with us</a>
+            <a href={primaryHref} className="btn btn-p">Run with agents</a>
+            <a href="#get" className="btn btn-s">Download the vault</a>
           </div>
         </div>
       </section>

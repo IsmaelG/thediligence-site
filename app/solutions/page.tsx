@@ -3,215 +3,67 @@ import { platformOpen } from "@/lib/flags";
 export const metadata = {
   title: "Solutions — TheDiligence",
   description:
-    "Three ways to run a diligence. Download the method, run it on the platform, or hire the operators who wrote it.",
+    "Three ways to work with us: download the method, run it on the platform, or bring us in for the deal.",
 };
 
 export default async function SolutionsPage() {
   const isOpen = await platformOpen();
-  const primaryHref = isOpen ? "/app" : "/contact";
-  const primaryLabel = isOpen ? "Start free" : "Request early access";
+  const primaryHref = isOpen ? "/app" : "/book";
 
   return (
     <main id="main-content">
-      {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="hero sec">
-        <div className="wrap stack" style={{ maxWidth: "var(--measure-hero)" }}>
-          <p className="eyebrow">Solutions</p>
-          <h1 className="head" style={{ fontFamily: "var(--serif)", fontSize: "clamp(40px, 5.5vw, 80px)", lineHeight: 1.05 }}>
-            Three ways to run a diligence.
+      {/* Hero */}
+      <section className="hero sec" style={{ paddingBottom: "var(--sp-64)" }}>
+        <div className="wrap" style={{ maxWidth: "var(--head-max)" }}>
+          <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Solutions</p>
+          <h1 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h1-page)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h1)", lineHeight: "var(--lh-h1)", marginBottom: "var(--sp-24)" }}>
+            Three ways to work with us.
           </h1>
-          <p className="lead" style={{ maxWidth: "56ch" }}>
-            Take the method, run it on the platform, or hire the operators who
-            wrote it. The same ledger and the same grades at every level, so
-            you can move up or down without starting over.
+          <p className="lead" style={{ maxWidth: "60ch", marginBottom: "var(--sp-48)" }}>
+            Start with the method and run it yourself. Add the platform when you want agents to do the reading. Bring us in when the deal deserves a person.
           </p>
-          <div style={{ display: "flex", gap: "var(--gap-s)" }}>
-            <a href="#download" className="btn btn-s">Download the method</a>
-            <a href="#platform" className="btn btn-s">Run on the platform</a>
-            <a href="#hire" className="btn btn-s">Hire us</a>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Where it applies ─────────────────────────────────────── */}
-      <section className="sec" style={{ background: "var(--bg2)" }}>
-        <div className="wrap">
-          <p className="eyebrow" style={{ marginBottom: "var(--sp-32)" }}>Where it applies</p>
-          <p className="body" style={{ color: "var(--fg2)", marginBottom: "var(--sp-32)", maxWidth: "56ch" }}>
-            From the first meeting to the first 100 days.
-          </p>
-          <div className="g3">
-            {[
-              {
-                h: "Before the deal",
-                b: "Market and company. A first-principles view and a sourced deep dive on the sector, and a two-page memo on the target: ownership, founders, financials or proxy signals.",
-                skills: ["Market", "Company", "Interviews"],
-              },
-              {
-                h: "At the committee",
-                b: "Product and technology. Retention, adoption and red flags, a verdict you can defend, and a check of what the product story could only claim.",
-                skills: ["Cohorts", "User panel", "Product", "Technology"],
-              },
-              {
-                h: "After the close",
-                b: "First 100 days. Sized levers, the plan, the metrics that prove it worked and the asks to bring to the board.",
-                skills: ["First 100 days"],
-              },
-            ].map(({ h, b, skills }) => (
-              <div key={h} className="card">
-                <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-8)" }}>{h}</p>
-                <p className="body" style={{ color: "var(--fg2)", marginBottom: "var(--sp-12)" }}>{b}</p>
-                <div style={{ display: "flex", gap: "var(--sp-6)", flexWrap: "wrap" }}>
-                  {skills.map((s) => (
-                    <span
-                      key={s}
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: "var(--fs-tiny)",
-                        padding: "var(--sp-2) var(--sp-8)",
-                        background: "var(--bg2)",
-                        borderRadius: "var(--r-4)",
-                        border: "1px solid var(--line)",
-                      }}
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Solution 1: Download ─────────────────────────────────── */}
-      <section className="sec" id="download">
-        <div className="wrap">
-          <div className="g2" style={{ gap: "var(--gap-xl)", alignItems: "start" }}>
-            <div className="stack">
-              <p className="eyebrow">Solution 1 · Download the method</p>
-              <h2 className="head">Read it. Run it yourself.</h2>
-              <p className="body" style={{ color: "var(--fg2)" }}>
-                Install the skills in your own assistant and run them on your
-                own deals. The method stays free, and it stays yours to change.
-              </p>
-              <div className="stack" style={{ gap: "var(--sp-16)" }}>
-                {[
-                  "11 skills, one per question, each a plain document you can read",
-                  "The same grades, ids and evidence rules the platform enforces",
-                  "Connect your own model account — nothing to pay",
-                ].map((b) => (
-                  <div key={b} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "start" }}>
-                    <span style={{ color: "var(--green)", fontWeight: "var(--fw-semi)", flexShrink: 0 }}>→</span>
-                    <p className="body" style={{ color: "var(--fg2)", margin: 0 }}>{b}</p>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: "flex", gap: "var(--gap-s)", flexWrap: "wrap" }}>
-                <a href="/method" className="btn btn-p">Read the method</a>
-              </div>
-            </div>
-            <div className="card" style={{ fontFamily: "var(--mono)", fontSize: "var(--fs-small)" }}>
-              <p style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-16)" }}>Run from your assistant</p>
-              <div className="stack" style={{ gap: "var(--sp-12)" }}>
-                {[
-                  { cmd: '/marketdd "payments infrastructure"', desc: "Market deep dive: sizing, value chain, players, five trends" },
-                  { cmd: '/duediligence "Northwind"', desc: "Two-page company memo with exhibits" },
-                  { cmd: "/cohortlab revenue_export.csv", desc: "Retention triangles, NRR and GRR bridge" },
-                  { cmd: '/productdd "Northwind"', desc: "Verdict: Invest, Conditional or Pass" },
-                ].map(({ cmd, desc }) => (
-                  <div key={cmd} style={{ padding: "var(--sp-12)", background: "var(--bg2)", borderRadius: "var(--r-4)" }}>
-                    <p style={{ color: "var(--blue)", marginBottom: "var(--sp-4)" }}>{cmd}</p>
-                    <p style={{ color: "var(--fg3)", fontFamily: "var(--sans)" }}>{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Solution 2: Platform ─────────────────────────────────── */}
-      <section className="sec" id="platform" style={{ background: "var(--bg2)" }}>
-        <div className="wrap">
-          <div className="g2" style={{ gap: "var(--gap-xl)", alignItems: "start" }}>
-            <div className="stack">
-              <p className="eyebrow">Solution 2 · Run it on the platform</p>
-              <h2 className="head">The method, with the plumbing done.</h2>
-              <p className="body" style={{ color: "var(--fg2)" }}>
-                The platform coordinates the whole process in one place: the
-                plan and its price, the agents, the evidence, the memo and its
-                updates. Connect your own model account. It runs from the free
-                plan to an enterprise workspace.
-              </p>
-              <div className="stack" style={{ gap: "var(--sp-24)" }}>
-                {[
-                  {
-                    n: "1",
-                    h: "Connect your model",
-                    b: "Approve access to Claude, OpenAI, Mistral or Gemini on your provider's own screen. Your key is encrypted and never visible to agents.",
-                  },
-                  {
-                    n: "2",
-                    h: "Plan and price",
-                    b: "Name a company. Read the plan, change a model if you wish, set a cap, approve.",
-                  },
-                  {
-                    n: "3",
-                    h: "Read, challenge, update",
-                    b: "Open any claim to its source. Drop new evidence and rebuild only what it touches.",
-                  },
-                ].map(({ n, h, b }) => (
-                  <div
-                    key={n}
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "2ch 1fr",
-                      gap: "var(--sp-16)",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: "var(--fs-small)",
-                        color: "var(--fg3)",
-                        paddingTop: "0.1em",
-                      }}
-                    >
-                      {n}
-                    </span>
-                    <div>
-                      <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-4)" }}>{h}</p>
-                      <p className="body" style={{ color: "var(--fg2)" }}>{b}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: "flex", gap: "var(--gap-s)", flexWrap: "wrap" }}>
-                <a href={primaryHref} className="btn btn-p">{primaryLabel}</a>
-                <a href="/platform" className="btn btn-s">See the platform</a>
-              </div>
-            </div>
-            <div className="card stack">
-              <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-12)" }}>
-                Start alone. Add the team when you need it.
-              </p>
+          {/* Which fits you */}
+          <div style={{ marginBottom: "var(--sp-64)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-24)" }}>Which fits you</p>
+            <div className="g3">
               {[
-                { name: "Free", tagline: "1 diligence a week. Connect your own model." },
-                { name: "Pro", tagline: "No weekly limit, more members, Obsidian plugin." },
-                { name: "Fund", tagline: "Single sign-on, audit log, onboarding with us." },
-              ].map(({ name, tagline }) => (
-                <div
-                  key={name}
-                  style={{
-                    padding: "var(--sp-16)",
-                    borderRadius: "var(--r-8)",
-                    border: "1px solid var(--line)",
-                    background: "var(--bg)",
-                  }}
-                >
-                  <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{name}</p>
-                  <p className="body" style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>{tagline}</p>
+                {
+                  n: "01",
+                  title: "Download",
+                  sub: "Method, free",
+                  fit: "You run your own process. You want the method, the templates and the evidence rules, and you will run them yourself.",
+                  cta: "Get the method",
+                  href: "/method",
+                  sec: false,
+                },
+                {
+                  n: "02",
+                  title: "Platform",
+                  sub: "Agents + method, subscription",
+                  fit: "You want the memo without the weeks. Agents read, grade and draft. You hold the gates and set the cap.",
+                  cta: isOpen ? "Start free" : "Join the waitlist",
+                  href: primaryHref,
+                  sec: false,
+                },
+                {
+                  n: "03",
+                  title: "Hire us",
+                  sub: "Operators in the room",
+                  fit: "The deal is complex or the timeline is tight. Ismael and Mazen bring the platform and sit in the room with you.",
+                  cta: "Book time",
+                  href: "/book",
+                  sec: true,
+                },
+              ].map((s) => (
+                <div key={s.n} className="card" style={{ display: "flex", flexDirection: "column", gap: "var(--sp-16)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "var(--sp-12)" }}>
+                    <span style={{ fontFamily: "var(--mono)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)" }}>{s.n}</span>
+                    <span style={{ fontFamily: "var(--mono)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--mut)" }}>{s.sub}</span>
+                  </div>
+                  <h2 style={{ fontFamily: "var(--serif)", fontSize: "24px", fontWeight: "var(--fw-bold)", lineHeight: 1.2, margin: 0 }}>{s.title}</h2>
+                  <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55, flex: 1 }}>{s.fit}</p>
+                  <a href={s.href} className={`btn ${s.sec ? "btn-s" : "btn-p"}`} style={{ alignSelf: "flex-start" }}>{s.cta}</a>
                 </div>
               ))}
             </div>
@@ -219,106 +71,209 @@ export default async function SolutionsPage() {
         </div>
       </section>
 
-      {/* ── Solution 3: Hire us ──────────────────────────────────── */}
-      <section className="sec" id="hire">
+      {/* Where it applies */}
+      <section className="sec alt">
         <div className="wrap">
-          <div className="g2" style={{ gap: "var(--gap-xl)", alignItems: "start" }}>
-            <div className="stack">
-              <p className="eyebrow">Solution 3 · Hire us</p>
-              <h2 className="head">Hire the operators who wrote it.</h2>
-              <p className="body" style={{ color: "var(--fg2)" }}>
-                We run the memo, or the whole deal, from the target to the
-                100-day plan. Two operator-investors in the room, the platform
-                behind us, and the same grades on every claim.
-              </p>
-
-              <div>
-                <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-12)" }}>
-                  Scope
-                </p>
-                <div style={{ display: "flex", gap: "var(--sp-8)", flexWrap: "wrap" }}>
-                  {["Finance", "Commercial", "Positioning", "Product", "Technology", "Value creation"].map((s) => (
-                    <span
-                      key={s}
-                      style={{
-                        fontFamily: "var(--mono)",
-                        fontSize: "var(--fs-small)",
-                        padding: "var(--sp-4) var(--sp-12)",
-                        background: "var(--bg2)",
-                        borderRadius: "var(--r-4)",
-                        border: "1px solid var(--line)",
-                      }}
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-                <p className="body" style={{ color: "var(--fg2)", marginTop: "var(--sp-12)" }}>
-                  One engagement can cover all six, or the two that matter most
-                  for the decision in front of you.
-                </p>
+          <div style={{ maxWidth: "var(--head-max)", marginBottom: "var(--head-mb)" }}>
+            <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Where it applies</p>
+            <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+              One method, five types of decision.
+            </h2>
+            <p className="lead" style={{ maxWidth: "58ch" }}>
+              The route changes, the standard does not. Each section has a verdict, a confidence and a list of what is still missing.
+            </p>
+          </div>
+          <div className="g4">
+            {[
+              { route: "Investment route", desc: "Seed, growth or late stage. The standard five sections plus a tailored set of additional questions the coordinator drafts from your thesis." },
+              { route: "Acquisition route", desc: "A full product, technology and operations pass, plus a 100-day integration plan priced by section." },
+              { route: "LP route", desc: "Track record, team, strategy and portfolio quality. The same grade and source standard, applied to a fund." },
+              { route: "Hire route", desc: "A senior hire in a function you do not know deeply. Technology, product and digital leadership." },
+              { route: "Partner route", desc: "A strategic partnership, a distribution deal or a technology alliance. Dependency, reversibility and concentration risk." },
+            ].map((r) => (
+              <div key={r.route} className="card">
+                <h3 style={{ fontSize: "17px", fontWeight: "var(--fw-semibold)", marginBottom: "var(--sp-10)" }}>{r.route}</h3>
+                <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55 }}>{r.desc}</p>
               </div>
-
-              <div>
-                <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-12)" }}>
-                  What you receive
-                </p>
-                <div className="stack" style={{ gap: "var(--sp-8)" }}>
-                  {[
-                    "The investment memo, every claim graded, every source in the ledger",
-                    "A verdict, and the conditions under which it changes",
-                    "A 100-day plan with sized levers and the metrics that prove them",
-                    "The asks to bring to the board",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "start" }}>
-                      <span style={{ color: "var(--green)", fontWeight: "var(--fw-semi)", flexShrink: 0 }}>→</span>
-                      <p className="body" style={{ color: "var(--fg2)", margin: 0 }}>{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <a href="/contact" className="btn btn-p">Book time with us</a>
+            ))}
+            <div className="card" style={{ background: "var(--bg2)" }}>
+              <h3 style={{ fontSize: "17px", fontWeight: "var(--fw-semibold)", marginBottom: "var(--sp-10)" }}>Not on the list?</h3>
+              <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55, marginBottom: "var(--sp-16)" }}>Tell us the decision. If it has evidence, we can build a route for it.</p>
+              <a href="/book" className="btn btn-s" style={{ fontSize: "13px" }}>Ask</a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="stack">
-              <div className="card">
-                <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-8)" }}>
-                  The evidence that moves the memo
-                </p>
-                <p className="body" style={{ color: "var(--fg2)", marginBottom: "var(--sp-16)" }}>
-                  This is where the value is. Each interview goes into the ledger
-                  as a source and turns estimates into verified claims.
-                </p>
+      {/* Solution 01 · Download */}
+      <section id="download" className="sec">
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--gap-split)", alignItems: "start" }}>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Solution 01 · Download</p>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+                The method, in an Obsidian vault.
+              </h2>
+              <p className="lead" style={{ maxWidth: "44ch", marginBottom: "var(--sp-32)" }}>
+                Free and open source under MIT. A vault of templates and evidence rules you can run in Obsidian today, and connect to the platform later.
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-16)", marginBottom: "var(--sp-40)" }}>
                 {[
-                  { h: "Customers", b: "5 to 15 loyal customers; 2 to 5 who churned." },
-                  { h: "Competitors", b: "Their founders and their teams." },
-                  { h: "The team", b: "CPO, CTO, CEO and CBO." },
-                ].map(({ h, b }) => (
-                  <div key={h} style={{ marginTop: "var(--sp-12)", paddingTop: "var(--sp-12)", borderTop: "1px solid var(--line)" }}>
-                    <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{h}</p>
-                    <p className="body" style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>{b}</p>
+                  "Five routes. One template per section, with the evidence rules and the grading criteria built in.",
+                  "A grade and a source on every claim, by default. The templates enforce the standard.",
+                  "Evidence ledger template. A table you fill as the documents arrive.",
+                  "Confidence formula. A worked example in a note, ready to copy.",
+                  "No platform required. Run it in Obsidian, export a PDF, share it.",
+                ].map((point, i) => (
+                  <li key={i} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "flex-start" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--fg)", flexShrink: 0, marginTop: 7 }} />
+                    <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55 }}>{point}</p>
+                  </li>
+                ))}
+              </ul>
+              <div style={{ display: "flex", gap: "var(--gap-s)", flexWrap: "wrap" }}>
+                <a href="/method" className="btn btn-p">Read the method</a>
+                <a href="/method#get" className="btn btn-s">Download the vault</a>
+              </div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-24)" }}>
+              <div style={{ background: "var(--surf)", border: "1px solid var(--line)", borderRadius: "var(--r-card)", padding: "var(--sp-24)" }}>
+                <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 12 }}>What you get</div>
+                {[
+                  { name: "TheDiligence method.md", desc: "The full five-stage method, in one readable note." },
+                  { name: "Investment route template/", desc: "A folder with one note per section, pre-filled with the evidence rules." },
+                  { name: "Evidence ledger.md", desc: "The table of sources, classes and grades." },
+                  { name: "Confidence formula.md", desc: "A worked example you can copy to any section." },
+                  { name: "Changelog.md", desc: "What changed between versions." },
+                ].map((f) => (
+                  <div key={f.name} style={{ display: "flex", gap: "var(--sp-12)", padding: "var(--sp-10) 0", borderBottom: "1px solid var(--line2)", alignItems: "flex-start" }}>
+                    <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--fg2)", minWidth: 0, wordBreak: "break-all" }}>{f.name}</span>
+                    <span style={{ fontSize: 11, color: "var(--mut)", flexShrink: 0, textAlign: "right" }}>{f.desc}</span>
                   </div>
                 ))}
               </div>
+              <div style={{ padding: "var(--sp-16) var(--sp-20)", background: "var(--bg2)", border: "1px solid var(--line2)", borderRadius: "var(--r-card)" }}>
+                <div style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--mut)", marginBottom: 8 }}>MIT licence</div>
+                <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55 }}>Use it, adapt it, run it in your own tools. The repository is the source of truth. Pull requests welcome.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="card">
-                <p className="body" style={{ fontWeight: "var(--fw-semi)", marginBottom: "var(--sp-12)" }}>
-                  How an engagement works
-                </p>
-                <div className="stack" style={{ gap: "var(--sp-12)" }}>
+      {/* Solution 02 · Platform */}
+      <section id="platform" className="sec alt">
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--gap-split)", alignItems: "start" }}>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Solution 02 · Platform</p>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+                Agents that run the method, at your pace.
+              </h2>
+              <p className="lead" style={{ maxWidth: "44ch", marginBottom: "var(--sp-32)" }}>
+                Connect your provider. Name a company. The coordinator drafts the plan and the price. You hold every gate.
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-16)", marginBottom: "var(--sp-40)" }}>
+                {[
+                  "A plan you have seen. Every run starts with a cost estimate you approved. Set a cap and the run obeys it.",
+                  "Specialist agents, isolated. One agent per question, in its own sandbox, with only the evidence it needs.",
+                  "A grade and a source on every claim. The memo is auditable because the run is.",
+                  "New evidence, narrow rebuild. Drop a file, see what goes stale, approve the delta run.",
+                  "Your key stays with your provider. The platform bills at your provider's own rates.",
+                ].map((point, i) => (
+                  <li key={i} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "flex-start" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--fg)", flexShrink: 0, marginTop: 7 }} />
+                    <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55 }}>{point}</p>
+                  </li>
+                ))}
+              </ul>
+              <div style={{ display: "flex", gap: "var(--gap-s)", flexWrap: "wrap" }}>
+                <a href={primaryHref} className="btn btn-p">{isOpen ? "Start free" : "Join the waitlist"}</a>
+                <a href="/platform" className="btn btn-s">Platform and plans</a>
+              </div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-20)" }}>
+              {[
+                { n: "01", title: "Connect a provider", body: "Approve access on your provider's own screen. Claude, OpenAI, Mistral, Gemini. Usage lands in your account." },
+                { n: "02", title: "Name a company", body: "The coordinator reads the target, picks the route, and shows you the plan and the price." },
+                { n: "03", title: "Review the plan", body: "See the sequence, the agents, the estimated cost, and what each one still needs. Change a tier, update the cap." },
+                { n: "04", title: "Run and gate", body: "Agents run in parallel where the method allows. A gate pauses the run. You approve and the rest continues." },
+              ].map((step) => (
+                <div key={step.n} style={{ display: "flex", gap: "var(--sp-16)", alignItems: "flex-start", padding: "var(--sp-16) var(--sp-20)", background: "var(--bg2)", border: "1px solid var(--line)", borderRadius: "var(--r-card)" }}>
+                  <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--fg)", color: "var(--bg)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--mono)", fontSize: 11, fontWeight: 600, flexShrink: 0 }}>{step.n}</div>
+                  <div>
+                    <div style={{ fontWeight: "var(--fw-semibold)", fontSize: 15, marginBottom: "var(--sp-4)" }}>{step.title}</div>
+                    <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution 03 · Hire us */}
+      <section id="hire" className="sec">
+        <div className="wrap">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--gap-split)", alignItems: "start" }}>
+            <div>
+              <p className="eyebrow" style={{ marginBottom: "var(--sp-16)" }}>Solution 03 · Hire us</p>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", marginBottom: "var(--sp-24)" }}>
+                Operators in the room.
+              </h2>
+              <p className="lead" style={{ maxWidth: "44ch", marginBottom: "var(--sp-32)" }}>
+                The deal is complex, the sector is one you do not know deeply, or the IC is on Thursday. We bring the platform and sit in the room with you.
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-16)", marginBottom: "var(--sp-40)" }}>
+                {[
+                  "A full diligence, end to end. We run the platform on your deal and deliver a memo you can take into the room.",
+                  "Interview access. We conduct customer, competitor and expert interviews. Each call becomes a graded source.",
+                  "A plan and a price before we start. The route, the evidence we need, the cost, and the timeline, in writing.",
+                  "IC support on request. We join the committee call and answer questions on the evidence.",
+                  "Confidentiality. The deal and the memo stay between us. The platform holds it encrypted in your browser.",
+                ].map((point, i) => (
+                  <li key={i} style={{ display: "flex", gap: "var(--sp-12)", alignItems: "flex-start" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--fg)", flexShrink: 0, marginTop: 7 }} />
+                    <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.55 }}>{point}</p>
+                  </li>
+                ))}
+              </ul>
+              <a href="/book" className="btn btn-p">Book time with us</a>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--sp-20)" }}>
+              <div className="card" style={{ background: "var(--bg2)" }}>
+                <p className="eyebrow" style={{ marginBottom: "var(--sp-12)" }}>Good fit</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--sp-10)" }}>
                   {[
-                    { h: "Scope call", b: "A short call on the deal, the decision in front of you and the deadline." },
-                    { h: "Plan, in writing", b: "The route, the interviews we will run, the evidence we need from you, and the cost." },
-                    { h: "Evidence and interviews", b: "Agents on the documents and data. Us on the calls." },
-                    { h: "Memo and verdict", b: "You read it with the sources open. We stand behind each claim." },
-                    { h: "100-day plan", b: "Levers, owners, metrics, and the asks for the board." },
-                  ].map(({ h, b }) => (
-                    <div key={h} style={{ paddingTop: "var(--sp-12)", borderTop: "1px solid var(--line)" }}>
-                      <p className="body" style={{ fontWeight: "var(--fw-semi)" }}>{h}</p>
-                      <p className="body" style={{ color: "var(--fg2)", marginTop: "var(--sp-4)" }}>{b}</p>
-                    </div>
+                    "A growth or late-stage deal in digital, platform or marketplace",
+                    "A sector where you want an operator's read, not just an analyst's",
+                    "IC in under three weeks",
+                    "A strategic acquisition where the product and technology matter",
+                    "A fund allocation decision — LP diligence, secondary",
+                  ].map((point, i) => (
+                    <li key={i} style={{ display: "flex", gap: "var(--sp-10)", alignItems: "flex-start" }}>
+                      <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--fg)", flexShrink: 0, marginTop: 7 }} />
+                      <p className="small" style={{ margin: 0, color: "var(--fg2)", lineHeight: 1.5 }}>{point}</p>
+                    </li>
                   ))}
+                </ul>
+              </div>
+              <div className="card" style={{ background: "var(--bg2)" }}>
+                <p className="eyebrow" style={{ marginBottom: "var(--sp-12)" }}>The team</p>
+                <div style={{ display: "flex", gap: "var(--sp-16)", alignItems: "flex-start" }}>
+                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--fg)", color: "var(--bg)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--mono)", fontSize: 12, fontWeight: 600, flexShrink: 0 }}>IG</div>
+                  <div>
+                    <div style={{ fontWeight: "var(--fw-semibold)", fontSize: 15, marginBottom: "var(--sp-4)" }}>Ismael Ghozael</div>
+                    <p className="small" style={{ margin: 0, color: "var(--fg2)" }}>Advisor to funds. Writes the method and builds the platform.</p>
+                  </div>
+                </div>
+                <div style={{ height: "1px", background: "var(--line2)", margin: "var(--sp-16) 0" }} />
+                <div style={{ display: "flex", gap: "var(--sp-16)", alignItems: "flex-start" }}>
+                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--fg)", color: "var(--bg)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--mono)", fontSize: 12, fontWeight: 600, flexShrink: 0 }}>MW</div>
+                  <div>
+                    <div style={{ fontWeight: "var(--fw-semibold)", fontSize: 15, marginBottom: "var(--sp-4)" }}>Mazen Wazni</div>
+                    <p className="small" style={{ margin: 0, color: "var(--fg2)" }}>Operator-investor.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -326,22 +281,18 @@ export default async function SolutionsPage() {
         </div>
       </section>
 
-      {/* ── CTA band ─────────────────────────────────────────────── */}
+      {/* CTA band */}
       <section className="band">
         <div className="wrap" style={{ textAlign: "center" }}>
-          <h2
-            style={{
-              fontFamily: "var(--serif)",
-              fontSize: "clamp(24px, 3vw, 48px)",
-              color: "var(--band-fg)",
-              marginBottom: "var(--sp-24)",
-            }}
-          >
-            Start where you are. Move up when you need to.
+          <h2 style={{ fontFamily: "var(--serif)", fontSize: "var(--fs-h2)", fontWeight: "var(--fw-bold)", letterSpacing: "var(--ls-h2)", lineHeight: "var(--lh-h2)", color: "var(--bg)", marginBottom: "var(--sp-24)" }}>
+            Not sure which fits?
           </h2>
+          <p style={{ fontSize: "var(--fs-lead)", color: "var(--bg)", opacity: 0.75, marginBottom: "var(--sp-40)", maxWidth: "44ch", marginInline: "auto" }}>
+            Tell us about the deal. We will reply with a proposed path and, if useful, a first plan in writing.
+          </p>
           <div style={{ display: "flex", gap: "var(--gap-s)", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={primaryHref} className="btn btn-p">{primaryLabel}</a>
-            <a href="/contact" className="btn btn-s">Book time with us</a>
+            <a href="/book" className="btn btn-p">Book time with us</a>
+            <a href={primaryHref} className="btn btn-s">{isOpen ? "Start free" : "Join the waitlist"}</a>
           </div>
         </div>
       </section>

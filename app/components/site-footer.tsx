@@ -2,30 +2,34 @@ const FOOTER_COLS = [
   {
     head: "Product",
     links: [
-      { href: "/platform",  label: "Platform"  },
-      { href: "/products",  label: "Skills"    },
-      { href: "/method",    label: "Method"    },
-      { href: "/changelog", label: "Changelog" },
+      { href: "/products",  label: "Products"                 },
+      { href: "/platform",  label: "Platform and plans"       },
+      { href: "/method",    label: "The method"               },
+      { href: "/security",  label: "Security and compliance"  },
+    ],
+  },
+  {
+    head: "Work with us",
+    links: [
+      { href: "/solutions", label: "Solutions"   },
+      { href: "/solutions#hire", label: "Hire us" },
+      { href: "/book",      label: "Book time"   },
+      { href: "/app",       label: "Start free"  },
     ],
   },
   {
     head: "Company",
     links: [
-      { href: "/solutions", label: "Solutions" },
-      { href: "/about",     label: "About"     },
-      { href: "/insights",  label: "Insights"  },
-      { href: "/contact",   label: "Contact"   },
-    ],
-  },
-  {
-    head: "Legal",
-    links: [
-      { href: "/security", label: "Security" },
-      { href: "/privacy",  label: "Privacy"  },
-      { href: "/terms",    label: "Terms"    },
+      { href: "/about",     label: "About us"      },
+      { href: "/insights",  label: "Insights"      },
       {
-        href: "https://status.thediligence.app",
-        label: "Status",
+        href: "https://linkedin.com/in/ismaelghozael",
+        label: "Ismael Ghozael",
+        external: true,
+      },
+      {
+        href: "https://linkedin.com",
+        label: "Mazen Wazni",
         external: true,
       },
     ],
@@ -86,7 +90,7 @@ export function SiteFooter() {
             </span>
           </p>
           <p className="small">
-            <a href="/contact" className="foot-link">
+            <a href="/book" className="foot-link">
               ismael.ghozael@gmail.com
             </a>
           </p>

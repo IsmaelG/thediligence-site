@@ -20,7 +20,7 @@ export function NavShell() {
         <a href="/platform" className="btn btn-p" style={{ fontSize: "14px", padding: "8px 20px" }}>
           Start free
         </a>
-        <a href="/contact" className="btn btn-s" style={{ fontSize: "14px", padding: "8px 20px" }}>
+        <a href="/book" className="btn btn-s" style={{ fontSize: "14px", padding: "8px 20px" }}>
           Book time with us
         </a>
       </div>
