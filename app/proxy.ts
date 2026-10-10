@@ -43,8 +43,8 @@ export async function forwardToPlatform(
   }
 
   const bodyBuffer = await upstream.arrayBuffer();
-  responseHeaders.set("x-proxy-upstream-bytes", String(bodyBuffer.byteLength));
-  return new Response(bodyBuffer.byteLength > 0 ? bodyBuffer : null, {
+  const bytes = new Uint8Array(bodyBuffer);
+  return new Response(bytes.byteLength > 0 ? bytes : null, {
     status: upstream.status,
     statusText: upstream.statusText,
     headers: responseHeaders,
