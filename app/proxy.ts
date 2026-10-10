@@ -17,11 +17,15 @@ export async function forwardToPlatform(
     "host", "connection", "transfer-encoding", "te",
     "trailer", "upgrade", "keep-alive", "proxy-connection",
   ]);
+  // Headers that must never be forwarded to avoid encoding/caching mismatches
+  const STRIP_REQUEST = new Set(["accept-encoding"]);
   for (const [key, value] of request.headers.entries()) {
-    if (!HOP_BY_HOP.has(key.toLowerCase())) {
+    if (!HOP_BY_HOP.has(key.toLowerCase()) && !STRIP_REQUEST.has(key.toLowerCase())) {
       headers.set(key, value);
     }
   }
+  // Ask the upstream for uncompressed content so we can forward the body verbatim
+  headers.set("accept-encoding", "identity");
 
   const body =
     request.method !== "GET" && request.method !== "HEAD"
@@ -35,16 +39,21 @@ export async function forwardToPlatform(
     redirect: "manual",
   });
 
-  // Return upstream response as-is
-  const responseHeaders = new Headers(upstream.headers);
-  // Strip hop-by-hop from upstream response too
-  for (const h of HOP_BY_HOP) {
-    responseHeaders.delete(h);
+  // Return upstream response as-is, stripping headers that must not be forwarded
+  const STRIP_RESPONSE = new Set([
+    ...HOP_BY_HOP,
+    "content-encoding", // upstream may have compressed; body is already decoded
+    "content-length",   // let the runtime recalculate from the actual body
+  ]);
+  const responseHeaders = new Headers();
+  for (const [key, value] of upstream.headers.entries()) {
+    if (!STRIP_RESPONSE.has(key.toLowerCase())) {
+      responseHeaders.set(key, value);
+    }
   }
 
-  const bodyText = await upstream.text();
-  console.log("[proxy] upstream status=%d body_len=%d", upstream.status, bodyText.length);
-  return new Response(bodyText || null, {
+  const bodyBytes = new Uint8Array(await upstream.arrayBuffer());
+  return new Response(bodyBytes.byteLength > 0 ? bodyBytes : null, {
     status: upstream.status,
     statusText: upstream.statusText,
     headers: responseHeaders,
