@@ -42,7 +42,8 @@ export async function forwardToPlatform(
     responseHeaders.delete(h);
   }
 
-  return new Response(upstream.body, {
+  const bodyBuffer = await upstream.arrayBuffer();
+  return new Response(bodyBuffer.byteLength > 0 ? bodyBuffer : null, {
     status: upstream.status,
     statusText: upstream.statusText,
     headers: responseHeaders,
