@@ -42,9 +42,9 @@ export async function forwardToPlatform(
     responseHeaders.delete(h);
   }
 
-  const bodyBuffer = await upstream.arrayBuffer();
-  const bytes = new Uint8Array(bodyBuffer);
-  return new Response(bytes.byteLength > 0 ? bytes : null, {
+  const bodyText = await upstream.text();
+  console.log("[proxy] upstream status=%d body_len=%d", upstream.status, bodyText.length);
+  return new Response(bodyText || null, {
     status: upstream.status,
     statusText: upstream.statusText,
     headers: responseHeaders,
