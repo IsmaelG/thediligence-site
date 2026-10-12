@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import PlatformPageGolden from "./golden";
+import { SiteShell } from "../components/site-shell";
+import { PlatformOnboarding } from "./platform-onboarding";
+import {
+  PlatformHero,
+  PlatformConnectors,
+  PlatformPlans,
+  PlatformCompare,
+  PlatformRoadmap,
+  PlatformFaq,
+} from "./sections";
 
 export const metadata: Metadata = {
   title: "Platform and plans",
@@ -8,5 +17,15 @@ export const metadata: Metadata = {
 };
 
 export default function PlatformPage() {
-  return <PlatformPageGolden />;
+  return (
+    <SiteShell activePage="platform">
+      <PlatformHero />
+      <PlatformOnboarding />
+      <PlatformConnectors />
+      <PlatformPlans />
+      <PlatformCompare />
+      <PlatformRoadmap />
+      <PlatformFaq />
+    </SiteShell>
+  );
 }

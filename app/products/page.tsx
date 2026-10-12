@@ -1,5 +1,15 @@
 import type { Metadata } from "next";
-import ProductsPageGolden from "./golden";
+import { SiteShell } from "../components/site-shell";
+import { PlanTabs } from "./plan-tabs";
+import { MemoTabs } from "./memo-tabs";
+import {
+  ProductsHero,
+  ProductsRun,
+  ProductsEvidence,
+  ProductsVault,
+  ProductsWorkflow,
+  ProductsModels,
+} from "./sections";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -8,5 +18,16 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
-  return <ProductsPageGolden />;
+  return (
+    <SiteShell activePage="products">
+      <ProductsHero />
+      <PlanTabs />
+      <ProductsRun />
+      <MemoTabs />
+      <ProductsEvidence />
+      <ProductsVault />
+      <ProductsWorkflow />
+      <ProductsModels />
+    </SiteShell>
+  );
 }

@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import SolutionsPageGolden from "./golden";
+import { SiteShell } from "../components/site-shell";
+import { FitPicker } from "./fit-picker";
+import {
+  SolutionsHero,
+  SolutionsTimeline,
+  SolutionsDownload,
+  SolutionsRun,
+  SolutionsHire,
+  SolutionsStart,
+} from "./sections";
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -8,5 +17,15 @@ export const metadata: Metadata = {
 };
 
 export default function SolutionsPage() {
-  return <SolutionsPageGolden />;
+  return (
+    <SiteShell activePage="solutions">
+      <SolutionsHero />
+      <FitPicker />
+      <SolutionsTimeline />
+      <SolutionsDownload />
+      <SolutionsRun />
+      <SolutionsHire />
+      <SolutionsStart />
+    </SiteShell>
+  );
 }
