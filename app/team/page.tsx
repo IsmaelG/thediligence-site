@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TeamPage from "./team-golden";
 
 export const metadata: Metadata = {
-  title: "Team · TheDiligence",
+  title: "Team",
   description:
     "Two investor-operators who run diligence with you and review every finding before your committee sees it.",
 };
