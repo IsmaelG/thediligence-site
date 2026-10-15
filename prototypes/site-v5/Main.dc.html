@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TheDiligence v5 home page</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;family=Overpass:wght@400;500;600;700&amp;family=Overpass+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F3EE}
+a{color:#14161A}a:hover{color:#2356C4}
+.dark a{color:#ECEAE4}.dark a:hover{color:#FFFFFF}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #2356C4;outline-offset:3px}
+.dark a:focus-visible{outline-color:#ECEAE4}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:999px;text-decoration:none;font-size:16px;font-weight:600;box-sizing:border-box;white-space:nowrap}
+.b-light{background:#ECEAE4;color:#0F1216 !important}
+.b-line-d{border:1px solid rgba(236,234,228,0.6);color:#ECEAE4 !important}
+.b-ink{background:#14161A;color:#F5F3EE !important}
+.b-line{border:1px solid #14161A;color:#14161A !important}
+.mono{font-family:'Overpass Mono',ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}
+.serif{font-family:'Newsreader',Georgia,serif;font-weight:400}
+.chip{display:inline-flex;align-items:center;min-height:26px;padding:0 10px;border-radius:999px;font-family:'Overpass Mono',ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-sizing:border-box}
+.c-v{background:#14161A;color:#F5F3EE}
+.c-r{border:1px solid #14161A;color:#14161A}
+.dark .c-r{border-color:#ECEAE4;color:#ECEAE4}
+.c-e{border:1px dashed #5A606A;color:#3A3F47}
+.photo{filter:grayscale(1) contrast(1.05)}
+.seat{cursor:pointer;font-family:'Overpass',system-ui,sans-serif}
+.cmp{width:100%;border-collapse:collapse;min-width:820px}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:18px 20px;border-bottom:1px solid #D9D5CC;font-size:16px;line-height:1.5}
+.cmp thead th{font-family:'Overpass Mono',ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5A606A;font-weight:500}
+.cmp tbody th{font-weight:600;color:#14161A;width:22%}
+.cmp td{color:#3A3F47}
+.cmp .us{background:#14161A;color:#F5F3EE}
+.cmp thead .us{color:#C9CCD1}
+details{border-bottom:1px solid #D9D5CC}
+summary{cursor:pointer;list-style:none;padding:24px 0;font-size:20px;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-family:'Newsreader',Georgia,serif;font-size:30px;font-weight:400;line-height:1}
+details[open] summary::after{content:'−'}
+.layer{position:absolute;inset:0;overflow:hidden}
+.layer img{display:block;width:100%;height:100%;object-fit:cover;animation:drift 24s ease-in-out infinite alternate}
+.london{opacity:0;animation:xfade 16s ease-in-out infinite}
+.lab-p{opacity:1;animation:labp 16s ease-in-out infinite}
+.lab-l{opacity:.4;animation:labl 16s ease-in-out infinite}
+@keyframes xfade{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+@keyframes labp{0%,42%{opacity:1}50%,92%{opacity:.4}100%{opacity:1}}
+@keyframes labl{0%,42%{opacity:.4}50%,92%{opacity:1}100%{opacity:.4}}
+@keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.08)}}
+@media (prefers-reduced-motion: reduce){.layer img,.london,.lab-p,.lab-l{animation:none}}
+@media (max-width:900px){
+.navlinks,.cities{display:none !important}
+.bar{padding:20px !important}
+.hero{height:860px !important}
+.hcopy{left:20px !important;right:20px !important;bottom:56px !important}
+.h1{font-size:48px !important}
+.sec{padding:72px 20px !important}
+.g2,.g3,.g4{grid-template-columns:minmax(0,1fr) !important}
+.h2{font-size:40px !important}
+.proof{padding:28px 20px !important}
+.panel{padding:28px 22px !important}
+.halfimg{height:320px !important}
+}
+</style>
+</helmet>
+<div style="font-family: 'Overpass', system-ui, -apple-system, 'Segoe UI', sans-serif; color: #14161A; background: #F5F3EE">
+
+<div class="hero dark" style="position: relative; height: 900px; overflow: hidden; background: #0F1216; color: #ECEAE4">
+<div style="position: absolute; inset: 0; filter: {{photoFilter}}">
+<div class="layer">
+<img src="/_blob/df0dc68b1daa066b38344439862b5a9f" alt="Aerial view down the Champ de Mars to the Eiffel Tower, Paris" style="object-position: 50% 55%">
+</div>
+<div class="layer london" style="animation-duration: {{cycle}}s">
+<img src="/_blob/76e8f61ccaac65bf487dd5af9ff063c9" alt="The Thames running through Tower Bridge, with the Shard and the City of London" style="object-position: 50% 58%">
+</div>
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(15,18,22,0.72) 0%, rgba(15,18,22,0) 20%), linear-gradient(90deg, rgba(15,18,22,{{scrim}}) 0%, rgba(15,18,22,{{scrimB}}) 50%, rgba(15,18,22,0) 78%), linear-gradient(0deg, rgba(15,18,22,0.85) 0%, rgba(15,18,22,0) 46%)"></div>
+<header class="bar" style="position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 28px 56px">
+<a href="#" class="serif" style="font-size: 26px; text-decoration: none">TheDiligence</a>
+<nav class="navlinks" aria-label="Main" style="display: flex; gap: 36px; font-size: 15px; font-weight: 500">
+<a href="#how" style="text-decoration: none">How it works</a>
+<a href="#ways" style="text-decoration: none">Pricing</a>
+<a href="Team.dc.html" style="text-decoration: none">Team</a>
+<a href="#security" style="text-decoration: none">Security</a>
+</nav>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<a href="#ways" class="btn b-line-d" style="min-height: 50px; padding: 0 22px; font-size: 16px">Start free</a>
+<a href="#" class="btn b-light" style="min-height: 50px; padding: 0 22px; font-size: 16px">Book time with us</a>
+</div>
+</header>
+<div class="hcopy" style="position: absolute; left: 80px; bottom: 84px; z-index: 2; max-width: 900px; display: flex; flex-direction: column; gap: 20px">
+<p class="mono" style="margin: 0; font-size: 13px; color: #C9CCD1">Paris · London</p>
+<h1 class="h1 serif" style="margin: 0; font-size: 76px; line-height: 1.02; letter-spacing: -0.02em">Investment diligence,<br>built by <span style="white-space: nowrap">investor-operators.</span></h1>
+<p style="margin: 0; font-size: 22px; line-height: 1.45; color: #ECEAE4; max-width: 44ch">From the market to the first 100 days. Specialist AI agents do the research and show the source of every finding. Two investor-operators from PayPal and Amazon wrote the method, and can run it with you.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; padding-top: 10px">
+<a href="#ways" class="btn b-light">Start free</a>
+<a href="#" class="btn b-line-d">Book time with us</a>
+</div>
+</div>
+<div class="cities mono" style="position: absolute; right: 56px; bottom: 44px; z-index: 2; display: flex; gap: 28px; font-size: 13px; color: #ECEAE4">
+<span class="lab-p" style="animation-duration: {{cycle}}s">Paris · 48.8584° N</span>
+<span class="lab-l" style="animation-duration: {{cycle}}s">London · 51.5055° N</span>
+</div>
+</div>
+
+<div class="proof dark" style="background: #0F1216; color: #ECEAE4; border-top: 1px solid #2A2E35; padding: 32px 56px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap">
+<p class="mono" style="margin: 0; font-size: 12px; color: #9AA1AB">Advisors to</p>
+<p style="margin: 0; font-size: 20px; font-weight: 600; color: #DAD8D2; letter-spacing: 0.01em">PayPal Ventures</p>
+<p class="serif" style="margin: 0; font-size: 23px; color: #DAD8D2">Quadrille Capital</p>
+<p style="margin: 0; font-size: 20px; font-weight: 700; color: #DAD8D2; letter-spacing: 0.04em">TomCat Ventures</p>
+<p class="serif" style="margin: 0; font-size: 23px; font-style: italic; color: #DAD8D2">The Good Ones</p>
+</div>
+</div>
+
+<section class="sec" style="padding: 120px 56px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+<p class="mono" style="margin: 0; font-size: 20px; color: #5A606A">Why us</p>
+<h2 class="h2 serif" style="margin: 0; font-size: 56px; line-height: 1.05; letter-spacing: -0.01em">Good diligence is slow, expensive, or impossible to check.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3A3F47">We check a company before you invest in it: its market, its business, its product and its technology. You get a clear verdict, and you can see where every finding comes from.</p>
+</div>
+<div class="g3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+<div style="border: 1px solid #D9D5CC; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Consulting firms</p>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3">Thorough, but slow and costly.</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3A3F47">Weeks of work and a six-figure bill. Worth it for a large buyout, out of reach for most deals.</p>
+</div>
+<div style="border: 1px solid #D9D5CC; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Generic AI tools</p>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3">Fast, but hard to trust.</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3A3F47">You get an answer in minutes, but you cannot tell where it came from, so it will not hold up in front of an investment committee.</p>
+</div>
+<div class="dark" style="background: #14161A; color: #F5F3EE; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #C9CCD1">TheDiligence</p>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; line-height: 1.3">Fast, trustworthy, with an operator's judgement.</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #DAD8D2">Specialist AI agents do the research, a second AI checks it, and the two operators who wrote the method are there when a deal needs them. Prices start at zero.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="how" class="sec" style="padding: 120px 56px; background: #ECE9E2">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+<p class="mono" style="margin: 0; font-size: 20px; color: #5A606A">How it works</p>
+<h2 class="h2 serif" style="margin: 0; font-size: 56px; line-height: 1.05; letter-spacing: -0.01em">How a diligence runs</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3A3F47">Four steps. The AI does the reading and the checking, and people make the decisions.</p>
+</div>
+<div class="g4" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr); gap: 20px">
+<div style="border-top: 2px solid #14161A; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="serif" style="font-size: 40px; line-height: 1">1</span><span class="chip c-r">You</span></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; line-height: 1.3">Name the company</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A3F47">Add what you already have: a deck, a data room, notes from calls. A name alone is enough to start.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #14161A"><strong>Why it matters:</strong> you start in minutes, with no setup.</p>
+</div>
+<div style="border-top: 2px solid #14161A; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="serif" style="font-size: 40px; line-height: 1">2</span><span class="chip c-v">AI agents</span></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; line-height: 1.3">Specialist agents do the research</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A3F47">One agent for the market, one for the company, one for the product, one for the technology, all working at once.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #14161A"><strong>Why it matters:</strong> every area gets full attention, in hours rather than weeks.</p>
+</div>
+<div style="border-top: 2px solid #14161A; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="serif" style="font-size: 40px; line-height: 1">3</span><span class="chip c-v">Second AI</span></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; line-height: 1.3">Every finding is checked</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A3F47">An AI from a different provider checks each finding against its source, and flags what it cannot confirm.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #14161A"><strong>Why it matters:</strong> one AI's mistakes do not reach your memo.</p>
+</div>
+<div style="border-top: 2px solid #14161A; padding-top: 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span class="serif" style="font-size: 40px; line-height: 1">4</span><span class="chip c-r">You, and us</span></div>
+<h3 style="margin: 0; font-size: 21px; font-weight: 600; line-height: 1.3">Then, people talk to people</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A3F47">You get a memo with a verdict and its evidence. Then the real conversations: customers past and present, competitors, the team. An operator knows what to ask, and hears when an answer does not add up. Do it yourself, or with us.</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #14161A"><strong>Why it matters:</strong> AI reads what was written. People hear what was left unsaid.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="team" class="sec" style="padding: 120px 56px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+<p class="mono" style="margin: 0; font-size: 20px; color: #5A606A">Who we are</p>
+<h2 class="h2 serif" style="margin: 0; font-size: 56px; line-height: 1.05; letter-spacing: -0.01em">Two investor-operators, both halves of the question.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3A3F47">Every investment comes down to two questions: does the product work, and does the business make money? Each of us has run one of those halves at scale, at PayPal and at Amazon. We wrote the method, and we review the work when you bring us in.</p>
+</div>
+<div class="g2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<img class="photo halfimg" src="/_blob/ed24ffea89afd420f0a423e845d0dd17" alt="Portrait of Ismael Ghozael" style="width: 100%; height: 440px; object-fit: cover; object-position: 50% 22%; border-radius: 16px; background: #D9D5CC">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Ismael Ghozael · Paris · Product and technology</p>
+<h3 class="serif" style="margin: 0; font-size: 40px; line-height: 1.1">Does the product work?</h3>
+<ul style="margin: 0; padding: 0 0 0 20px; display: flex; flex-direction: column; gap: 10px; font-size: 18px; line-height: 1.45">
+<li>Do customers stay, and why?</li>
+<li>What breaks when usage grows ten times?</li>
+<li>Does the technology back what the deck claims?</li>
+</ul>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A3F47">Led PayPal's payments platform, $1.3T in volume and 35M merchants, and its international expansion. Delivered $100M a year in product-led incremental margin. Today runs digital platform and product for the world's largest sports retailer. Berkeley MBA.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<img class="photo halfimg" src="/_blob/edda86bd6db2536a0b268ce987cb8e1e" alt="Portrait of Mazen Wazni" style="width: 100%; height: 440px; object-fit: cover; object-position: 50% 22%; border-radius: 16px; background: #D9D5CC">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Mazen Wazni · London · Commercial, P&amp;L and turnarounds</p>
+<h3 class="serif" style="margin: 0; font-size: 40px; line-height: 1.1">Does the business make money?</h3>
+<ul style="margin: 0; padding: 0 0 0 20px; display: flex; flex-direction: column; gap: 10px; font-size: 18px; line-height: 1.45">
+<li>Are the unit economics real?</li>
+<li>Will customers, suppliers and channels hold?</li>
+<li>What do we fix in the first 100 days?</li>
+</ul>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A3F47">Most recently General Manager of Amazon Business Retail Europe, a multi-billion B2B ecommerce platform. Before Amazon, grew a consumer goods business in Africa from zero to $100M. IMD MBA.</p>
+</div>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3A3F47">We go deepest in fintech, B2B and B2C commerce, retail and consumer brands.</p>
+<a href="Team.dc.html" class="btn b-line" style="align-self: flex-start">Read our full story</a>
+</div>
+</section>
+
+
+<section class="sec" style="padding: 120px 56px; background: #ECE9E2">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<p class="mono" style="margin: 0; font-size: 20px; color: #5A606A">What you get</p>
+<h2 class="h2 serif" style="margin: 0; font-size: 56px; line-height: 1.05; letter-spacing: -0.01em">A memo you can take to your investment committee.</h2>
+</div>
+<div class="g2" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3A3F47">Every finding carries a label, so your committee knows what to rely on and what to probe.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px">
+<li style="display: flex; gap: 14px; align-items: flex-start"><span class="chip c-v" style="min-width: 98px; justify-content: center">Verified</span><span style="font-size: 17px; line-height: 1.5; color: #3A3F47">Checked against an original document, such as a filing or the company's own data.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><span class="chip c-r" style="min-width: 98px; justify-content: center">Reported</span><span style="font-size: 17px; line-height: 1.5; color: #3A3F47">From a credible source, such as a customer interview, that we could not check ourselves.</span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start"><span class="chip c-e" style="min-width: 98px; justify-content: center">Estimated</span><span style="font-size: 17px; line-height: 1.5; color: #3A3F47">Our own estimate, and labelled as one.</span></li>
+</ul>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3A3F47">And a list of what is still missing, with who to ask for it.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D5CC; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Northwind · Investment memo</p>
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Illustrative example</p>
+</div>
+<div style="display: flex; gap: 32px; align-items: flex-end; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid #D9D5CC">
+<div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 260px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Verdict</p>
+<p class="serif" style="margin: 0; font-size: 34px; line-height: 1.1">Invest, if onboarding is fixed.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Confidence</p>
+<p style="margin: 0; font-size: 20px; font-weight: 600">Medium</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span class="chip c-v">Verified</span><span class="mono" style="font-size: 11px; color: #5A606A">Product</span></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">Customers who stay past nine months rarely leave.</p>
+<p style="margin: 0; font-size: 14px; color: #5A606A">Source: the company's revenue data, 24 months</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span class="chip c-r">Reported</span><span class="mono" style="font-size: 11px; color: #5A606A">Commercial</span></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">Two of the three largest customers renegotiate prices every year.</p>
+<p style="margin: 0; font-size: 14px; color: #5A606A">Source: interviews with two customers</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap"><span class="chip c-e">Estimated</span><span class="mono" style="font-size: 11px; color: #5A606A">Market</span></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.45">Mid-sized buyers are moving from single tools to platforms.</p>
+<p style="margin: 0; font-size: 14px; color: #5A606A">Source: one analyst estimate, so treat with care</p>
+</div>
+</div>
+<div style="border: 1px dashed #5A606A; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">Still needed</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.5">Management accounts for the last 24 months. Ask the founder.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section id="ways" class="sec" style="padding: 120px 56px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+<p class="mono" style="margin: 0; font-size: 20px; color: #5A606A">Three ways to work with us</p>
+<h2 class="h2 serif" style="margin: 0; font-size: 56px; line-height: 1.05; letter-spacing: -0.01em">Use it on your own, <em>or with us alongside.</em></h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #3A3F47">Follow our method on your own, run it on our platform, or bring us in. Every route ends with the same memo, so you can move up whenever a deal needs it.</p>
+<div role="group" aria-label="Show prices in" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap">
+<p class="mono" style="margin: 0 6px 0 0; font-size: 12px; color: #5A606A">Prices in</p>
+<sc-for list="{{currencies}}" as="cur" hint-placeholder-count="2">
+<button type="button" class="seat" onClick="{{cur.pick}}" aria-pressed="{{cur.pressed}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #14161A; background: {{cur.bg}}; color: {{cur.fg}}; font-size: 15px; font-weight: 600">{{cur.label}}</button>
+</sc-for>
+</div>
+</div>
+<div class="g3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch">
+<div style="background: #ECE9E2; border: 1px solid #D9D5CC; border-radius: 16px; padding: 36px 32px; display: flex; flex-direction: column; gap: 18px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">01 · On your own</p>
+<h3 class="serif" style="margin: 0; font-size: 36px; line-height: 1.1">The method</h3>
+<p style="margin: 0; font-size: 18px; font-weight: 600">Free, open source</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3A3F47">Our full method, written down step by step. Run it in your own AI assistant, such as Claude, and keep it as yours.</p>
+<ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5; color: #3A3F47">
+<li>Every step and every rule, in plain documents</li>
+<li>No account and nothing to pay</li>
+</ul>
+<p style="margin: 0; font-size: 15px; color: #5A606A; flex-grow: 1">For anyone who wants to learn it or do it all themselves.</p>
+<a href="#" class="btn b-line" style="align-self: flex-start">Get the method</a>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #14161A; border-radius: 16px; padding: 36px 32px; display: flex; flex-direction: column; gap: 18px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #5A606A">02 · On our platform</p>
+<h3 class="serif" style="margin: 0; font-size: 36px; line-height: 1.1">The platform</h3>
+<p style="margin: 0; font-size: 18px; font-weight: 600">Free, then from {{pPlatform}} a month</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3A3F47">The method with everything set up for you. Agents work in parallel, a second AI checks their work, and your memo updates itself when new data arrives.</p>
+<ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5; color: #3A3F47">
+<li>One diligence a week on the free plan</li>
+<li>Your team approves each key step</li>
+</ul>
+<p style="margin: 0; font-size: 15px; color: #5A606A; flex-grow: 1">For teams that look at deals often.</p>
+<a href="#" class="btn b-ink" style="align-self: flex-start">Start free</a>
+</div>
+<div class="dark" style="background: #14161A; color: #F5F3EE; border-radius: 16px; padding: 36px 32px; display: flex; flex-direction: column; gap: 18px">
+<p class="mono" style="margin: 0; font-size: 12px; color: #C9CCD1">03 · With us</p>
+<h3 class="serif" style="margin: 0; font-size: 36px; line-height: 1.1">Hire us</h3>
+<p style="margin: 0; font-size: 18px; font-weight: 600">From {{pHire}} per deal</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #DAD8D2">We run the diligence with you and review every finding before your committee sees it.</p>
+<ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5; color: #DAD8D2">
+<li>A screen in about a week</li>
+<li>A full diligence in two to three weeks</li>
+<li>Interviews with customers, including those who left</li>
+<li>A 100-day plan after the deal</li>
+</ul>
+<p style="margin: 0; font-size: 15px; color: #C9CCD1; flex-grow: 1">For funds and corporates with a live deal.</p>
+<a href="#" class="btn b-light" style="align-self: flex-start">Book time with us</a>
+</div>
+</div>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #14161A"><strong>Not sure where to start?</strong> Start free, and talk to us when a deal needs more depth. We will suggest the right level for it.</p>
+<p style="margin: 0; font-size: 15px; color: #5A606A">Prices exclude VAT. On the platform, your AI provider bills its usage to you directly, and you see the estimate before anything runs. For work with us, we agree a fixed price before we start.</p>
+</div>
+</section>
+
+<section id="questions" class="sec" style="padding: 112px 56px; background: #ECE9E2">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<p class="mono" style="margin: 0; font-size: 20px; color: #5A606A">Questions</p>
+<h2 class="h2 serif" style="margin: 0; font-size: 52px; line-height: 1.05; letter-spacing: -0.01em">What people ask us first.</h2>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #D9D5CC">
+<details open="open">
+<summary>Why not just use Claude or ChatGPT?</summary>
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.6; color: #3A3F47">You can, and our method runs in Claude. What we add is the structure: a specialist agent for each area, a second AI checking each finding, every claim graded and sourced, and a memo your committee can read. The platform adds a workflow your team shares across a deal or a whole portfolio, and a secure vault for your evidence and memos.</p>
+</details>
+<details>
+<summary>If the method is free, why pay for the platform?</summary>
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.6; color: #3A3F47">The method tells you what to do. The platform does it for you: it runs the agents at the same time, has a second AI check their work, keeps your evidence in one place, updates the memo when new data arrives, and lets your team approve each step. If you would rather run the method in your own AI assistant, go ahead: that is why it is free.</p>
+</details>
+<details>
+<summary>Can I use my Claude subscription?</summary>
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.6; color: #3A3F47">For the free method, yes: install it in Claude and run it within your plan. The platform connects to your AI provider's developer account instead, and the provider bills its usage to you directly.</p>
+</details>
+<details>
+<summary>What does the AI usage cost?</summary>
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.6; color: #3A3F47">A small part of the total. You see an estimate before anything runs, and you set a cap that the run will not cross.</p>
+</details>
+<details>
+<summary>Who can see my documents?</summary>
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.6; color: #3A3F47">Only your team. Agents work in isolation, never hold your keys, and cannot send anything out. The security page has the detail.</p>
+</details>
+<details>
+<summary>When should I hire you instead?</summary>
+<p style="margin: 0 0 24px; font-size: 17px; line-height: 1.6; color: #3A3F47">When the deal is large, when you need customer interviews, or when your committee wants an operator's view. You can start on the platform and bring us in for the deals that matter most.</p>
+</details>
+</div>
+</div>
+</section>
+
+
+<section id="security" class="sec dark" style="padding: 112px 56px; background: #0F1216; color: #ECEAE4">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 1000px">
+<p class="mono" style="margin: 0; font-size: 20px; color: #9AA1AB">Security</p>
+<h2 class="h2 serif" style="margin: 0; font-size: 52px; line-height: 1.05">Your data stays yours.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #C9CCD1">Platform in preview. These are the rules it launches with.</p>
+</div>
+<div class="g3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #3A3F47; padding-top: 22px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">No agent holds your keys</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD1">Sign in with your AI provider where it allows it, or add a key once. Agents only get a short-lived pass, and you can revoke access at any time.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #3A3F47; padding-top: 22px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">Private notes stay private</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD1">Partner notes sit in a vault encrypted in your browser. An agent reads a note only when you share it, for one company.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #3A3F47; padding-top: 22px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">Nothing leaves without you</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #C9CCD1">Agents cannot send, post or email anything. Every export is yours to approve.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="dark" style="position: relative; overflow: hidden; background: #0F1216; color: #ECEAE4">
+<img src="/_blob/e9c08555588462a82989052fc1e168ed" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: grayscale(1) brightness(0.55)">
+<div class="sec" style="position: relative; padding: 140px 56px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center">
+<h2 class="h2 serif" style="margin: 0; font-size: 64px; line-height: 1.05; max-width: 22ch">Start a diligence you can defend.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.5; color: #DAD8D2; max-width: 46ch">Run it yourself today, or tell us about the deal and we will scope it with you.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; padding-top: 8px">
+<a href="#" class="btn b-light">Book time with us</a>
+<a href="#ways" class="btn b-line-d">Start free</a>
+</div>
+</div>
+</section>
+
+<footer class="sec dark" style="padding: 56px 56px 48px; background: #0F1216; color: #C9CCD1; border-top: 1px solid #2A2E35">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 360px">
+<p class="serif" style="margin: 0; font-size: 24px; color: #ECEAE4">TheDiligence</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.5">Investment due diligence by investor-operators. Paris and London.</p>
+</div>
+<nav aria-label="Footer" style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 15px">
+<a href="#how" style="text-decoration: none">How it works</a>
+<a href="#ways" style="text-decoration: none">Pricing</a>
+<a href="Team.dc.html" style="text-decoration: none">Team</a>
+<a href="#security" style="text-decoration: none">Security</a>
+<a href="#" style="text-decoration: none">Book time</a>
+</nav>
+</div>
+<p style="max-width: 1200px; margin: 40px auto 0; font-size: 13px; color: #9AA1AB">Evidence-graded analysis, not investment advice. The method is open source and stays free.</p>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"cycle":{"editor":"int","default":16,"min":8,"max":40,"unit":"s","section":"Hero"},"scrim":{"editor":"range","default":0.86,"min":0.4,"max":0.98,"step":0.01,"section":"Hero"},"brightness":{"editor":"range","default":0.9,"min":0.6,"max":1.1,"step":0.01,"section":"Hero"},"contrast":{"editor":"range","default":1.05,"min":0.8,"max":1.4,"step":0.01,"section":"Hero"},"currency":{"editor":"enum","options":["auto","EUR","GBP"],"default":"auto","section":"Pricing"},"$preview":{"width":1440,"height":7800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.props.scrim ?? 0.86;
+    const b = this.props.brightness ?? 0.9;
+    const c = this.props.contrast ?? 1.05;
+    const prices = {
+      EUR: { label: '€ Euro', platform: '€149', hire: '€2,500' },
+      GBP: { label: '£ Pound', platform: '£149', hire: '£2,500' }
+    };
+    let detected = 'EUR';
+    try {
+      const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']).join(',');
+      if (/en-GB/i.test(langs)) detected = 'GBP';
+    } catch (e) {}
+    const setting = this.props.currency ?? 'auto';
+    const picked = (this.state && this.state.cur) || (setting === 'auto' ? detected : setting);
+    const currencies = ['EUR', 'GBP'].map((k) => ({
+      label: prices[k].label,
+      pressed: k === picked,
+      bg: k === picked ? '#14161A' : 'transparent',
+      fg: k === picked ? '#F5F3EE' : '#14161A',
+      pick: () => this.setState({ cur: k })
+    }));
+    return {
+      currencies: currencies,
+      pPlatform: prices[picked].platform,
+      pHire: prices[picked].hire,
+      cycle: this.props.cycle ?? 16,
+      scrim: s,
+      scrimB: (s * 0.6).toFixed(2),
+      photoFilter: 'brightness(' + b + ') contrast(' + c + ')'
+    };
+  }
+}
+</script>
+</body>
+</html>

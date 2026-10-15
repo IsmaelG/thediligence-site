@@ -1,0 +1,15 @@
+{
+  "note": "Where the design's links go in the site. Applied by scripts/html-to-jsx.mjs when it generates a page (hrefs are not measured by the gate). \"*.dc.html\" links are mapped to the routes of spec/pages.json first; then these rules apply to links whose visible text matches exactly (and page, if given). A value in braces is an expression: {KEY} becomes href={links.KEY}, imported from lib/links.ts, which the site defines (CAL_URL, START_FREE, REPO_URL).",
+  "rules": [
+    { "text": "Book time with us", "href": "{CAL_URL}" },
+    { "text": "Book time", "href": "{CAL_URL}" },
+    { "text": "Get the method", "href": "{REPO_URL}" },
+    { "page": "Main", "text": "Start free", "fromHref": "#", "href": "{START_FREE}" },
+    { "page": "Team", "text": "How it works", "href": "/#how" },
+    { "page": "Team", "text": "Pricing", "href": "/#ways" },
+    { "page": "Team", "text": "Security", "href": "/#security" },
+    { "page": "Team", "text": "Start free", "href": "/#ways" },
+    { "page": "Team", "text": "Team", "href": "/team" },
+    { "page": "Main", "text": "TheDiligence", "href": "/" }
+  ]
+}

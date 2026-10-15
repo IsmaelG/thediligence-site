@@ -1,12 +1,21 @@
 {
-  "_note": "Gates for `pnpm conformity`. They apply to every page at 1280, 768 and 390 px. Lowering a number needs Ismael's written approval in the Decisions log.",
-  "text":      { "minCoveragePct": 99 },
-  "style":     { "minExactPct": 97 },
-  "position":  { "minOkPct": 97, "xTolPx": 8, "widthTolPx": 12, "widthTolPct": 8 },
-  "boxes":     { "minExactPct": 95 },
-  "height":    { "maxDiffPct": 3 },
-  "overflowX": { "maxPx": 0 },
-  "sections":  { "mustEqual": true },
-  "visual":    { "maxDiffPct": 1.5, "widths": [1280, 390], "pixelThreshold": 0.1 },
-  "behaviour": { "minSimilarity": 0.8, "maxMissingControls": 0 }
+  "note": "Gates of docs/CONFORMITY.md section 3. Agents never lower a threshold; only Ismael changes this file, with a dated line in the Decisions log.",
+  "G1_textCoverage": 0.99,
+  "G2_typography": 0.97,
+  "G3_position": 0.97,
+  "G4_boxes": 0.95,
+  "G5_heightTolerance": 0.03,
+  "G6_sectionsEqual": true,
+  "G7_pixelRatioPerSection": 0.015,
+  "G7_pixelThreshold": 0.1,
+  "G7_heightTolerance": 0.03,
+  "G8_jaccard": 0.8,
+  "tolerances": {
+    "fontSizePx": 0.5,
+    "letterSpacingPx": 0.3,
+    "lineHeightPx": 1.5,
+    "xPx": 8,
+    "widthPx": 12,
+    "widthRatio": 0.08
+  }
 }

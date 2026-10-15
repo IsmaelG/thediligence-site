@@ -1,24 +1,44 @@
-# Required check: blocks the merge when the preview deployment drifts from spec/.
+# Conformity gate (docs/CONFORMITY.md). Mark the job "conformity" as a required status check in branch protection.
 name: conformity
-on: [pull_request]
+on:
+  pull_request:            # quick checks on every PR: reference integrity and the port proof
+  deployment_status:       # full gate on every successful Vercel deployment (preview and production)
+permissions:
+  contents: read
 jobs:
-  conformity:
+  spec:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      - run: pnpm spec:verify
       - run: pnpm exec playwright install --with-deps chromium
-      - name: Wait for the Vercel preview
-        uses: patrickedqvist/wait-for-vercel-preview@v1.3.2
-        id: preview
-        with: { token: '${{ secrets.GITHUB_TOKEN }}', max_timeout: 300 }
-      - run: pnpm conformity
-        env: { BASE_URL: '${{ steps.preview.outputs.url }}' }
+      - run: pnpm spec:verify
+      - run: pnpm conformity:prove
+  conformity:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.event.deployment.sha }}' }
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm spec:verify
+      - name: Gate
+        run: pnpm conformity
+        env:
+          BASE_URL: ${{ github.event.deployment_status.environment_url || github.event.deployment_status.target_url }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+      - name: Report
+        if: always()
+        run: cat .conformity/report.md >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: conformity-report, path: .conformity }
+        with: { name: conformity-report, path: .conformity/, retention-days: 14 }

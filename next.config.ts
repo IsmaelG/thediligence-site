@@ -7,14 +7,23 @@ const nextConfig: NextConfig = {
   // Enable .mdx page extensions for Insights and Changelog
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 
-  // Build-time redirects (runtime proxy for /app is in app/proxy.ts)
+  // Build-time redirects — v3 routes → V5 equivalents (SPEC S1)
   async redirects() {
     return [
-      {
-        source: "/pricing",
-        destination: "/platform#plans",
-        permanent: true,
-      },
+      // Pricing / platform → ways section
+      { source: "/pricing",  destination: "/#ways",    permanent: true },
+      { source: "/platform", destination: "/#ways",    permanent: true },
+      // Security → security section
+      { source: "/security", destination: "/#security", permanent: true },
+      // About → team page
+      { source: "/about",    destination: "/team",     permanent: true },
+      // Method / products / solutions → how-it-works section
+      { source: "/method",    destination: "/#how",    permanent: true },
+      { source: "/products",  destination: "/#how",    permanent: true },
+      { source: "/solutions", destination: "/#how",    permanent: true },
+      // Insights / book → home
+      { source: "/insights",  destination: "/",        permanent: true },
+      { source: "/book",      destination: "/",        permanent: true },
     ];
   },
 

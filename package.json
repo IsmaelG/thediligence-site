@@ -16,7 +16,10 @@
     "port": "node scripts/html-to-jsx.mjs",
     "conformity": "node scripts/conformity/run.mjs",
     "conformity:ref": "node scripts/conformity/build-reference.mjs",
-    "prebuild": "pnpm spec:css"
+    "prebuild": "pnpm spec:css",
+    "conformity:prove": "node scripts/conformity/prove-port.mjs",
+    "conformity:freeze": "node scripts/conformity/freeze-from-design.mjs",
+    "conformity:docs": "node scripts/conformity/gen-docs.mjs"
   },
   "dependencies": {
     "@next/mdx": "^16.4.0",
@@ -36,6 +39,14 @@
     "@types/react-dom": "^19",
     "parse5": "^7.2.1",
     "playwright": "^1.64.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "pngjs": "7.0.0",
+    "pixelmatch": "6.0.0",
+    "esbuild": "0.25.10"
+  },
+  "pnpm": {
+    "approvedBuilds": {
+      "esbuild": true
+    }
   }
 }

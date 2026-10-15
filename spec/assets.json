@@ -1,0 +1,11 @@
+{
+  "note": "Images of the design (uploaded assets of the canvas), renamed. They are served at /images/<file> and copied to public/images by scripts/spec-css.mjs.",
+  "images": {
+    "df0dc68b1daa066b38344439862b5a9f": "hero-paris.jpg",
+    "76e8f61ccaac65bf487dd5af9ff063c9": "hero-london.jpg",
+    "ed24ffea89afd420f0a423e845d0dd17": "ismael-ghozael.jpg",
+    "edda86bd6db2536a0b268ce987cb8e1e": "mazen-wazni.jpg",
+    "e9c08555588462a82989052fc1e168ed": "closing-band.jpg",
+    "4d21cc01f907666901cd703d2ea2e6e1": "team-hero.jpg"
+  }
+}

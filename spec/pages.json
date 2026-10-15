@@ -1,0 +1,20 @@
+{
+  "source": "Claude Design canvas \"TheDiligence website V5\", https://claude.ai/artifact/F6HhKPkW6MfBGJ8h5wb4qH, version 1791995958-bea2 (14 Oct 2026)",
+  "sectionSelector": "[data-page] > *:not(main), [data-page] > main > *",
+  "widths": [1280, 768, 390],
+  "visualWidths": [1280, 390],
+  "pages": [
+    {
+      "name": "Main",
+      "design": "Main.dc.html",
+      "route": "/",
+      "title": "TheDiligence: investment diligence by investor-operators"
+    },
+    {
+      "name": "Team",
+      "design": "Team.dc.html",
+      "route": "/team",
+      "title": "Team · TheDiligence"
+    }
+  ]
+}

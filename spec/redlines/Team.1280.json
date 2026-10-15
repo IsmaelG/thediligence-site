@@ -1,0 +1,1669 @@
+{
+ "title": "Team · TheDiligence",
+ "docH": 4001,
+ "docW": 1280,
+ "sections": [
+  {
+   "i": 0,
+   "tag": "div",
+   "id": "",
+   "rect": [
+    0,
+    0,
+    1280,
+    564
+   ],
+   "bg": "rgb(15, 18, 22)",
+   "pt": "0px",
+   "pb": "0px",
+   "text": "TheDiligence How it works Pricing Team Security Start free B"
+  },
+  {
+   "i": 1,
+   "tag": "section",
+   "id": "",
+   "rect": [
+    0,
+    564,
+    1280,
+    966
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "pt": "112px",
+   "pb": "112px",
+   "text": "INVESTOR-OPERATOR · PARIS · PRODUCT Ismael Ghozael Product e"
+  },
+  {
+   "i": 2,
+   "tag": "section",
+   "id": "",
+   "rect": [
+    0,
+    1530,
+    1280,
+    1072
+   ],
+   "bg": "rgb(236, 233, 226)",
+   "pt": "112px",
+   "pb": "112px",
+   "text": "INVESTOR-OPERATOR · LONDON · COMMERCIAL, P&L AND TURNAROUNDS"
+  },
+  {
+   "i": 3,
+   "tag": "section",
+   "id": "",
+   "rect": [
+    0,
+    2602,
+    1280,
+    740
+   ],
+   "bg": "rgb(15, 18, 22)",
+   "pt": "112px",
+   "pb": "112px",
+   "text": "TOGETHER Both started as engineers. Both ran global business"
+  },
+  {
+   "i": 4,
+   "tag": "section",
+   "id": "",
+   "rect": [
+    0,
+    3343,
+    1280,
+    419
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "pt": "104px",
+   "pb": "104px",
+   "text": "Let us look at your next deal together. Start free Book time"
+  },
+  {
+   "i": 5,
+   "tag": "footer",
+   "id": "",
+   "rect": [
+    0,
+    3762,
+    1280,
+    239
+   ],
+   "bg": "rgb(15, 18, 22)",
+   "pt": "56px",
+   "pb": "48px",
+   "text": "TheDiligence Investment due diligence by investor-operators."
+  }
+ ],
+ "text": [
+  {
+   "tag": "a",
+   "text": "TheDiligence",
+   "rect": [
+    56,
+    40,
+    143,
+    26
+   ],
+   "ff": "Newsreader",
+   "fs": "26px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "How it works",
+   "rect": [
+    392,
+    44,
+    87,
+    19
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "500",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Pricing",
+   "rect": [
+    515,
+    44,
+    48,
+    19
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "500",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Team",
+   "rect": [
+    599,
+    44,
+    37,
+    19
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "500",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Security",
+   "rect": [
+    672,
+    44,
+    57,
+    19
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "500",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Start free",
+   "rect": [
+    922,
+    28,
+    117,
+    50
+   ],
+   "ff": "Overpass",
+   "fs": "16px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Book time with us",
+   "rect": [
+    1049,
+    28,
+    175,
+    50
+   ],
+   "ff": "Overpass",
+   "fs": "16px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(15, 18, 22)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "The team · Paris · London",
+   "rect": [
+    56,
+    226,
+    1168,
+    16
+   ],
+   "ff": "Overpass Mono",
+   "fs": "13px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "1.04px",
+   "color": "rgb(201, 204, 209)",
+   "tt": "uppercase",
+   "ta": "start"
+  },
+  {
+   "tag": "h1",
+   "text": "Two investor-operators.",
+   "rect": [
+    56,
+    266,
+    1168,
+    96
+   ],
+   "ff": "Newsreader",
+   "fs": "96px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "96px",
+   "ls": "-1.92px",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Together we cover both halves of an investment question: does the product work, and does the business make money?",
+   "rect": [
+    56,
+    386,
+    621,
+    66
+   ],
+   "ff": "Overpass",
+   "fs": "22px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "33px",
+   "ls": "normal",
+   "color": "rgb(218, 216, 210)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Investor-operator · Paris · Product",
+   "rect": [
+    672,
+    676,
+    552,
+    16
+   ],
+   "ff": "Overpass Mono",
+   "fs": "12px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "0.96px",
+   "color": "rgb(90, 96, 106)",
+   "tt": "uppercase",
+   "ta": "start"
+  },
+  {
+   "tag": "h2",
+   "text": "Ismael Ghozael",
+   "rect": [
+    672,
+    714,
+    552,
+    60
+   ],
+   "ff": "Newsreader",
+   "fs": "60px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "60px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Product executive, platforms and commerce",
+   "rect": [
+    672,
+    796,
+    552,
+    27
+   ],
+   "ff": "Overpass",
+   "fs": "19px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "26.6px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Ismael is a product and platform executive with more than 20 years across commerce, fintech and connected experiences. He started as a mobil",
+   "rect": [
+    672,
+    845,
+    552,
+    148
+   ],
+   "ff": "Overpass",
+   "fs": "18px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "29.7px",
+   "ls": "normal",
+   "color": "rgb(58, 63, 71)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "He is now VP Products & Platforms at the world's largest sports retailer, where he leads a 400-person organisation through a platform and AI",
+   "rect": [
+    672,
+    1015,
+    552,
+    119
+   ],
+   "ff": "Overpass",
+   "fs": "18px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "29.7px",
+   "ls": "normal",
+   "color": "rgb(58, 63, 71)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "$1.3T",
+   "rect": [
+    672,
+    1175,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "payment volume on the platform he led",
+   "rect": [
+    672,
+    1214,
+    260,
+    17
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "35M",
+   "rect": [
+    964,
+    1175,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "merchants on that platform",
+   "rect": [
+    964,
+    1214,
+    260,
+    17
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "+$100M a year",
+   "rect": [
+    672,
+    1268,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "product-led incremental margin: innovation at scale",
+   "rect": [
+    672,
+    1307,
+    260,
+    34
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "MBA",
+   "rect": [
+    964,
+    1268,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "UC Berkeley",
+   "rect": [
+    964,
+    1307,
+    260,
+    17
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Ismael on LinkedIn",
+   "rect": [
+    672,
+    1382,
+    138,
+    36
+   ],
+   "ff": "Overpass",
+   "fs": "16px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Investor-operator · London · Commercial, P&L and turnarounds",
+   "rect": [
+    56,
+    1642,
+    552,
+    16
+   ],
+   "ff": "Overpass Mono",
+   "fs": "12px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "0.96px",
+   "color": "rgb(90, 96, 106)",
+   "tt": "uppercase",
+   "ta": "start"
+  },
+  {
+   "tag": "h2",
+   "text": "Mazen Wazni",
+   "rect": [
+    56,
+    1680,
+    552,
+    60
+   ],
+   "ff": "Newsreader",
+   "fs": "60px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "60px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Builds, fixes and scales commercial businesses",
+   "rect": [
+    56,
+    1762,
+    552,
+    27
+   ],
+   "ff": "Overpass",
+   "fs": "19px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "26.6px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Mazen Wazni builds, fixes and scales commercial businesses, with more than 20 years running P&Ls and teams in Europe and Africa. Most recent",
+   "rect": [
+    56,
+    1811,
+    552,
+    267
+   ],
+   "ff": "Overpass",
+   "fs": "18px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "29.7px",
+   "ls": "normal",
+   "color": "rgb(58, 63, 71)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Before Amazon he built and ran consumer goods businesses across Africa, growing one from zero to $100M with 800 people. An engineer by train",
+   "rect": [
+    56,
+    2100,
+    552,
+    89
+   ],
+   "ff": "Overpass",
+   "fs": "18px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "29.7px",
+   "ls": "normal",
+   "color": "rgb(58, 63, 71)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "15 years",
+   "rect": [
+    56,
+    2230,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "running P&Ls in Europe and Africa",
+   "rect": [
+    56,
+    2269,
+    260,
+    17
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "$5B+",
+   "rect": [
+    348,
+    2230,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "combined revenue of the businesses he has run, from small to large",
+   "rect": [
+    348,
+    2269,
+    260,
+    34
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "$0 to $100M",
+   "rect": [
+    56,
+    2340,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "a consumer goods business he grew in Africa, with 800 people",
+   "rect": [
+    56,
+    2379,
+    260,
+    34
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "2,000",
+   "rect": [
+    348,
+    2340,
+    260,
+    35
+   ],
+   "ff": "Newsreader",
+   "fs": "32px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "35.2px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "people he led in one of Amazon's largest UK fulfilment centres",
+   "rect": [
+    348,
+    2379,
+    260,
+    34
+   ],
+   "ff": "Overpass",
+   "fs": "14px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(90, 96, 106)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Mazen on LinkedIn",
+   "rect": [
+    56,
+    2454,
+    137,
+    36
+   ],
+   "ff": "Overpass",
+   "fs": "16px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Together",
+   "rect": [
+    56,
+    2714,
+    1000,
+    26
+   ],
+   "ff": "Overpass Mono",
+   "fs": "20px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "1.6px",
+   "color": "rgb(154, 161, 171)",
+   "tt": "uppercase",
+   "ta": "start"
+  },
+  {
+   "tag": "h2",
+   "text": "Both started as engineers. Both ran global businesses. Both work from Paris and London.",
+   "rect": [
+    56,
+    2758,
+    1000,
+    92
+   ],
+   "ff": "Newsreader",
+   "fs": "42px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "46.2px",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Ismael brings the product and technology view",
+   "rect": [
+    56,
+    2924,
+    568,
+    28
+   ],
+   "ff": "Newsreader",
+   "fs": "28px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "Payments and fintech",
+   "rect": [
+    76,
+    2966,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "Platforms and APIs",
+   "rect": [
+    76,
+    2999,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "Omnichannel retail",
+   "rect": [
+    76,
+    3033,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "Running organisations at scale",
+   "rect": [
+    76,
+    3066,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Mazen brings the commercial and operating view",
+   "rect": [
+    656,
+    2924,
+    568,
+    56
+   ],
+   "ff": "Newsreader",
+   "fs": "28px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "P&L ownership",
+   "rect": [
+    676,
+    2994,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "B2B platforms",
+   "rect": [
+    676,
+    3027,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "Category and supplier economics",
+   "rect": [
+    676,
+    3061,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "Fulfilment operations",
+   "rect": [
+    676,
+    3094,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "li",
+   "text": "Turnarounds and growth",
+   "rect": [
+    676,
+    3128,
+    548,
+    26
+   ],
+   "ff": "Overpass",
+   "fs": "17px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "25.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "We go deepest in fintech, B2C and B2B commerce, retail and consumer brands.",
+   "rect": [
+    56,
+    3201,
+    1168,
+    29
+   ],
+   "ff": "Overpass",
+   "fs": "19px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "29.45px",
+   "ls": "normal",
+   "color": "rgb(218, 216, 210)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "h2",
+   "text": "Let us look at your next deal together.",
+   "rect": [
+    277,
+    3471,
+    726,
+    109
+   ],
+   "ff": "Newsreader",
+   "fs": "52px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "54.6px",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "center"
+  },
+  {
+   "tag": "a",
+   "text": "Start free",
+   "rect": [
+    484,
+    3608,
+    119,
+    50
+   ],
+   "ff": "Overpass",
+   "fs": "16px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(245, 243, 238)",
+   "tt": "none",
+   "ta": "center"
+  },
+  {
+   "tag": "a",
+   "text": "Book time with us",
+   "rect": [
+    615,
+    3608,
+    181,
+    50
+   ],
+   "ff": "Overpass",
+   "fs": "16px",
+   "fw": "600",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(20, 22, 26)",
+   "tt": "none",
+   "ta": "center"
+  },
+  {
+   "tag": "p",
+   "text": "TheDiligence",
+   "rect": [
+    56,
+    3818,
+    360,
+    24
+   ],
+   "ff": "Newsreader",
+   "fs": "24px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Investment due diligence by investor-operators. Paris and London.",
+   "rect": [
+    56,
+    3852,
+    360,
+    45
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "22.5px",
+   "ls": "normal",
+   "color": "rgb(201, 204, 209)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "How it works",
+   "rect": [
+    819,
+    3818,
+    85,
+    79
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Pricing",
+   "rect": [
+    932,
+    3818,
+    47,
+    79
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Team",
+   "rect": [
+    1007,
+    3818,
+    36,
+    79
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Security",
+   "rect": [
+    1072,
+    3818,
+    56,
+    79
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "a",
+   "text": "Book time",
+   "rect": [
+    1155,
+    3818,
+    69,
+    79
+   ],
+   "ff": "Overpass",
+   "fs": "15px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(236, 234, 228)",
+   "tt": "none",
+   "ta": "start"
+  },
+  {
+   "tag": "p",
+   "text": "Evidence-graded analysis, not investment advice.",
+   "rect": [
+    56,
+    3937,
+    1168,
+    16
+   ],
+   "ff": "Overpass",
+   "fs": "13px",
+   "fw": "400",
+   "fst": "normal",
+   "lh": "normal",
+   "ls": "normal",
+   "color": "rgb(154, 161, 171)",
+   "tt": "none",
+   "ta": "start"
+  }
+ ],
+ "boxes": [
+  {
+   "tag": "div",
+   "key": "TheDiligence How it works Pricing Team Security Start free B",
+   "rect": [
+    0,
+    0,
+    1280,
+    4001
+   ],
+   "bg": "rgb(245, 243, 238)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "TheDiligence How it works Pricing Team Security Start free B",
+   "rect": [
+    0,
+    0,
+    1280,
+    564
+   ],
+   "bg": "rgb(15, 18, 22)",
+   "bd": "0px none rgb(236, 234, 228)",
+   "r": "0px",
+   "sh": "",
+   "pad": "0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "a",
+   "key": "Start free",
+   "rect": [
+    922,
+    28,
+    117,
+    50
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "1px solid rgba(236, 234, 228, 0.6)",
+   "r": "999px",
+   "sh": "",
+   "pad": "0px 22px",
+   "gap": "normal"
+  },
+  {
+   "tag": "a",
+   "key": "Book time with us",
+   "rect": [
+    1049,
+    28,
+    175,
+    50
+   ],
+   "bg": "rgb(236, 234, 228)",
+   "bd": "0px none rgb(15, 18, 22)",
+   "r": "999px",
+   "sh": "",
+   "pad": "0px 22px",
+   "gap": "normal"
+  },
+  {
+   "tag": "img",
+   "key": "",
+   "rect": [
+    56,
+    676,
+    552,
+    640
+   ],
+   "bg": "rgb(217, 213, 204)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "18px",
+   "sh": "",
+   "pad": "0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "$1.3T payment volume on the platform he led 35M merchants on",
+   "rect": [
+    672,
+    1156,
+    552,
+    204
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "1px solid rgb(217, 213, 204)",
+   "r": "0px",
+   "sh": "",
+   "pad": "0px",
+   "gap": "0px"
+  },
+  {
+   "tag": "div",
+   "key": "$1.3T payment volume on the platform he led",
+   "rect": [
+    672,
+    1157,
+    276,
+    93
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 16px 18px 0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "35M merchants on that platform",
+   "rect": [
+    948,
+    1157,
+    276,
+    93
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 0px 18px 16px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "+$100M a year product-led incremental margin: innovation at ",
+   "rect": [
+    672,
+    1250,
+    276,
+    110
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 16px 18px 0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "MBA UC Berkeley",
+   "rect": [
+    948,
+    1250,
+    276,
+    110
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 0px 18px 16px",
+   "gap": "normal"
+  },
+  {
+   "tag": "section",
+   "key": "INVESTOR-OPERATOR · LONDON · COMMERCIAL, P&L AND TURNAROUNDS",
+   "rect": [
+    0,
+    1530,
+    1280,
+    1072
+   ],
+   "bg": "rgb(236, 233, 226)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "112px 56px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "15 years running P&Ls in Europe and Africa $5B+ combined rev",
+   "rect": [
+    56,
+    2211,
+    552,
+    221
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "1px solid rgb(201, 197, 188)",
+   "r": "0px",
+   "sh": "",
+   "pad": "0px",
+   "gap": "0px"
+  },
+  {
+   "tag": "div",
+   "key": "15 years running P&Ls in Europe and Africa",
+   "rect": [
+    56,
+    2212,
+    276,
+    110
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 16px 18px 0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "$5B+ combined revenue of the businesses he has run, from sma",
+   "rect": [
+    332,
+    2212,
+    276,
+    110
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 0px 18px 16px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "$0 to $100M a consumer goods business he grew in Africa, wit",
+   "rect": [
+    56,
+    2322,
+    276,
+    110
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 16px 18px 0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "2,000 people he led in one of Amazon's largest UK fulfilment",
+   "rect": [
+    332,
+    2322,
+    276,
+    110
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "0px",
+   "sh": "",
+   "pad": "18px 0px 18px 16px",
+   "gap": "normal"
+  },
+  {
+   "tag": "img",
+   "key": "",
+   "rect": [
+    672,
+    1642,
+    552,
+    640
+   ],
+   "bg": "rgb(217, 213, 204)",
+   "bd": "0px none rgb(20, 22, 26)",
+   "r": "18px",
+   "sh": "",
+   "pad": "0px",
+   "gap": "normal"
+  },
+  {
+   "tag": "section",
+   "key": "TOGETHER Both started as engineers. Both ran global business",
+   "rect": [
+    0,
+    2602,
+    1280,
+    740
+   ],
+   "bg": "rgb(15, 18, 22)",
+   "bd": "0px none rgb(236, 234, 228)",
+   "r": "0px",
+   "sh": "",
+   "pad": "112px 56px",
+   "gap": "normal"
+  },
+  {
+   "tag": "div",
+   "key": "Ismael brings the product and technology view Payments and f",
+   "rect": [
+    56,
+    2899,
+    568,
+    255
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "1px solid rgb(58, 63, 71)",
+   "r": "0px",
+   "sh": "",
+   "pad": "24px 0px 0px",
+   "gap": "14px"
+  },
+  {
+   "tag": "div",
+   "key": "Mazen brings the commercial and operating view P&L ownership",
+   "rect": [
+    656,
+    2899,
+    568,
+    255
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "1px solid rgb(58, 63, 71)",
+   "r": "0px",
+   "sh": "",
+   "pad": "24px 0px 0px",
+   "gap": "14px"
+  },
+  {
+   "tag": "a",
+   "key": "Start free",
+   "rect": [
+    484,
+    3608,
+    119,
+    50
+   ],
+   "bg": "rgb(20, 22, 26)",
+   "bd": "0px none rgb(245, 243, 238)",
+   "r": "999px",
+   "sh": "",
+   "pad": "0px 24px",
+   "gap": "normal"
+  },
+  {
+   "tag": "a",
+   "key": "Book time with us",
+   "rect": [
+    615,
+    3608,
+    181,
+    50
+   ],
+   "bg": "rgba(0, 0, 0, 0)",
+   "bd": "1px solid rgb(20, 22, 26)",
+   "r": "999px",
+   "sh": "",
+   "pad": "0px 24px",
+   "gap": "normal"
+  },
+  {
+   "tag": "footer",
+   "key": "TheDiligence Investment due diligence by investor-operators.",
+   "rect": [
+    0,
+    3762,
+    1280,
+    239
+   ],
+   "bg": "rgb(15, 18, 22)",
+   "bd": "0px none rgb(201, 204, 209)",
+   "r": "0px",
+   "sh": "",
+   "pad": "56px 56px 48px",
+   "gap": "normal"
+  }
+ ],
+ "page": "Team",
+ "width": 1280,
+ "route": "/team"
+}

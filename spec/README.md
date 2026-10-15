@@ -1,16 +1,20 @@
-# spec/ — the frozen reference
+# spec/ — the frozen reference (V5)
 
-Everything in this folder is data derived from the approved prototype and is **read-only for agents**. `SHA256SUMS` fixes it; CI runs `pnpm spec:verify`. The rules for using it are in `docs/CONFORMITY.md`.
+Do not edit by hand. This folder is the design "TheDiligence website V5" turned into data: Claude Design canvas https://claude.ai/artifact/F6HhKPkW6MfBGJ8h5wb4qH, version 1791995958-bea2, frozen on 14 Oct 2026. Contract and procedures: `docs/CONFORMITY.md`.
 
-| Path | Content |
-|---|---|
-| `markup/<Page>.html` | Rendered DOM of each page, initial state, copy overrides applied. `_logos-strip.*.html` is the logos row kept for the flag `logos_visible`. `ol.metro` carries `data-conformity-skip="map"`. |
-| `states/<Page>/NN-<control>.html` | DOM of the control's section after the click (52 controls, 40 of them change the DOM). |
-| `styles/` | `base.css`, `ui.css` (the prototype's CSS, unchanged) and `logos.css` (generated logo sizes). |
-| `redlines/<Page>.<1280\|768\|390>.json` | Measured text runs, boxes and sections. |
-| `reference/<Page>-<1280\|390>.png` | Full-page screenshots of the golden markup, light theme. |
-| `behaviour.json` | For each control: label, whether it changes the section, resulting text, state file. |
-| `copy-overrides.json` | Prototype sentences replaced by the claims register, with the reason. |
-| `thresholds.json` | The gates G1 to G8. |
+| Path | Content | Made by |
+|---|---|---|
+| `pages.json` | Pages (Main `/`, Team `/team`), titles, section selector, widths | hand (Ismael) |
+| `markup/Main.html`, `markup/Team.html` | Golden markup: rendered DOM, overrides applied, flag-off blocks removed | `freeze-from-design.mjs` |
+| `markup/_logos-strip.*.html` | Fund-names blocks (flag `logos_visible`) | `freeze-from-design.mjs` |
+| `states/Main/*.html` | Section 5 in £ (`01`), section 6 after each FAQ toggle (`02` to `07`) | `freeze-from-design.mjs` |
+| `behaviour.json` | Controls, ARIA before and after, text before and after | `freeze-from-design.mjs` |
+| `styles/Main.css`, `styles/Team.css` | Each page's CSS, verbatim | `freeze-from-design.mjs` |
+| `styles/fonts.css`, `fonts/` | Google Fonts faces of the design, self-hosted (latin, latin-ext) | `freeze-from-design.mjs` |
+| `assets/`, `assets.json` | The six photos, renamed | `freeze-from-design.mjs` / hand |
+| `copy-overrides.json`, `seams.json`, `links.json`, `thresholds.json` | Claims-register replacements, flagged blocks, link targets, gates | hand (Ismael) |
+| `redlines/<Page>.<width>.json` | Measured sections, text runs, boxes at 1280, 768, 390 | `build-reference.mjs` |
+| `reference/<Page>-<width>.png` | Full-page screenshots at 1280 and 390 | `build-reference.mjs` |
+| `SHA256SUMS` | Hash of every file here | `verify-spec.mjs --write` |
 
-Regenerate the measured files only on purpose: `pnpm conformity:ref` (needs network for the Google Fonts stylesheet that the reference was rendered with, or the same fonts installed), then update `SHA256SUMS` and add a Decisions-log line.
+Validation of 14 Oct 2026: the golden markup inside the generated CSS differs from the live design by 0.0000 % to 0.0003 % of pixels before overrides; the gate scores 100 % on it; `build-reference.mjs` reproduces the redlines byte for byte.

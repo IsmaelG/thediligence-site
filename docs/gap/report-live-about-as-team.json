@@ -1,0 +1,653 @@
+{
+ "base": "https://www.thediligence.app",
+ "at": "2026-10-14T16:42:55.575Z",
+ "thresholds": {
+  "note": "Gates of docs/CONFORMITY.md section 3. Agents never lower a threshold; only Ismael changes this file, with a dated line in the Decisions log.",
+  "G1_textCoverage": 0.99,
+  "G2_typography": 0.97,
+  "G3_position": 0.97,
+  "G4_boxes": 0.95,
+  "G5_heightTolerance": 0.03,
+  "G6_sectionsEqual": true,
+  "G7_pixelRatioPerSection": 0.015,
+  "G7_pixelThreshold": 0.1,
+  "G7_heightTolerance": 0.03,
+  "G8_jaccard": 0.8,
+  "tolerances": {
+   "fontSizePx": 0.5,
+   "letterSpacingPx": 0.3,
+   "lineHeightPx": 1.5,
+   "xPx": 8,
+   "widthPx": 12,
+   "widthRatio": 0.08
+  }
+ },
+ "pages": [
+  {
+   "page": "Team",
+   "width": 1280,
+   "url": "https://www.thediligence.app/about",
+   "gates": {
+    "G1": {
+     "pass": false,
+     "value": 0.1746031746031746
+    },
+    "G2": {
+     "pass": false,
+     "value": 0
+    },
+    "G3": {
+     "pass": false,
+     "value": 0.09090909090909091
+    },
+    "G4": {
+     "pass": false,
+     "value": 0
+    },
+    "G5": {
+     "pass": true,
+     "value": -0.009247688077980504,
+     "overflow": 0
+    },
+    "G6": {
+     "pass": false,
+     "value": [
+      6,
+      0
+     ]
+    },
+    "G7": {
+     "pass": false,
+     "value": 1,
+     "sections": [
+      {
+       "i": 0,
+       "text": "TheDiligence How it works Pricing Team Security Start free B",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 1,
+       "text": "INVESTOR-OPERATOR · PARIS · PRODUCT Ismael Ghozael Product e",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 2,
+       "text": "INVESTOR-OPERATOR · LONDON · COMMERCIAL, P&L AND TURNAROUNDS",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 3,
+       "text": "TOGETHER Both started as engineers. Both ran global business",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 4,
+       "text": "Let us look at your next deal together. Start free Book time",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 5,
+       "text": "TheDiligence Investment due diligence by investor-operators.",
+       "ratio": 1,
+       "note": "section missing"
+      }
+     ]
+    }
+   },
+   "details": {
+    "missing": [
+     "How it works",
+     "Pricing",
+     "Team",
+     "The team · Paris · London",
+     "Two investor-operators.",
+     "Together we cover both halves of an investment question: does the product work, and does the business make money?",
+     "Investor-operator · Paris · Product",
+     "Product executive, platforms and commerce",
+     "Ismael is a product and platform executive with more than 20 years across commerce, fintech and connected experiences. He started as a mobil",
+     "He is now VP Products & Platforms at the world's largest sports retailer, where he leads a 400-person organisation through a platform and AI",
+     "$1.3T",
+     "payment volume on the platform he led",
+     "35M",
+     "merchants on that platform",
+     "+$100M a year",
+     "product-led incremental margin: innovation at scale",
+     "MBA",
+     "UC Berkeley",
+     "Ismael on LinkedIn",
+     "Investor-operator · London · Commercial, P&L and turnarounds",
+     "Builds, fixes and scales commercial businesses",
+     "Mazen Wazni builds, fixes and scales commercial businesses, with more than 20 years running P&Ls and teams in Europe and Africa. Most recent",
+     "Before Amazon he built and ran consumer goods businesses across Africa, growing one from zero to $100M with 800 people. An engineer by train",
+     "15 years",
+     "running P&Ls in Europe and Africa",
+     "$5B+",
+     "combined revenue of the businesses he has run, from small to large",
+     "$0 to $100M",
+     "a consumer goods business he grew in Africa, with 800 people",
+     "2,000",
+     "people he led in one of Amazon's largest UK fulfilment centres",
+     "Mazen on LinkedIn",
+     "Together",
+     "Both started as engineers. Both ran global businesses. Both work from Paris and London.",
+     "Ismael brings the product and technology view",
+     "Payments and fintech",
+     "Platforms and APIs",
+     "Omnichannel retail",
+     "Running organisations at scale",
+     "Mazen brings the commercial and operating view",
+     "P&L ownership",
+     "B2B platforms",
+     "Category and supplier economics",
+     "Fulfilment operations",
+     "Turnarounds and growth",
+     "We go deepest in fintech, B2C and B2B commerce, retail and consumer brands.",
+     "Let us look at your next deal together.",
+     "Investment due diligence by investor-operators. Paris and London.",
+     "How it works",
+     "Pricing",
+     "Team",
+     "Security"
+    ],
+    "typography": [
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "26px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Security",
+      "diffs": [
+       [
+        "font-weight",
+        "500",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "font-size",
+        "16px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "15px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Ismael Ghozael",
+      "diffs": [
+       [
+        "font-size",
+        "60px",
+        "30px"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.48px"
+       ],
+       [
+        "line-height",
+        "60px",
+        "33px"
+       ]
+      ]
+     },
+     {
+      "text": "Mazen Wazni",
+      "diffs": [
+       [
+        "font-size",
+        "60px",
+        "30px"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.48px"
+       ],
+       [
+        "line-height",
+        "60px",
+        "33px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "color",
+        "rgb(245, 243, 238)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(15, 18, 22)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "24px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time",
+      "diffs": [
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "15px"
+       ]
+      ]
+     },
+     {
+      "text": "Evidence-graded analysis, not investment advice.",
+      "diffs": [
+       [
+        "font-size",
+        "13px",
+        "14px"
+       ],
+       [
+        "color",
+        "rgb(154, 161, 171)",
+        "rgb(90, 96, 106)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "21.7px"
+       ]
+      ]
+     }
+    ],
+    "position": [
+     {
+      "text": "TheDiligence",
+      "ref": [
+       56,
+       40,
+       143,
+       26
+      ],
+      "cand": [
+       52,
+       14,
+       169,
+       44
+      ]
+     },
+     {
+      "text": "Security",
+      "ref": [
+       672,
+       44,
+       57,
+       19
+      ],
+      "cand": [
+       667,
+       12,
+       86,
+       47
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       922,
+       28,
+       117,
+       50
+      ],
+      "cand": [
+       1119,
+       14,
+       109,
+       44
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       1049,
+       28,
+       175,
+       50
+      ],
+      "cand": [
+       52,
+       515,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "Ismael Ghozael",
+      "ref": [
+       672,
+       714,
+       552,
+       60
+      ],
+      "cand": [
+       89,
+       2617,
+       502,
+       33
+      ]
+     },
+     {
+      "text": "Mazen Wazni",
+      "ref": [
+       56,
+       1680,
+       552,
+       60
+      ],
+      "cand": [
+       689,
+       2617,
+       502,
+       33
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       484,
+       3608,
+       119,
+       50
+      ],
+      "cand": [
+       249,
+       515,
+       125,
+       52
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       615,
+       3608,
+       181,
+       50
+      ],
+      "cand": [
+       451,
+       3259,
+       215,
+       52
+      ]
+     },
+     {
+      "text": "Book time",
+      "ref": [
+       1155,
+       3818,
+       69,
+       79
+      ],
+      "cand": [
+       999,
+       14,
+       112,
+       44
+      ]
+     },
+     {
+      "text": "Evidence-graded analysis, not investment advice.",
+      "ref": [
+       56,
+       3937,
+       1168,
+       16
+      ],
+      "cand": [
+       920,
+       3902,
+       308,
+       22
+      ]
+     }
+    ],
+    "boxes": [
+     {
+      "key": "TheDiligence How it works Pricing Team Security Start free B",
+      "issue": "missing"
+     },
+     {
+      "key": "TheDiligence How it works Pricing Team Security Start free B",
+      "issue": "missing"
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgba(0, 0, 0, 0)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "Book time with us",
+      "diffs": [
+       [
+        "background",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "$1.3T payment volume on the platform he led 35M merchants on",
+      "issue": "missing"
+     },
+     {
+      "key": "$1.3T payment volume on the platform he led",
+      "issue": "missing"
+     },
+     {
+      "key": "35M merchants on that platform",
+      "issue": "missing"
+     },
+     {
+      "key": "+$100M a year product-led incremental margin: innovation at ",
+      "issue": "missing"
+     },
+     {
+      "key": "MBA UC Berkeley",
+      "issue": "missing"
+     },
+     {
+      "key": "INVESTOR-OPERATOR · LONDON · COMMERCIAL, P&L AND TURNAROUNDS",
+      "issue": "missing"
+     },
+     {
+      "key": "15 years running P&Ls in Europe and Africa $5B+ combined rev",
+      "issue": "missing"
+     },
+     {
+      "key": "15 years running P&Ls in Europe and Africa",
+      "issue": "missing"
+     },
+     {
+      "key": "$5B+ combined revenue of the businesses he has run, from sma",
+      "issue": "missing"
+     },
+     {
+      "key": "$0 to $100M a consumer goods business he grew in Africa, wit",
+      "issue": "missing"
+     },
+     {
+      "key": "2,000 people he led in one of Amazon's largest UK fulfilment",
+      "issue": "missing"
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "TOGETHER Both started as engineers. Both ran global business",
+      "issue": "missing"
+     },
+     {
+      "key": "Ismael brings the product and technology view Payments and f",
+      "issue": "missing"
+     },
+     {
+      "key": "Mazen brings the commercial and operating view P&L ownership",
+      "issue": "missing"
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgb(20, 22, 26)",
+        "rgba(0, 0, 0, 0)"
+       ]
+      ]
+     },
+     {
+      "key": "Book time with us",
+      "diffs": [
+       [
+        "background",
+        "rgba(0, 0, 0, 0)",
+        "rgb(236, 234, 228)"
+       ]
+      ]
+     },
+     {
+      "key": "TheDiligence Investment due diligence by investor-operators.",
+      "issue": "missing"
+     }
+    ],
+    "counts": {
+     "missing": 52,
+     "typography": 11,
+     "position": 10,
+     "boxes": 23
+    }
+   }
+  }
+ ]
+}

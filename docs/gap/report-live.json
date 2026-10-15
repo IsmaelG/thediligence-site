@@ -1,0 +1,4292 @@
+{
+ "base": "https://www.thediligence.app",
+ "at": "2026-10-14T16:43:06.170Z",
+ "thresholds": {
+  "note": "Gates of docs/CONFORMITY.md section 3. Agents never lower a threshold; only Ismael changes this file, with a dated line in the Decisions log.",
+  "G1_textCoverage": 0.99,
+  "G2_typography": 0.97,
+  "G3_position": 0.97,
+  "G4_boxes": 0.95,
+  "G5_heightTolerance": 0.03,
+  "G6_sectionsEqual": true,
+  "G7_pixelRatioPerSection": 0.015,
+  "G7_pixelThreshold": 0.1,
+  "G7_heightTolerance": 0.03,
+  "G8_jaccard": 0.8,
+  "tolerances": {
+   "fontSizePx": 0.5,
+   "letterSpacingPx": 0.3,
+   "lineHeightPx": 1.5,
+   "xPx": 8,
+   "widthPx": 12,
+   "widthRatio": 0.08
+  }
+ },
+ "pages": [
+  {
+   "page": "Main",
+   "width": 1280,
+   "url": "https://www.thediligence.app/",
+   "gates": {
+    "G1": {
+     "pass": false,
+     "value": 0.1569767441860465
+    },
+    "G2": {
+     "pass": false,
+     "value": 0
+    },
+    "G3": {
+     "pass": false,
+     "value": 0.037037037037037035
+    },
+    "G4": {
+     "pass": false,
+     "value": 0.07272727272727272
+    },
+    "G5": {
+     "pass": false,
+     "value": 0.24647321940589517,
+     "overflow": 0
+    },
+    "G6": {
+     "pass": false,
+     "value": [
+      10,
+      0
+     ]
+    },
+    "G7": {
+     "pass": false,
+     "value": 1,
+     "sections": [
+      {
+       "i": 0,
+       "text": "TheDiligence How it works Pricing Team Security Start free B",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 1,
+       "text": "WHY US Good diligence is slow, expensive, or impossible to c",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 2,
+       "text": "HOW IT WORKS How a diligence runs Four steps. The AI does th",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 3,
+       "text": "WHO WE ARE Two investor-operators, both halves of the questi",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 4,
+       "text": "WHAT YOU GET A memo you can take to your investment committe",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 5,
+       "text": "THREE WAYS TO WORK WITH US Use it on your own, or with us al",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 6,
+       "text": "QUESTIONS What people ask us first. Why not just use Claude ",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 7,
+       "text": "SECURITY Your data stays yours. Platform in preview. These a",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 8,
+       "text": "Start a diligence you can defend. Run it yourself today, or ",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 9,
+       "text": "TheDiligence Investment due diligence by investor-operators.",
+       "ratio": 1,
+       "note": "section missing"
+      }
+     ]
+    },
+    "G8": {
+     "pass": false,
+     "value": "0/7",
+     "controls": [
+      {
+       "label": "£ Pound",
+       "found": false,
+       "score": 0,
+       "ok": false
+      },
+      {
+       "label": "Why not just use Claude or ChatGPT?",
+       "found": false,
+       "score": 0,
+       "ok": false
+      },
+      {
+       "label": "If the method is free, why pay for the platform?",
+       "found": false,
+       "score": 0,
+       "ok": false
+      },
+      {
+       "label": "Can I use my Claude subscription?",
+       "found": false,
+       "score": 0,
+       "ok": false
+      },
+      {
+       "label": "What does the AI usage cost?",
+       "found": false,
+       "score": 0,
+       "ok": false
+      },
+      {
+       "label": "Who can see my documents?",
+       "found": false,
+       "score": 0,
+       "ok": false
+      },
+      {
+       "label": "When should I hire you instead?",
+       "found": false,
+       "score": 0,
+       "ok": false
+      }
+     ]
+    }
+   },
+   "details": {
+    "missing": [
+     "How it works",
+     "Pricing",
+     "Team",
+     "Paris · London",
+     "Investment diligence, built by",
+     "investor-operators.",
+     "From the market to the first 100 days. Specialist AI agents do the research and show the source of every finding. Two investor-operators fro",
+     "Paris · 48.8584° N",
+     "London · 51.5055° N",
+     "Why us",
+     "Good diligence is slow, expensive, or impossible to check.",
+     "We check a company before you invest in it: its market, its business, its product and its technology. You get a clear verdict, and you can s",
+     "Consulting firms",
+     "Thorough, but slow and costly.",
+     "Weeks of work and a six-figure bill. Worth it for a large buyout, out of reach for most deals.",
+     "Generic AI tools",
+     "Fast, but hard to trust.",
+     "You get an answer in minutes, but you cannot tell where it came from, so it will not hold up in front of an investment committee.",
+     "Fast, trustworthy, with an operator's judgement.",
+     "Specialist AI agents do the research, a second AI checks it, and the two operators who wrote the method are there when a deal needs them. Pr",
+     "How it works",
+     "How a diligence runs",
+     "Four steps. The AI does the reading and the checking, and people make the decisions.",
+     "1",
+     "You",
+     "Name the company",
+     "Add what you already have: a deck, a data room, notes from calls. A name alone is enough to start.",
+     "you start in minutes, with no setup.",
+     "Why it matters:",
+     "AI agents",
+     "Specialist agents do the research",
+     "One agent for the market, one for the company, one for the product, one for the technology, all working at once.",
+     "every area gets full attention, in hours rather than weeks.",
+     "Why it matters:",
+     "Second AI",
+     "Every finding is checked",
+     "An AI from a different provider checks each finding against its source, and flags what it cannot confirm.",
+     "one AI's mistakes do not reach your memo.",
+     "Why it matters:",
+     "4",
+     "You, and us",
+     "Then, people talk to people",
+     "You get a memo with a verdict and its evidence. Then the real conversations: customers past and present, competitors, the team. An operator ",
+     "AI reads what was written. People hear what was left unsaid.",
+     "Why it matters:",
+     "Who we are",
+     "Two investor-operators, both halves of the question.",
+     "Every investment comes down to two questions: does the product work, and does the business make money? Each of us has run one of those halve",
+     "Ismael Ghozael · Paris · Product and technology",
+     "Does the product work?",
+     "Do customers stay, and why?",
+     "What breaks when usage grows ten times?",
+     "Does the technology back what the deck claims?",
+     "Led PayPal's payments platform, $1.3T in volume and 35M merchants, and its international expansion. Delivered $100M a year in product-led in",
+     "Mazen Wazni · London · Commercial, P&L and turnarounds",
+     "Does the business make money?",
+     "Are the unit economics real?",
+     "Will customers, suppliers and channels hold?",
+     "What do we fix in the first 100 days?",
+     "Most recently General Manager of Amazon Business Retail Europe, a multi-billion B2B ecommerce platform. Before Amazon, grew a consumer goods",
+     "We go deepest in fintech, B2B and B2C commerce, retail and consumer brands.",
+     "Read our full story",
+     "What you get",
+     "A memo you can take to your investment committee.",
+     "Every finding carries a label, so your committee knows what to rely on and what to probe.",
+     "Checked against an original document, such as a filing or the company's own data.",
+     "From a credible source, such as a customer interview, that we could not check ourselves.",
+     "Our own estimate, and labelled as one.",
+     "And a list of what is still missing, with who to ask for it.",
+     "Northwind · Investment memo",
+     "Illustrative example",
+     "Invest, if onboarding is fixed.",
+     "Verified",
+     "Customers who stay past nine months rarely leave.",
+     "Source: the company's revenue data, 24 months",
+     "Reported",
+     "Commercial",
+     "Two of the three largest customers renegotiate prices every year.",
+     "Source: interviews with two customers",
+     "Estimated"
+    ],
+    "typography": [
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "26px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Security",
+      "diffs": [
+       [
+        "font-weight",
+        "500",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "font-size",
+        "16px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "15px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(201, 204, 209)",
+        "rgb(85, 91, 102)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.96px",
+        "0.24px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "12px"
+       ]
+      ]
+     },
+     {
+      "text": "2",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass Mono"
+       ],
+       [
+        "font-size",
+        "40px",
+        "10.5px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(139, 61, 0)"
+       ],
+       [
+        "line-height",
+        "40px",
+        "15.225px"
+       ]
+      ]
+     },
+     {
+      "text": "3",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass Mono"
+       ],
+       [
+        "font-size",
+        "40px",
+        "14px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "line-height",
+        "40px",
+        "14px"
+       ]
+      ]
+     },
+     {
+      "text": "Verified",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(245, 243, 238)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Reported",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Estimated",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Verdict",
+      "diffs": [
+       [
+        "font-size",
+        "12px",
+        "10.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(154, 161, 171)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "12.6px"
+       ]
+      ]
+     },
+     {
+      "text": "Confidence",
+      "diffs": [
+       [
+        "font-size",
+        "12px",
+        "10.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(110, 67, 0)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.96px",
+        "0.42px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "10.5px"
+       ]
+      ]
+     },
+     {
+      "text": "Medium",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass",
+        "Overpass Mono"
+       ],
+       [
+        "font-size",
+        "20px",
+        "10.5px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(110, 67, 0)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "0.42px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "10.5px"
+       ]
+      ]
+     },
+     {
+      "text": "Product",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "11px",
+        "13.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "700"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.88px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "19.575px"
+       ]
+      ]
+     },
+     {
+      "text": "Market",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "11px",
+        "13.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "700"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.88px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "19.575px"
+       ]
+      ]
+     },
+     {
+      "text": "The method",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "36px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "39.6px",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "One diligence a week on the free plan",
+      "diffs": [
+       [
+        "font-size",
+        "16px",
+        "17px"
+       ],
+       [
+        "color",
+        "rgb(58, 63, 71)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "24px",
+        "26.35px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Hire us",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "36px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(245, 243, 238)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "39.6px",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Run it yourself today, or tell us about the deal and we will",
+      "diffs": [
+       [
+        "font-size",
+        "19px",
+        "21px"
+       ],
+       [
+        "color",
+        "rgb(218, 216, 210)",
+        "rgb(196, 200, 206)"
+       ],
+       [
+        "line-height",
+        "28.5px",
+        "31.5px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(236, 234, 228)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(15, 18, 22)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "24px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time",
+      "diffs": [
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "15px"
+       ]
+      ]
+     }
+    ],
+    "position": [
+     {
+      "text": "TheDiligence",
+      "ref": [
+       56,
+       40,
+       143,
+       26
+      ],
+      "cand": [
+       52,
+       14,
+       169,
+       44
+      ]
+     },
+     {
+      "text": "Security",
+      "ref": [
+       672,
+       44,
+       57,
+       19
+      ],
+      "cand": [
+       667,
+       12,
+       86,
+       47
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       922,
+       28,
+       117,
+       50
+      ],
+      "cand": [
+       1119,
+       14,
+       109,
+       44
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       1049,
+       28,
+       175,
+       50
+      ],
+      "cand": [
+       631,
+       505,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       80,
+       766,
+       119,
+       50
+      ],
+      "cand": [
+       464,
+       505,
+       155,
+       52
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       211,
+       766,
+       181,
+       50
+      ],
+      "cand": [
+       617,
+       5355,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "ref": [
+       883,
+       1346,
+       309,
+       16
+      ],
+      "cand": [
+       132,
+       695,
+       92,
+       12
+      ]
+     },
+     {
+      "text": "2",
+      "ref": [
+       337,
+       2084,
+       23,
+       40
+      ],
+      "cand": [
+       206,
+       3340,
+       20,
+       21
+      ]
+     },
+     {
+      "text": "3",
+      "ref": [
+       617,
+       2084,
+       23,
+       40
+      ],
+      "cand": [
+       1131,
+       907,
+       9,
+       14
+      ]
+     },
+     {
+      "text": "Verified",
+      "ref": [
+       56,
+       4433,
+       98,
+       26
+      ],
+      "cand": [
+       725,
+       4911,
+       101,
+       24
+      ]
+     },
+     {
+      "text": "Reported",
+      "ref": [
+       56,
+       4500,
+       98,
+       26
+      ],
+      "cand": [
+       848,
+       4911,
+       120,
+       24
+      ]
+     },
+     {
+      "text": "Estimated",
+      "ref": [
+       56,
+       4567,
+       98,
+       26
+      ],
+      "cand": [
+       990,
+       4911,
+       128,
+       24
+      ]
+     },
+     {
+      "text": "Verdict",
+      "ref": [
+       705,
+       4423,
+       370,
+       16
+      ],
+      "cand": [
+       291,
+       3333,
+       606,
+       13
+      ]
+     },
+     {
+      "text": "Confidence",
+      "ref": [
+       1107,
+       4472,
+       84,
+       16
+      ],
+      "cand": [
+       763,
+       3484,
+       135,
+       23
+      ]
+     },
+     {
+      "text": "Medium",
+      "ref": [
+       1107,
+       4494,
+       84,
+       26
+      ],
+      "cand": [
+       772,
+       3488,
+       41,
+       13
+      ]
+     },
+     {
+      "text": "Product",
+      "ref": [
+       800,
+       4571,
+       54,
+       14
+      ],
+      "cand": [
+       297,
+       1132,
+       217,
+       20
+      ]
+     },
+     {
+      "text": "Market",
+      "ref": [
+       810,
+       4791,
+       46,
+       14
+      ],
+      "cand": [
+       297,
+       804,
+       217,
+       20
+      ]
+     },
+     {
+      "text": "The method",
+      "ref": [
+       89,
+       5630,
+       307,
+       40
+      ],
+      "cand": [
+       459,
+       10645,
+       81,
+       36
+      ]
+     },
+     {
+      "text": "One diligence a week on the free plan",
+      "ref": [
+       504,
+       5852,
+       289,
+       24
+      ],
+      "cand": [
+       129,
+       7189,
+       284,
+       26
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       486,
+       6023,
+       119,
+       50
+      ],
+      "cand": [
+       97,
+       7348,
+       155,
+       52
+      ]
+     },
+     {
+      "text": "Hire us",
+      "ref": [
+       883,
+       5629,
+       309,
+       40
+      ],
+      "cand": [
+       731,
+       10609,
+       47,
+       36
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       883,
+       6024,
+       179,
+       50
+      ],
+      "cand": [
+       697,
+       7348,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "Run it yourself today, or tell us about the deal and we will",
+      "ref": [
+       359,
+       8200,
+       561,
+       57
+      ],
+      "cand": [
+       343,
+       10076,
+       593,
+       63
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       484,
+       8289,
+       179,
+       50
+      ],
+      "cand": [
+       631,
+       10163,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       675,
+       8289,
+       121,
+       50
+      ],
+      "cand": [
+       464,
+       10163,
+       155,
+       52
+      ]
+     },
+     {
+      "text": "Book time",
+      "ref": [
+       1155,
+       8536,
+       69,
+       79
+      ],
+      "cand": [
+       999,
+       14,
+       112,
+       44
+      ]
+     }
+    ],
+    "boxes": [
+     {
+      "key": "TheDiligence How it works Pricing Team Security Start free B",
+      "issue": "missing"
+     },
+     {
+      "key": "TheDiligence How it works Pricing Team Security Start free B",
+      "issue": "missing"
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgba(0, 0, 0, 0)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "Book time with us",
+      "diffs": [
+       [
+        "background",
+        "rgb(236, 234, 228)",
+        "rgba(0, 0, 0, 0)"
+       ]
+      ]
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "CONSULTING FIRMS Thorough, but slow and costly. Weeks of wor",
+      "issue": "missing"
+     },
+     {
+      "key": "GENERIC AI TOOLS Fast, but hard to trust. You get an answer ",
+      "issue": "missing"
+     },
+     {
+      "key": "THEDILIGENCE Fast, trustworthy, with an operator's judgement",
+      "issue": "missing"
+     },
+     {
+      "key": "HOW IT WORKS How a diligence runs Four steps. The AI does th",
+      "issue": "missing"
+     },
+     {
+      "key": "1 YOU Name the company Add what you already have: a deck, a ",
+      "issue": "missing"
+     },
+     {
+      "key": "YOU",
+      "issue": "missing"
+     },
+     {
+      "key": "2 AI AGENTS Specialist agents do the research One agent for ",
+      "issue": "missing"
+     },
+     {
+      "key": "AI AGENTS",
+      "issue": "missing"
+     },
+     {
+      "key": "3 SECOND AI Every finding is checked An AI from a different ",
+      "issue": "missing"
+     },
+     {
+      "key": "SECOND AI",
+      "issue": "missing"
+     },
+     {
+      "key": "4 YOU, AND US Then, people talk to people You get a memo wit",
+      "issue": "missing"
+     },
+     {
+      "key": "YOU, AND US",
+      "issue": "missing"
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "Read our full story",
+      "issue": "missing"
+     },
+     {
+      "key": "WHAT YOU GET A memo you can take to your investment committe",
+      "issue": "missing"
+     },
+     {
+      "key": "VERIFIED",
+      "issue": "missing"
+     },
+     {
+      "key": "REPORTED",
+      "issue": "missing"
+     },
+     {
+      "key": "ESTIMATED",
+      "issue": "missing"
+     },
+     {
+      "key": "NORTHWIND · INVESTMENT MEMO ILLUSTRATIVE EXAMPLE VERDICT Inv",
+      "issue": "missing"
+     },
+     {
+      "key": "VERDICT Invest, if onboarding is fixed. CONFIDENCE Medium",
+      "issue": "missing"
+     },
+     {
+      "key": "VERIFIED",
+      "issue": "missing"
+     },
+     {
+      "key": "REPORTED",
+      "issue": "missing"
+     },
+     {
+      "key": "ESTIMATED",
+      "issue": "missing"
+     },
+     {
+      "key": "STILL NEEDED Management accounts for the last 24 months. Ask",
+      "issue": "missing"
+     },
+     {
+      "key": "€ Euro",
+      "issue": "missing"
+     },
+     {
+      "key": "£ Pound",
+      "issue": "missing"
+     },
+     {
+      "key": "01 · ON YOUR OWN The method Free Our full method, written do",
+      "issue": "missing"
+     },
+     {
+      "key": "Get the method",
+      "issue": "missing"
+     },
+     {
+      "key": "02 · ON OUR PLATFORM The platform Free, then from €149 a mon",
+      "issue": "missing"
+     },
+     {
+      "key": "03 · WITH US Hire us From €2,500 per deal We run the diligen",
+      "issue": "missing"
+     },
+     {
+      "key": "QUESTIONS What people ask us first. Why not just use Claude ",
+      "issue": "missing"
+     },
+     {
+      "key": "Why not just use Claude or ChatGPT? You can, and our method ",
+      "issue": "missing"
+     },
+     {
+      "key": "Why not just use Claude or ChatGPT? You can, and our method ",
+      "issue": "missing"
+     },
+     {
+      "key": "If the method is free, why pay for the platform?",
+      "issue": "missing"
+     }
+    ],
+    "counts": {
+     "missing": 145,
+     "typography": 27,
+     "position": 26,
+     "boxes": 51
+    }
+   }
+  },
+  {
+   "page": "Main",
+   "width": 768,
+   "url": "https://www.thediligence.app/",
+   "gates": {
+    "G1": {
+     "pass": false,
+     "value": 0.1566265060240964
+    },
+    "G2": {
+     "pass": false,
+     "value": 0
+    },
+    "G3": {
+     "pass": false,
+     "value": 0.07692307692307693
+    },
+    "G4": {
+     "pass": false,
+     "value": 0.07272727272727272
+    },
+    "G5": {
+     "pass": false,
+     "value": 0.19822373393801965,
+     "overflow": 0
+    },
+    "G6": {
+     "pass": false,
+     "value": [
+      10,
+      0
+     ]
+    }
+   },
+   "details": {
+    "missing": [
+     "Paris · London",
+     "Investment diligence, built by",
+     "investor-operators.",
+     "From the market to the first 100 days. Specialist AI agents do the research and show the source of every finding. Two investor-operators fro",
+     "Why us",
+     "Good diligence is slow, expensive, or impossible to check.",
+     "We check a company before you invest in it: its market, its business, its product and its technology. You get a clear verdict, and you can s",
+     "Consulting firms",
+     "Thorough, but slow and costly.",
+     "Weeks of work and a six-figure bill. Worth it for a large buyout, out of reach for most deals.",
+     "Generic AI tools",
+     "Fast, but hard to trust.",
+     "You get an answer in minutes, but you cannot tell where it came from, so it will not hold up in front of an investment committee.",
+     "Fast, trustworthy, with an operator's judgement.",
+     "Specialist AI agents do the research, a second AI checks it, and the two operators who wrote the method are there when a deal needs them. Pr",
+     "How it works",
+     "How a diligence runs",
+     "Four steps. The AI does the reading and the checking, and people make the decisions.",
+     "1",
+     "You",
+     "Name the company",
+     "Add what you already have: a deck, a data room, notes from calls. A name alone is enough to start.",
+     "you start in minutes, with no setup.",
+     "Why it matters:",
+     "2",
+     "AI agents",
+     "Specialist agents do the research",
+     "One agent for the market, one for the company, one for the product, one for the technology, all working at once.",
+     "every area gets full attention, in hours rather than weeks.",
+     "Why it matters:",
+     "Second AI",
+     "Every finding is checked",
+     "An AI from a different provider checks each finding against its source, and flags what it cannot confirm.",
+     "one AI's mistakes do not reach your memo.",
+     "Why it matters:",
+     "4",
+     "You, and us",
+     "Then, people talk to people",
+     "You get a memo with a verdict and its evidence. Then the real conversations: customers past and present, competitors, the team. An operator ",
+     "AI reads what was written. People hear what was left unsaid.",
+     "Why it matters:",
+     "Who we are",
+     "Two investor-operators, both halves of the question.",
+     "Every investment comes down to two questions: does the product work, and does the business make money? Each of us has run one of those halve",
+     "Ismael Ghozael · Paris · Product and technology",
+     "Does the product work?",
+     "Do customers stay, and why?",
+     "What breaks when usage grows ten times?",
+     "Does the technology back what the deck claims?",
+     "Led PayPal's payments platform, $1.3T in volume and 35M merchants, and its international expansion. Delivered $100M a year in product-led in",
+     "Mazen Wazni · London · Commercial, P&L and turnarounds",
+     "Does the business make money?",
+     "Are the unit economics real?",
+     "Will customers, suppliers and channels hold?",
+     "What do we fix in the first 100 days?",
+     "Most recently General Manager of Amazon Business Retail Europe, a multi-billion B2B ecommerce platform. Before Amazon, grew a consumer goods",
+     "We go deepest in fintech, B2B and B2C commerce, retail and consumer brands.",
+     "Read our full story",
+     "What you get",
+     "A memo you can take to your investment committee.",
+     "Every finding carries a label, so your committee knows what to rely on and what to probe.",
+     "Checked against an original document, such as a filing or the company's own data.",
+     "From a credible source, such as a customer interview, that we could not check ourselves.",
+     "Our own estimate, and labelled as one.",
+     "And a list of what is still missing, with who to ask for it.",
+     "Northwind · Investment memo",
+     "Illustrative example",
+     "Invest, if onboarding is fixed.",
+     "Verified",
+     "Customers who stay past nine months rarely leave.",
+     "Source: the company's revenue data, 24 months",
+     "Reported",
+     "Commercial",
+     "Two of the three largest customers renegotiate prices every year.",
+     "Source: interviews with two customers",
+     "Estimated",
+     "Mid-sized buyers are moving from single tools to platforms.",
+     "Source: one analyst estimate, so treat with care",
+     "Still needed",
+     "Management accounts for the last 24 months. Ask the founder."
+    ],
+    "typography": [
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "26px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "font-size",
+        "16px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "15px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(201, 204, 209)",
+        "rgb(85, 91, 102)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.96px",
+        "0.24px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "12px"
+       ]
+      ]
+     },
+     {
+      "text": "3",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass Mono"
+       ],
+       [
+        "font-size",
+        "40px",
+        "14px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "line-height",
+        "40px",
+        "14px"
+       ]
+      ]
+     },
+     {
+      "text": "Verified",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(245, 243, 238)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Reported",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Estimated",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Verdict",
+      "diffs": [
+       [
+        "font-size",
+        "12px",
+        "10.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(154, 161, 171)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "12.6px"
+       ]
+      ]
+     },
+     {
+      "text": "Confidence",
+      "diffs": [
+       [
+        "font-size",
+        "12px",
+        "10.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(110, 67, 0)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.96px",
+        "0.42px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "10.5px"
+       ]
+      ]
+     },
+     {
+      "text": "Medium",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass",
+        "Overpass Mono"
+       ],
+       [
+        "font-size",
+        "20px",
+        "10.5px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(110, 67, 0)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "0.42px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "10.5px"
+       ]
+      ]
+     },
+     {
+      "text": "Product",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "11px",
+        "13.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "700"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.88px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "19.575px"
+       ]
+      ]
+     },
+     {
+      "text": "Market",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "11px",
+        "13.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "700"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.88px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "19.575px"
+       ]
+      ]
+     },
+     {
+      "text": "The method",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "36px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "39.6px",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "One diligence a week on the free plan",
+      "diffs": [
+       [
+        "font-size",
+        "16px",
+        "17px"
+       ],
+       [
+        "color",
+        "rgb(58, 63, 71)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "24px",
+        "26.35px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Hire us",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "36px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(245, 243, 238)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "39.6px",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Security",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "20px",
+        "17px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(154, 161, 171)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "1.6px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "26.35px"
+       ]
+      ]
+     },
+     {
+      "text": "Run it yourself today, or tell us about the deal and we will",
+      "diffs": [
+       [
+        "font-size",
+        "19px",
+        "18px"
+       ],
+       [
+        "color",
+        "rgb(218, 216, 210)",
+        "rgb(196, 200, 206)"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(236, 234, 228)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(15, 18, 22)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "24px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time",
+      "diffs": [
+       [
+        "font-size",
+        "15px",
+        "17px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "26.35px"
+       ]
+      ]
+     }
+    ],
+    "position": [
+     {
+      "text": "TheDiligence",
+      "ref": [
+       20,
+       32,
+       143,
+       26
+      ],
+      "cand": [
+       24,
+       14,
+       169,
+       44
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       446,
+       20,
+       117,
+       50
+      ],
+      "cand": [
+       583,
+       14,
+       109,
+       44
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       573,
+       20,
+       175,
+       50
+      ],
+      "cand": [
+       375,
+       405,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       20,
+       754,
+       119,
+       50
+      ],
+      "cand": [
+       208,
+       405,
+       155,
+       52
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       151,
+       754,
+       181,
+       50
+      ],
+      "cand": [
+       361,
+       6411,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "ref": [
+       52,
+       1685,
+       664,
+       16
+      ],
+      "cand": [
+       104,
+       567,
+       92,
+       12
+      ]
+     },
+     {
+      "text": "3",
+      "ref": [
+       20,
+       2620,
+       23,
+       40
+      ],
+      "cand": [
+       216,
+       1739,
+       9,
+       14
+      ]
+     },
+     {
+      "text": "Verified",
+      "ref": [
+       20,
+       5337,
+       98,
+       26
+      ],
+      "cand": [
+       53,
+       5712,
+       101,
+       24
+      ]
+     },
+     {
+      "text": "Reported",
+      "ref": [
+       20,
+       5404,
+       98,
+       26
+      ],
+      "cand": [
+       176,
+       5712,
+       120,
+       24
+      ]
+     },
+     {
+      "text": "Estimated",
+      "ref": [
+       20,
+       5471,
+       98,
+       26
+      ],
+      "cand": [
+       318,
+       5712,
+       128,
+       24
+      ]
+     },
+     {
+      "text": "Verdict",
+      "ref": [
+       53,
+       5681,
+       546,
+       16
+      ],
+      "cand": [
+       59,
+       4051,
+       650,
+       13
+      ]
+     },
+     {
+      "text": "Confidence",
+      "ref": [
+       631,
+       5692,
+       84,
+       16
+      ],
+      "cand": [
+       575,
+       4202,
+       135,
+       23
+      ]
+     },
+     {
+      "text": "Medium",
+      "ref": [
+       631,
+       5714,
+       84,
+       26
+      ],
+      "cand": [
+       584,
+       4206,
+       41,
+       13
+      ]
+     },
+     {
+      "text": "Product",
+      "ref": [
+       148,
+       5791,
+       54,
+       14
+      ],
+      "cand": [
+       65,
+       1267,
+       588,
+       20
+      ]
+     },
+     {
+      "text": "Market",
+      "ref": [
+       158,
+       5986,
+       46,
+       14
+      ],
+      "cand": [
+       65,
+       672,
+       588,
+       20
+      ]
+     },
+     {
+      "text": "The method",
+      "ref": [
+       53,
+       6689,
+       662,
+       40
+      ],
+      "cand": [
+       402,
+       12232,
+       81,
+       36
+      ]
+     },
+     {
+      "text": "One diligence a week on the free plan",
+      "ref": [
+       71,
+       7320,
+       644,
+       24
+      ],
+      "cand": [
+       81,
+       8529,
+       284,
+       26
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       53,
+       7431,
+       119,
+       50
+      ],
+      "cand": [
+       49,
+       8662,
+       155,
+       52
+      ]
+     },
+     {
+      "text": "Hire us",
+      "ref": [
+       52,
+       7612,
+       664,
+       40
+      ],
+      "cand": [
+       24,
+       12424,
+       47,
+       36
+      ]
+     },
+     {
+      "text": "Security",
+      "ref": [
+       20,
+       9244,
+       728,
+       26
+      ],
+      "cand": [
+       503,
+       284,
+       232,
+       54
+      ]
+     },
+     {
+      "text": "Run it yourself today, or tell us about the deal and we will",
+      "ref": [
+       103,
+       10042,
+       561,
+       57
+      ],
+      "cand": [
+       130,
+       11831,
+       508,
+       54
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       228,
+       10131,
+       179,
+       50
+      ],
+      "cand": [
+       375,
+       11909,
+       185,
+       52
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       419,
+       10131,
+       121,
+       50
+      ],
+      "cand": [
+       208,
+       11909,
+       155,
+       52
+      ]
+     },
+     {
+      "text": "Book time",
+      "ref": [
+       357,
+       10437,
+       69,
+       19
+      ],
+      "cand": [
+       503,
+       501,
+       232,
+       54
+      ]
+     }
+    ],
+    "boxes": [
+     {
+      "key": "TheDiligence Start free Book time with us PARIS · LONDON Inv",
+      "issue": "missing"
+     },
+     {
+      "key": "TheDiligence Start free Book time with us PARIS · LONDON Inv",
+      "issue": "missing"
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgba(0, 0, 0, 0)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "Book time with us",
+      "diffs": [
+       [
+        "background",
+        "rgb(236, 234, 228)",
+        "rgba(0, 0, 0, 0)"
+       ]
+      ]
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "CONSULTING FIRMS Thorough, but slow and costly. Weeks of wor",
+      "issue": "missing"
+     },
+     {
+      "key": "GENERIC AI TOOLS Fast, but hard to trust. You get an answer ",
+      "issue": "missing"
+     },
+     {
+      "key": "THEDILIGENCE Fast, trustworthy, with an operator's judgement",
+      "issue": "missing"
+     },
+     {
+      "key": "HOW IT WORKS How a diligence runs Four steps. The AI does th",
+      "issue": "missing"
+     },
+     {
+      "key": "1 YOU Name the company Add what you already have: a deck, a ",
+      "issue": "missing"
+     },
+     {
+      "key": "YOU",
+      "issue": "missing"
+     },
+     {
+      "key": "2 AI AGENTS Specialist agents do the research One agent for ",
+      "issue": "missing"
+     },
+     {
+      "key": "AI AGENTS",
+      "issue": "missing"
+     },
+     {
+      "key": "3 SECOND AI Every finding is checked An AI from a different ",
+      "issue": "missing"
+     },
+     {
+      "key": "SECOND AI",
+      "issue": "missing"
+     },
+     {
+      "key": "4 YOU, AND US Then, people talk to people You get a memo wit",
+      "issue": "missing"
+     },
+     {
+      "key": "YOU, AND US",
+      "issue": "missing"
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "Read our full story",
+      "issue": "missing"
+     },
+     {
+      "key": "WHAT YOU GET A memo you can take to your investment committe",
+      "issue": "missing"
+     },
+     {
+      "key": "VERIFIED",
+      "issue": "missing"
+     },
+     {
+      "key": "REPORTED",
+      "issue": "missing"
+     },
+     {
+      "key": "ESTIMATED",
+      "issue": "missing"
+     },
+     {
+      "key": "NORTHWIND · INVESTMENT MEMO ILLUSTRATIVE EXAMPLE VERDICT Inv",
+      "issue": "missing"
+     },
+     {
+      "key": "VERDICT Invest, if onboarding is fixed. CONFIDENCE Medium",
+      "issue": "missing"
+     },
+     {
+      "key": "VERIFIED",
+      "issue": "missing"
+     },
+     {
+      "key": "REPORTED",
+      "issue": "missing"
+     },
+     {
+      "key": "ESTIMATED",
+      "issue": "missing"
+     },
+     {
+      "key": "STILL NEEDED Management accounts for the last 24 months. Ask",
+      "issue": "missing"
+     },
+     {
+      "key": "€ Euro",
+      "issue": "missing"
+     },
+     {
+      "key": "£ Pound",
+      "issue": "missing"
+     },
+     {
+      "key": "01 · ON YOUR OWN The method Free Our full method, written do",
+      "issue": "missing"
+     },
+     {
+      "key": "Get the method",
+      "issue": "missing"
+     },
+     {
+      "key": "02 · ON OUR PLATFORM The platform Free, then from €149 a mon",
+      "issue": "missing"
+     },
+     {
+      "key": "03 · WITH US Hire us From €2,500 per deal We run the diligen",
+      "issue": "missing"
+     },
+     {
+      "key": "QUESTIONS What people ask us first. Why not just use Claude ",
+      "issue": "missing"
+     },
+     {
+      "key": "Why not just use Claude or ChatGPT? You can, and our method ",
+      "issue": "missing"
+     },
+     {
+      "key": "Why not just use Claude or ChatGPT? You can, and our method ",
+      "issue": "missing"
+     },
+     {
+      "key": "If the method is free, why pay for the platform?",
+      "issue": "missing"
+     }
+    ],
+    "counts": {
+     "missing": 140,
+     "typography": 26,
+     "position": 24,
+     "boxes": 51
+    }
+   }
+  },
+  {
+   "page": "Main",
+   "width": 390,
+   "url": "https://www.thediligence.app/",
+   "gates": {
+    "G1": {
+     "pass": false,
+     "value": 0.1566265060240964
+    },
+    "G2": {
+     "pass": false,
+     "value": 0
+    },
+    "G3": {
+     "pass": false,
+     "value": 0.11538461538461539
+    },
+    "G4": {
+     "pass": false,
+     "value": 0.07272727272727272
+    },
+    "G5": {
+     "pass": false,
+     "value": 0.29142158735008783,
+     "overflow": 0
+    },
+    "G6": {
+     "pass": false,
+     "value": [
+      10,
+      0
+     ]
+    },
+    "G7": {
+     "pass": false,
+     "value": 1,
+     "sections": [
+      {
+       "i": 0,
+       "text": "TheDiligence Start free Book time with us PARIS · LONDON Inv",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 1,
+       "text": "WHY US Good diligence is slow, expensive, or impossible to c",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 2,
+       "text": "HOW IT WORKS How a diligence runs Four steps. The AI does th",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 3,
+       "text": "WHO WE ARE Two investor-operators, both halves of the questi",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 4,
+       "text": "WHAT YOU GET A memo you can take to your investment committe",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 5,
+       "text": "THREE WAYS TO WORK WITH US Use it on your own, or with us al",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 6,
+       "text": "QUESTIONS What people ask us first. Why not just use Claude ",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 7,
+       "text": "SECURITY Your data stays yours. Platform in preview. These a",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 8,
+       "text": "Start a diligence you can defend. Run it yourself today, or ",
+       "ratio": 1,
+       "note": "section missing"
+      },
+      {
+       "i": 9,
+       "text": "TheDiligence Investment due diligence by investor-operators.",
+       "ratio": 1,
+       "note": "section missing"
+      }
+     ]
+    }
+   },
+   "details": {
+    "missing": [
+     "Paris · London",
+     "Investment diligence, built by",
+     "investor-operators.",
+     "From the market to the first 100 days. Specialist AI agents do the research and show the source of every finding. Two investor-operators fro",
+     "Why us",
+     "Good diligence is slow, expensive, or impossible to check.",
+     "We check a company before you invest in it: its market, its business, its product and its technology. You get a clear verdict, and you can s",
+     "Consulting firms",
+     "Thorough, but slow and costly.",
+     "Weeks of work and a six-figure bill. Worth it for a large buyout, out of reach for most deals.",
+     "Generic AI tools",
+     "Fast, but hard to trust.",
+     "You get an answer in minutes, but you cannot tell where it came from, so it will not hold up in front of an investment committee.",
+     "Fast, trustworthy, with an operator's judgement.",
+     "Specialist AI agents do the research, a second AI checks it, and the two operators who wrote the method are there when a deal needs them. Pr",
+     "How it works",
+     "How a diligence runs",
+     "Four steps. The AI does the reading and the checking, and people make the decisions.",
+     "1",
+     "You",
+     "Name the company",
+     "Add what you already have: a deck, a data room, notes from calls. A name alone is enough to start.",
+     "you start in minutes, with no setup.",
+     "Why it matters:",
+     "2",
+     "AI agents",
+     "Specialist agents do the research",
+     "One agent for the market, one for the company, one for the product, one for the technology, all working at once.",
+     "every area gets full attention, in hours rather than weeks.",
+     "Why it matters:",
+     "Second AI",
+     "Every finding is checked",
+     "An AI from a different provider checks each finding against its source, and flags what it cannot confirm.",
+     "one AI's mistakes do not reach your memo.",
+     "Why it matters:",
+     "4",
+     "You, and us",
+     "Then, people talk to people",
+     "You get a memo with a verdict and its evidence. Then the real conversations: customers past and present, competitors, the team. An operator ",
+     "AI reads what was written. People hear what was left unsaid.",
+     "Why it matters:",
+     "Who we are",
+     "Two investor-operators, both halves of the question.",
+     "Every investment comes down to two questions: does the product work, and does the business make money? Each of us has run one of those halve",
+     "Ismael Ghozael · Paris · Product and technology",
+     "Does the product work?",
+     "Do customers stay, and why?",
+     "What breaks when usage grows ten times?",
+     "Does the technology back what the deck claims?",
+     "Led PayPal's payments platform, $1.3T in volume and 35M merchants, and its international expansion. Delivered $100M a year in product-led in",
+     "Mazen Wazni · London · Commercial, P&L and turnarounds",
+     "Does the business make money?",
+     "Are the unit economics real?",
+     "Will customers, suppliers and channels hold?",
+     "What do we fix in the first 100 days?",
+     "Most recently General Manager of Amazon Business Retail Europe, a multi-billion B2B ecommerce platform. Before Amazon, grew a consumer goods",
+     "We go deepest in fintech, B2B and B2C commerce, retail and consumer brands.",
+     "Read our full story",
+     "What you get",
+     "A memo you can take to your investment committee.",
+     "Every finding carries a label, so your committee knows what to rely on and what to probe.",
+     "Checked against an original document, such as a filing or the company's own data.",
+     "From a credible source, such as a customer interview, that we could not check ourselves.",
+     "Our own estimate, and labelled as one.",
+     "And a list of what is still missing, with who to ask for it.",
+     "Northwind · Investment memo",
+     "Illustrative example",
+     "Invest, if onboarding is fixed.",
+     "Verified",
+     "Customers who stay past nine months rarely leave.",
+     "Source: the company's revenue data, 24 months",
+     "Reported",
+     "Commercial",
+     "Two of the three largest customers renegotiate prices every year.",
+     "Source: interviews with two customers",
+     "Estimated",
+     "Mid-sized buyers are moving from single tools to platforms.",
+     "Source: one analyst estimate, so treat with care",
+     "Still needed",
+     "Management accounts for the last 24 months. Ask the founder."
+    ],
+    "typography": [
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "26px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "font-size",
+        "16px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "15px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(245, 243, 238)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(201, 204, 209)",
+        "rgb(85, 91, 102)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.96px",
+        "0.24px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "12px"
+       ]
+      ]
+     },
+     {
+      "text": "3",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass Mono"
+       ],
+       [
+        "font-size",
+        "40px",
+        "14px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "line-height",
+        "40px",
+        "14px"
+       ]
+      ]
+     },
+     {
+      "text": "Verified",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(245, 243, 238)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Reported",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Estimated",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "12px",
+        "15px"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.72px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Verdict",
+      "diffs": [
+       [
+        "font-size",
+        "12px",
+        "10.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(154, 161, 171)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "12.6px"
+       ]
+      ]
+     },
+     {
+      "text": "Confidence",
+      "diffs": [
+       [
+        "font-size",
+        "12px",
+        "10.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(110, 67, 0)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.96px",
+        "0.42px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "10.5px"
+       ]
+      ]
+     },
+     {
+      "text": "Medium",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass",
+        "Overpass Mono"
+       ],
+       [
+        "font-size",
+        "20px",
+        "10.5px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(110, 67, 0)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "0.42px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "10.5px"
+       ]
+      ]
+     },
+     {
+      "text": "Product",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "11px",
+        "13.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "700"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.88px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "19.575px"
+       ]
+      ]
+     },
+     {
+      "text": "Market",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "11px",
+        "13.5px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "700"
+       ],
+       [
+        "color",
+        "rgb(90, 96, 106)",
+        "rgb(21, 23, 28)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "0.88px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "19.575px"
+       ]
+      ]
+     },
+     {
+      "text": "The method",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "36px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(20, 22, 26)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "39.6px",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "One diligence a week on the free plan",
+      "diffs": [
+       [
+        "font-size",
+        "16px",
+        "17px"
+       ],
+       [
+        "color",
+        "rgb(58, 63, 71)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "24px",
+        "26.35px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Hire us",
+      "diffs": [
+       [
+        "font-family",
+        "Newsreader",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "36px",
+        "15px"
+       ],
+       [
+        "color",
+        "rgb(245, 243, 238)",
+        "rgb(58, 63, 71)"
+       ],
+       [
+        "line-height",
+        "39.6px",
+        "23.25px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Security",
+      "diffs": [
+       [
+        "font-family",
+        "Overpass Mono",
+        "Overpass"
+       ],
+       [
+        "font-size",
+        "20px",
+        "17px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(154, 161, 171)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "text-transform",
+        "uppercase",
+        "none"
+       ],
+       [
+        "letter-spacing",
+        "1.6px",
+        "normal"
+       ],
+       [
+        "line-height",
+        "normal",
+        "26.35px"
+       ]
+      ]
+     },
+     {
+      "text": "Run it yourself today, or tell us about the deal and we will",
+      "diffs": [
+       [
+        "font-size",
+        "19px",
+        "18px"
+       ],
+       [
+        "color",
+        "rgb(218, 216, 210)",
+        "rgb(196, 200, 206)"
+       ]
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "diffs": [
+       [
+        "color",
+        "rgb(15, 18, 22)",
+        "rgb(236, 234, 228)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "Start free",
+      "diffs": [
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(15, 18, 22)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "16px"
+       ]
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "diffs": [
+       [
+        "font-size",
+        "24px",
+        "25px"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "letter-spacing",
+        "normal",
+        "-0.5px"
+       ],
+       [
+        "line-height",
+        "normal",
+        "25px"
+       ]
+      ]
+     },
+     {
+      "text": "Book time",
+      "diffs": [
+       [
+        "font-size",
+        "15px",
+        "17px"
+       ],
+       [
+        "font-weight",
+        "400",
+        "600"
+       ],
+       [
+        "color",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ],
+       [
+        "line-height",
+        "normal",
+        "26.35px"
+       ]
+      ]
+     }
+    ],
+    "position": [
+     {
+      "text": "TheDiligence",
+      "ref": [
+       20,
+       20,
+       143,
+       26
+      ],
+      "cand": [
+       24,
+       14,
+       169,
+       44
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       20,
+       70,
+       117,
+       50
+      ],
+      "cand": [
+       217,
+       14,
+       109,
+       44
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       147,
+       70,
+       175,
+       50
+      ],
+      "cand": [
+       24,
+       487,
+       342,
+       52
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       20,
+       754,
+       119,
+       50
+      ],
+      "cand": [
+       24,
+       423,
+       342,
+       52
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       151,
+       754,
+       181,
+       50
+      ],
+      "cand": [
+       24,
+       8452,
+       342,
+       52
+      ]
+     },
+     {
+      "text": "TheDiligence",
+      "ref": [
+       52,
+       1893,
+       286,
+       16
+      ],
+      "cand": [
+       100,
+       671,
+       92,
+       12
+      ]
+     },
+     {
+      "text": "3",
+      "ref": [
+       20,
+       3067,
+       23,
+       40
+      ],
+      "cand": [
+       216,
+       1921,
+       9,
+       14
+      ]
+     },
+     {
+      "text": "Verified",
+      "ref": [
+       20,
+       6592,
+       98,
+       26
+      ],
+      "cand": [
+       45,
+       7337,
+       101,
+       24
+      ]
+     },
+     {
+      "text": "Reported",
+      "ref": [
+       20,
+       6685,
+       98,
+       26
+      ],
+      "cand": [
+       168,
+       7337,
+       120,
+       24
+      ]
+     },
+     {
+      "text": "Estimated",
+      "ref": [
+       20,
+       6777,
+       98,
+       26
+      ],
+      "cand": [
+       45,
+       7371,
+       128,
+       24
+      ]
+     },
+     {
+      "text": "Confidence",
+      "ref": [
+       53,
+       7195,
+       84,
+       16
+      ],
+      "cand": [
+       197,
+       5521,
+       135,
+       23
+      ]
+     },
+     {
+      "text": "Medium",
+      "ref": [
+       53,
+       7217,
+       84,
+       26
+      ],
+      "cand": [
+       206,
+       5525,
+       41,
+       13
+      ]
+     },
+     {
+      "text": "Product",
+      "ref": [
+       148,
+       7294,
+       54,
+       14
+      ],
+      "cand": [
+       65,
+       1410,
+       210,
+       20
+      ]
+     },
+     {
+      "text": "Market",
+      "ref": [
+       158,
+       7555,
+       46,
+       14
+      ],
+      "cand": [
+       65,
+       815,
+       210,
+       20
+      ]
+     },
+     {
+      "text": "The method",
+      "ref": [
+       53,
+       8450,
+       284,
+       40
+      ],
+      "cand": [
+       24,
+       16229,
+       81,
+       36
+      ]
+     },
+     {
+      "text": "One diligence a week on the free plan",
+      "ref": [
+       71,
+       9257,
+       266,
+       48
+      ],
+      "cand": [
+       81,
+       11055,
+       260,
+       53
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       53,
+       9392,
+       119,
+       50
+      ],
+      "cand": [
+       49,
+       11267,
+       292,
+       52
+      ]
+     },
+     {
+      "text": "Hire us",
+      "ref": [
+       52,
+       9573,
+       286,
+       40
+      ],
+      "cand": [
+       24,
+       16403,
+       47,
+       36
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       52,
+       9967,
+       179,
+       50
+      ],
+      "cand": [
+       49,
+       11994,
+       292,
+       52
+      ]
+     },
+     {
+      "text": "Security",
+      "ref": [
+       20,
+       11541,
+       350,
+       26
+      ],
+      "cand": [
+       137,
+       284,
+       232,
+       54
+      ]
+     },
+     {
+      "text": "Book time with us",
+      "ref": [
+       39,
+       12575,
+       179,
+       50
+      ],
+      "cand": [
+       24,
+       15678,
+       342,
+       52
+      ]
+     },
+     {
+      "text": "Start free",
+      "ref": [
+       230,
+       12575,
+       121,
+       50
+      ],
+      "cand": [
+       24,
+       15614,
+       342,
+       52
+      ]
+     },
+     {
+      "text": "Book time",
+      "ref": [
+       20,
+       12928,
+       69,
+       19
+      ],
+      "cand": [
+       137,
+       501,
+       232,
+       54
+      ]
+     }
+    ],
+    "boxes": [
+     {
+      "key": "TheDiligence Start free Book time with us PARIS · LONDON Inv",
+      "issue": "missing"
+     },
+     {
+      "key": "TheDiligence Start free Book time with us PARIS · LONDON Inv",
+      "issue": "missing"
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgba(0, 0, 0, 0)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "Book time with us",
+      "diffs": [
+       [
+        "background",
+        "rgb(236, 234, 228)",
+        "rgba(0, 0, 0, 0)"
+       ]
+      ]
+     },
+     {
+      "key": "Start free",
+      "diffs": [
+       [
+        "background",
+        "rgb(236, 234, 228)",
+        "rgb(20, 22, 26)"
+       ]
+      ]
+     },
+     {
+      "key": "CONSULTING FIRMS Thorough, but slow and costly. Weeks of wor",
+      "issue": "missing"
+     },
+     {
+      "key": "GENERIC AI TOOLS Fast, but hard to trust. You get an answer ",
+      "issue": "missing"
+     },
+     {
+      "key": "THEDILIGENCE Fast, trustworthy, with an operator's judgement",
+      "issue": "missing"
+     },
+     {
+      "key": "HOW IT WORKS How a diligence runs Four steps. The AI does th",
+      "issue": "missing"
+     },
+     {
+      "key": "1 YOU Name the company Add what you already have: a deck, a ",
+      "issue": "missing"
+     },
+     {
+      "key": "YOU",
+      "issue": "missing"
+     },
+     {
+      "key": "2 AI AGENTS Specialist agents do the research One agent for ",
+      "issue": "missing"
+     },
+     {
+      "key": "AI AGENTS",
+      "issue": "missing"
+     },
+     {
+      "key": "3 SECOND AI Every finding is checked An AI from a different ",
+      "issue": "missing"
+     },
+     {
+      "key": "SECOND AI",
+      "issue": "missing"
+     },
+     {
+      "key": "4 YOU, AND US Then, people talk to people You get a memo wit",
+      "issue": "missing"
+     },
+     {
+      "key": "YOU, AND US",
+      "issue": "missing"
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "(img, no text)",
+      "issue": "missing"
+     },
+     {
+      "key": "Read our full story",
+      "issue": "missing"
+     },
+     {
+      "key": "WHAT YOU GET A memo you can take to your investment committe",
+      "issue": "missing"
+     },
+     {
+      "key": "VERIFIED",
+      "issue": "missing"
+     },
+     {
+      "key": "REPORTED",
+      "issue": "missing"
+     },
+     {
+      "key": "ESTIMATED",
+      "issue": "missing"
+     },
+     {
+      "key": "NORTHWIND · INVESTMENT MEMO ILLUSTRATIVE EXAMPLE VERDICT Inv",
+      "issue": "missing"
+     },
+     {
+      "key": "VERDICT Invest, if onboarding is fixed. CONFIDENCE Medium",
+      "issue": "missing"
+     },
+     {
+      "key": "VERIFIED",
+      "issue": "missing"
+     },
+     {
+      "key": "REPORTED",
+      "issue": "missing"
+     },
+     {
+      "key": "ESTIMATED",
+      "issue": "missing"
+     },
+     {
+      "key": "STILL NEEDED Management accounts for the last 24 months. Ask",
+      "issue": "missing"
+     },
+     {
+      "key": "€ Euro",
+      "issue": "missing"
+     },
+     {
+      "key": "£ Pound",
+      "issue": "missing"
+     },
+     {
+      "key": "01 · ON YOUR OWN The method Free Our full method, written do",
+      "issue": "missing"
+     },
+     {
+      "key": "Get the method",
+      "issue": "missing"
+     },
+     {
+      "key": "02 · ON OUR PLATFORM The platform Free, then from €149 a mon",
+      "issue": "missing"
+     },
+     {
+      "key": "03 · WITH US Hire us From €2,500 per deal We run the diligen",
+      "issue": "missing"
+     },
+     {
+      "key": "QUESTIONS What people ask us first. Why not just use Claude ",
+      "issue": "missing"
+     },
+     {
+      "key": "Why not just use Claude or ChatGPT? You can, and our method ",
+      "issue": "missing"
+     },
+     {
+      "key": "Why not just use Claude or ChatGPT? You can, and our method ",
+      "issue": "missing"
+     },
+     {
+      "key": "If the method is free, why pay for the platform?",
+      "issue": "missing"
+     }
+    ],
+    "counts": {
+     "missing": 140,
+     "typography": 26,
+     "position": 23,
+     "boxes": 51
+    }
+   }
+  },
+  {
+   "page": "Team",
+   "width": 1280,
+   "url": "https://www.thediligence.app/team",
+   "gates": {
+    "G1": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G2": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G3": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G4": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G5": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G6": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G7": {
+     "pass": false,
+     "value": "HTTP 404"
+    }
+   },
+   "error": "HTTP 404"
+  },
+  {
+   "page": "Team",
+   "width": 768,
+   "url": "https://www.thediligence.app/team",
+   "gates": {
+    "G1": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G2": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G3": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G4": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G5": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G6": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G7": {
+     "pass": false,
+     "value": "HTTP 404"
+    }
+   },
+   "error": "HTTP 404"
+  },
+  {
+   "page": "Team",
+   "width": 390,
+   "url": "https://www.thediligence.app/team",
+   "gates": {
+    "G1": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G2": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G3": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G4": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G5": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G6": {
+     "pass": false,
+     "value": "HTTP 404"
+    },
+    "G7": {
+     "pass": false,
+     "value": "HTTP 404"
+    }
+   },
+   "error": "HTTP 404"
+  }
+ ]
+}

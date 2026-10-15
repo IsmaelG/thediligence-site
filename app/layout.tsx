@@ -1,51 +1,13 @@
 import type { Metadata } from "next";
-import { Newsreader, Overpass, Overpass_Mono } from "next/font/google";
 import "./spec.css";
-
-const overpass = Overpass({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal"],
-  display: "swap",
-  variable: "--font-overpass",
-});
-
-const overpassMono = Overpass_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-  variable: "--font-overpass-mono",
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  display: "swap",
-  variable: "--font-newsreader",
-});
-
-const title = "TheDiligence";
-const description =
-  "Diligence built by operator-investors, for operator-investors. Evidence-graded analysis for every deal.";
 
 export const metadata: Metadata = {
   title: {
-    default: title,
-    template: "%s | TheDiligence",
+    default: "TheDiligence: investment diligence by investor-operators",
+    template: "%s · TheDiligence",
   },
-  description,
-  openGraph: {
-    title,
-    description,
-    type: "website",
-    siteName: title,
-  },
-  twitter: {
-    card: "summary",
-    title,
-    description,
-  },
+  description:
+    "Investment diligence, built by investor-operators. Specialist AI agents do the research and show the source of every finding.",
   metadataBase: new URL(
     process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -59,24 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      style={
-        {
-          "--font-overpass": overpass.style.fontFamily,
-          "--font-overpass-mono": overpassMono.style.fontFamily,
-          "--font-newsreader": newsreader.style.fontFamily,
-          "--sans": `var(--font-overpass), system-ui, -apple-system, 'Segoe UI', sans-serif`,
-          "--mono": `var(--font-overpass-mono), ui-monospace, Menlo, monospace`,
-          "--serif": `var(--font-newsreader), Georgia, 'Times New Roman', serif`,
-        } as React.CSSProperties
-      }
-    >
-      <body>
-        <div className="td" id="top">
-          {children}
-        </div>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import MainPageGolden from "./golden";
+import MainPage from "./(site)/main-golden";
 
 export const metadata: Metadata = {
-  title: "TheDiligence — Diligence built by operator-investors",
+  title: "TheDiligence: investment diligence by investor-operators",
   description:
-    "Built by operator-investors, for operator-investors. Evidence-graded analysis for every deal.",
+    "Investment diligence, built by investor-operators. Specialist AI agents do the research and show the source of every finding.",
 };
 
 export default function HomePage() {
-  return <MainPageGolden />;
+  return <MainPage />;
 }

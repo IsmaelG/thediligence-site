@@ -1,0 +1,22 @@
+{
+  "note": "Blocks of the design that are off by a flag. They are removed from the golden markup and kept as fragments, so the reference shows the flag-off page. When a flag is switched on for good, Ismael puts the fragment back into the golden markup and regenerates the reference.",
+  "removed": [
+    {
+      "page": "Main",
+      "flag": "logos_visible",
+      "match": { "class": "proof" },
+      "withNextSibling": false,
+      "save": "markup/_logos-strip.Main.html",
+      "why": "The four funds have not given written consent (SPEC S13; legal review of 11 Oct 2026: fund logos only after written agreement). The strip sits directly under the hero."
+    },
+    {
+      "page": "Team",
+      "flag": "logos_visible",
+      "match": { "text": "Advisors to" },
+      "withNextSibling": true,
+      "save": "markup/_logos-strip.Team.html",
+      "why": "Same rule. On Team the label (\"Advisors to\") and the row of names sit at the top of the closing section, above \"Let us look at your next deal together.\""
+    }
+  ],
+  "skip": []
+}

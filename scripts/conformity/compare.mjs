@@ -1,50 +1,90 @@
-// compare.mjs — reference redline vs candidate redline. Pure functions, no browser.
-const n = s => s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim();
-const num = v => parseFloat(v) || 0; const col = c => (c || '').replace(/\s/g, '');
-export function compareRedline(ref, got, T) {
-  const pool = new Map(); got.text.forEach(t => { const k = n(t.text); (pool.get(k) || pool.set(k, []).get(k)).push(t); });
-  const used = new Set(); const out = { missing: [], style: [], pos: [], matched: 0 };
-  for (const t of ref.text) {
-    const k = n(t.text); let m = (pool.get(k) || []).find(x => !used.has(x));
-    if (!m) { out.missing.push(t.text.slice(0, 90)); continue; }
-    used.add(m); out.matched++;
-    const d = [];
-    if (t.ff !== m.ff) d.push(`font ${t.ff} -> ${m.ff}`);
-    if (Math.abs(num(t.fs) - num(m.fs)) > 0.5) d.push(`size ${t.fs} -> ${m.fs}`);
-    if (t.fw !== m.fw) d.push(`weight ${t.fw} -> ${m.fw}`);
-    if (t.fst !== m.fst) d.push(`style ${t.fst} -> ${m.fst}`);
-    if (col(t.color) !== col(m.color)) d.push(`color ${t.color} -> ${m.color}`);
-    if (t.tt !== m.tt) d.push(`transform ${t.tt} -> ${m.tt}`);
-    if (t.ls !== 'normal' && m.ls !== 'normal' && Math.abs(num(t.ls) - num(m.ls)) > 0.3) d.push(`tracking ${t.ls} -> ${m.ls}`);
-    if (t.lh !== 'normal' && m.lh !== 'normal' && Math.abs(num(t.lh) - num(m.lh)) > 1.5) d.push(`leading ${t.lh} -> ${m.lh}`);
-    if (d.length) out.style.push({ text: t.text.slice(0, 60), d });
-    const dx = Math.abs(t.rect[0] - m.rect[0]), dw = Math.abs(t.rect[2] - m.rect[2]);
-    if (dx > T.position.xTolPx || dw > Math.max(T.position.widthTolPx, t.rect[2] * T.position.widthTolPct / 100)) out.pos.push({ text: t.text.slice(0, 60), ref: t.rect.slice(0, 3), got: m.rect.slice(0, 3) });
-  }
-  const bp = new Map(); got.boxes.forEach(b => { const k = n(b.key); (bp.get(k) || bp.set(k, []).get(k)).push(b); });
-  let bt = 0, bok = 0; const bd = [];
-  for (const b of ref.boxes) { if (!b.key) continue; bt++; const m = (bp.get(n(b.key)) || []).shift(); if (!m) { bd.push(`${b.key.slice(0, 40)}: absent`); continue; }
-    const e = []; if (col(b.bg) !== col(m.bg)) e.push(`bg ${b.bg} -> ${m.bg}`); if (b.r !== m.r) e.push(`radius ${b.r} -> ${m.r}`); if ((b.sh ? 1 : 0) !== (m.sh ? 1 : 0)) e.push(`shadow ${b.sh ? 'yes' : 'no'} -> ${m.sh ? 'yes' : 'no'}`);
-    if (!e.length) bok++; else bd.push(`${b.key.slice(0, 40)}: ${e.join(', ')}`); }
-  const pct = (a, b) => b ? Math.round(1000 * a / b) / 10 : 100;
-  const r = {
-    coveragePct: pct(ref.text.length - out.missing.length, ref.text.length),
-    stylePct: pct(out.matched - out.style.length, out.matched),
-    positionPct: pct(out.matched - out.pos.length, out.matched),
-    boxesPct: pct(bok, bt),
-    heightDiffPct: Math.round(1000 * (got.docH - ref.docH) / ref.docH) / 10,
-    overflowX: Math.max(0, got.docW - ref.docW),
-    sections: { ref: ref.sections.length, got: got.sections.length },
-    missing: out.missing, style: out.style, pos: out.pos, boxDiffs: bd
-  };
-  r.fails = [];
-  if (r.coveragePct < T.text.minCoveragePct) r.fails.push(`text coverage ${r.coveragePct}% < ${T.text.minCoveragePct}%`);
-  if (r.stylePct < T.style.minExactPct) r.fails.push(`typography exact ${r.stylePct}% < ${T.style.minExactPct}%`);
-  if (r.positionPct < T.position.minOkPct) r.fails.push(`position ${r.positionPct}% < ${T.position.minOkPct}%`);
-  if (r.boxesPct < T.boxes.minExactPct) r.fails.push(`boxes ${r.boxesPct}% < ${T.boxes.minExactPct}%`);
-  if (Math.abs(r.heightDiffPct) > T.height.maxDiffPct) r.fails.push(`page height ${r.heightDiffPct}% (limit ${T.height.maxDiffPct}%)`);
-  if (r.overflowX > T.overflowX.maxPx) r.fails.push(`horizontal overflow ${r.overflowX}px`);
-  if (T.sections.mustEqual && r.sections.ref !== r.sections.got) r.fails.push(`sections ${r.sections.got} vs ${r.sections.ref}`);
-  return r;
+// Pure comparison functions of the gate (no browser, no file access). Unit-testable.
+import { norm } from './lib.mjs';
+
+const px = (v) => (v === 'normal' ? 0 : parseFloat(v));
+const lineHeight = (v, fs) => (v === 'normal' ? 1.2 * parseFloat(fs) : parseFloat(v));
+
+// Pair each reference run with the candidate run of the same normalised text, in document order.
+export function matchRuns(refRuns, candRuns) {
+  const queues = new Map();
+  for (const c of candRuns) { const k = norm(c.text); if (!queues.has(k)) queues.set(k, []); queues.get(k).push(c); }
+  return refRuns.map((r) => [r, queues.get(norm(r.text))?.shift() || null]);
 }
-export const similarity = (a, b) => { const A = new Set(n(a).split(' ')), B = new Set(n(b).split(' ')); let i = 0; A.forEach(x => B.has(x) && i++); return A.size + B.size - i ? i / (A.size + B.size - i) : 1; };
+
+export function typographyDiffs(r, c, tol) {
+  const d = [];
+  if (norm(r.ff) !== norm(c.ff)) d.push(['font-family', r.ff, c.ff]);
+  if (Math.abs(parseFloat(r.fs) - parseFloat(c.fs)) > tol.fontSizePx) d.push(['font-size', r.fs, c.fs]);
+  if (String(r.fw) !== String(c.fw)) d.push(['font-weight', r.fw, c.fw]);
+  if (r.fst !== c.fst) d.push(['font-style', r.fst, c.fst]);
+  if (r.color !== c.color) d.push(['color', r.color, c.color]);
+  if (r.tt !== c.tt) d.push(['text-transform', r.tt, c.tt]);
+  if (Math.abs(px(r.ls) - px(c.ls)) > tol.letterSpacingPx) d.push(['letter-spacing', r.ls, c.ls]);
+  if (Math.abs(lineHeight(r.lh, r.fs) - lineHeight(c.lh, c.fs)) > tol.lineHeightPx) d.push(['line-height', r.lh, c.lh]);
+  return d;
+}
+
+export function positionOk(r, c, tol) {
+  const [rx, , rw] = r.rect; const [cx, , cw] = c.rect;
+  return Math.abs(rx - cx) <= tol.xPx && Math.abs(rw - cw) <= Math.max(tol.widthPx, tol.widthRatio * rw);
+}
+
+export function compareText(ref, cand, tol) {
+  const pairs = matchRuns(ref.text, cand.text);
+  const matched = pairs.filter(([, c]) => c);
+  const missing = pairs.filter(([, c]) => !c).map(([r]) => r.text);
+  const typo = []; let typoOk = 0; let posOk = 0; const pos = [];
+  for (const [r, c] of matched) {
+    const d = typographyDiffs(r, c, tol);
+    if (d.length === 0) typoOk += 1; else typo.push({ text: r.text.slice(0, 60), diffs: d });
+    if (positionOk(r, c, tol)) posOk += 1; else pos.push({ text: r.text.slice(0, 60), ref: r.rect, cand: c.rect });
+  }
+  const n = matched.length || 1;
+  return {
+    G1: matched.length / (ref.text.length || 1), G2: matched.length ? typoOk / n : 0, G3: matched.length ? posOk / n : 0,
+    missing, typography: typo, position: pos,
+  };
+}
+
+export function compareBoxes(ref, cand) {
+  const queues = new Map();
+  for (const b of cand.boxes) { const k = `${b.tag}|${norm(b.key)}`; if (!queues.has(k)) queues.set(k, []); queues.get(k).push(b); }
+  let ok = 0; const diffs = [];
+  for (const r of ref.boxes) {
+    const c = queues.get(`${r.tag}|${norm(r.key)}`)?.shift();
+    if (!c) { diffs.push({ key: r.key || `(${r.tag}, no text)`, issue: 'missing' }); continue; }
+    const d = [];
+    if (r.bg !== c.bg) d.push(['background', r.bg, c.bg]);
+    if (r.r !== c.r) d.push(['radius', r.r, c.r]);
+    if (Boolean(r.sh) !== Boolean(c.sh)) d.push(['shadow', r.sh || 'none', c.sh || 'none']);
+    if (d.length) diffs.push({ key: r.key || `(${r.tag}, no text)`, diffs: d }); else ok += 1;
+  }
+  return { G4: ok / (ref.boxes.length || 1), boxes: diffs };
+}
+
+export function compareShape(ref, cand, th) {
+  const dh = (cand.docH - ref.docH) / ref.docH;
+  return {
+    G5: Math.abs(dh) <= th.G5_heightTolerance && cand.docW <= ref.docW,
+    heightDelta: dh, overflow: Math.max(0, cand.docW - ref.docW),
+    G6: cand.sections.length === ref.sections.length, sections: [ref.sections.length, cand.sections.length],
+  };
+}
+
+// G8 for one control: the section after the click must resemble the reference (Jaccard on word sets) AND show
+// the words the click adds in the reference, and no longer show the words it removes (a price symbol, an answer).
+export function behaviourScore(ref, candAfter, minJaccard) {
+  const words = (s) => new Set(norm(s).split(' ').filter(Boolean));
+  const before = words(ref.textBefore || ''); const after = words(ref.textAfter); const got = words(candAfter);
+  const added = [...after].filter((w) => !before.has(w)); const removed = [...before].filter((w) => !after.has(w));
+  const missingAdded = added.filter((w) => !got.has(w)); const stillThere = removed.filter((w) => got.has(w));
+  const j = jaccard(ref.textAfter, candAfter);
+  return { score: j, missingAdded, stillThere, ok: j >= minJaccard && !missingAdded.length && !stillThere.length };
+}
+
+export function jaccard(a, b) {
+  const A = new Set(norm(a).split(' ').filter(Boolean)); const B = new Set(norm(b).split(' ').filter(Boolean));
+  if (!A.size && !B.size) return 1;
+  let inter = 0; for (const x of A) if (B.has(x)) inter += 1;
+  return inter / (A.size + B.size - inter);
+}

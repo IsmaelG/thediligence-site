@@ -1,45 +1,83 @@
-// html-to-jsx.mjs — turn a golden markup file (spec/markup/<Page>.html) into a React Server Component.
-// Usage: node html-to-jsx.mjs spec/markup/Main.html app/(site)/page.tsx PageName
-// Mechanical only: class -> className, style string -> object, SVG attributes camelCased, links *.dc.html -> routes.
-// It never changes a class name, a text or the order of elements. Behaviour (tabs, accordions, forms) is added afterwards by hand, see docs/UI-SPEC.md §Interactions.
+// Port a golden page to a React server component, markup untouched.
+//   node scripts/html-to-jsx.mjs spec/markup/Main.html app/(site)/golden-main.tsx MainPage
+// class -> className, style strings -> objects, boolean and camel-cased attributes, *.dc.html links -> routes,
+// placeholder links -> lib/links.ts (spec/links.json). Text is emitted as JS string literals, so spacing is exact.
 import fs from 'node:fs';
-import { parseFragment } from 'parse5';
-const ROUTES = { 'Main.dc.html': '/', 'Products.dc.html': '/products', 'Solutions.dc.html': '/solutions', 'Method.dc.html': '/method', 'Platform.dc.html': '/platform', 'Security.dc.html': '/security', 'About.dc.html': '/about', 'Insights.dc.html': '/insights', 'Book.dc.html': '/book', 'Logos.dc.html': '/logos' };
-const ATTR = { class: 'className', for: 'htmlFor', novalidate: 'noValidate', autocomplete: 'autoComplete', colspan: 'colSpan', rowspan: 'rowSpan', tabindex: 'tabIndex', maxlength: 'maxLength', readonly: 'readOnly', 'fill-rule': 'fillRule', 'clip-rule': 'clipRule', 'stroke-width': 'strokeWidth', 'stroke-linecap': 'strokeLinecap', 'stroke-linejoin': 'strokeLinejoin', 'stroke-dasharray': 'strokeDasharray', 'stroke-dashoffset': 'strokeDashoffset', 'stroke-opacity': 'strokeOpacity', 'fill-opacity': 'fillOpacity', 'stop-color': 'stopColor', 'stop-opacity': 'stopOpacity', viewbox: 'viewBox', preserveaspectratio: 'preserveAspectRatio', 'xlink:href': 'xlinkHref', 'text-anchor': 'textAnchor', 'font-size': 'fontSize', 'font-family': 'fontFamily', 'font-weight': 'fontWeight', 'letter-spacing': 'letterSpacing' };
-const BOOL = new Set(['novalidate', 'readonly', 'disabled', 'checked', 'required', 'hidden', 'autofocus', 'multiple', 'selected', 'focusable']);
+import path from 'node:path';
+import { parse, isEl, textOf, pagesConfig, readJSON, SPEC, linkTarget } from './conformity/lib.mjs';
+
+const [src, out, name] = process.argv.slice(2);
+if (!src || !out || !name) { console.error('usage: node scripts/html-to-jsx.mjs <spec/markup/Page.html> <out.tsx> <ComponentName>'); process.exit(2); }
+const page = path.basename(src, '.html');
+const cfg = pagesConfig();
+const routeOf = Object.fromEntries(cfg.pages.map((p) => [p.design, p.route]));
+const linkRules = readJSON(path.join(SPEC, 'links.json')).rules;
+
 const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
-const camel = s => s.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-const styleObj = css => '{' + css.split(';').map(x => x.trim()).filter(Boolean).map(x => { const i = x.indexOf(':'); const k = x.slice(0, i).trim(); const v = x.slice(i + 1).trim(); const key = k.startsWith('--') ? JSON.stringify(k) : camel(k); return `${key}:${JSON.stringify(v)}`; }).join(',') + '}';
-const esc = t => t.replace(/[{}<>]/g, c => `{${JSON.stringify(c)}}`);
-function attrs(node) {
-  const out = [];
-  for (const a of node.attrs) {
-    if (a.name === 'data-dc-tpl') continue;
-    let name = ATTR[a.name] || a.name; let val = a.value;
-    if (a.name === 'style') { out.push(`style={${styleObj(val)}}`); continue; }
-    if (a.name === 'href' && ROUTES[val.split('#')[0]] !== undefined) val = ROUTES[val.split('#')[0]] + (val.includes('#') ? '#' + val.split('#')[1] : '');
-    if (a.name === 'value' && node.nodeName === 'input') name = 'defaultValue';
-    if (BOOL.has(a.name) && (val === '' || val === a.name)) { out.push(name); continue; }
-    if (name.startsWith('aria-') || name.startsWith('data-') || !name.includes('-')) out.push(`${name}=${JSON.stringify(val)}`);
-    else out.push(`${camel(name)}=${JSON.stringify(val)}`);
+const BOOL = new Set(['open', 'hidden', 'disabled', 'checked', 'selected', 'required', 'readonly', 'multiple', 'autofocus', 'novalidate', 'controls', 'loop', 'muted', 'playsinline', 'default', 'reversed']);
+const RENAME = { class: 'className', for: 'htmlFor', tabindex: 'tabIndex', readonly: 'readOnly', maxlength: 'maxLength', minlength: 'minLength',
+  autocomplete: 'autoComplete', autofocus: 'autoFocus', novalidate: 'noValidate', colspan: 'colSpan', rowspan: 'rowSpan', srcset: 'srcSet',
+  crossorigin: 'crossOrigin', enterkeyhint: 'enterKeyHint', inputmode: 'inputMode', spellcheck: 'spellCheck', datetime: 'dateTime',
+  viewbox: 'viewBox', preserveaspectratio: 'preserveAspectRatio', 'xlink:href': 'xlinkHref', 'xml:space': 'xmlSpace', playsinline: 'playsInline' };
+const camel = (s) => s.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+let usesLinks = false;
+
+function styleObject(css) {
+  const decls = []; let cur = ''; let depth = 0;
+  for (const ch of css) { if (ch === '(') depth++; if (ch === ')') depth--; if (ch === ';' && depth === 0) { decls.push(cur); cur = ''; } else cur += ch; }
+  decls.push(cur);
+  const pairs = decls.map((d) => d.trim()).filter(Boolean).map((d) => {
+    const i = d.indexOf(':'); const k = d.slice(0, i).trim(); const v = d.slice(i + 1).trim();
+    const key = k.startsWith('--') ? JSON.stringify(k) : /^-(webkit|moz|ms)-/.test(k) ? camel(k.slice(1)).replace(/^./, (c) => c.toUpperCase()) : camel(k);
+    return `${key}: ${JSON.stringify(v)}`;
+  });
+  return `{{ ${pairs.join(', ')} }}`;
+}
+
+function hrefFor(n, value) {
+  const v = linkTarget(page, textOf(n), value, linkRules, routeOf);
+  const m = v.match(/^\{([A-Z_]+)\}$/);
+  if (m) { usesLinks = true; return `href={links.${m[1]}}`; }
+  return `href=${JSON.stringify(v)}`;
+}
+
+function attrs(n) {
+  return n.attrs.map((a) => {
+    const k = a.name.toLowerCase();
+    if (k === 'style') return `style=${styleObject(a.value)}`;
+    if (k === 'href' && n.tagName === 'a') return hrefFor(n, a.value);
+    if (BOOL.has(k) && (a.value === '' || a.value.toLowerCase() === k)) return RENAME[k] || k;
+    if (n.tagName === 'input' && k === 'value') return `defaultValue=${JSON.stringify(a.value)}`;
+    if (n.tagName === 'input' && k === 'checked') return 'defaultChecked';
+    const key = RENAME[k] || (k.startsWith('aria-') || k.startsWith('data-') ? k : k.includes('-') ? camel(k) : k);
+    return `${key}=${JSON.stringify(a.value)}`;
+  }).join(' ');
+}
+
+function emit(n, ind) {
+  const pad = '  '.repeat(ind);
+  if (n.nodeName === '#text') {
+    if (!n.value.trim()) return n.value.includes('\n') ? '' : `${pad}{${JSON.stringify(n.value)}}\n`;
+    return `${pad}{${JSON.stringify(n.value)}}\n`;
   }
-  return out.length ? ' ' + out.join(' ') : '';
+  if (!isEl(n)) return '';
+  const a = attrs(n); const open = `<${n.tagName}${a ? ' ' + a : ''}`;
+  const kids = (n.childNodes || []).map((k) => emit(k, ind + 1)).join('');
+  if (VOID.has(n.tagName) || !kids) return `${pad}${open} />\n`;
+  return `${pad}${open}>\n${kids}${pad}</${n.tagName}>\n`;
 }
-function node(n, d) {
-  if (n.nodeName === '#text') { const t = n.value; return t.trim() === '' && t.includes('\n') ? '' : esc(t); }
-  if (n.nodeName === '#comment') return '';
-  const tag = n.nodeName; const kids = (n.content ? n.content.childNodes : n.childNodes) || [];
-  if (VOID.has(tag) || (!kids.length && n.namespaceURI && n.namespaceURI.endsWith('svg') && tag !== 'svg' && !['g', 'defs', 'symbol', 'text'].includes(tag))) return `<${tag}${attrs(n)} />`;
-  return `<${tag}${attrs(n)}>${kids.map(k => node(k, d + 1)).join('')}</${tag}>`;
+
+const frag = parse(fs.readFileSync(src, 'utf8'));
+const body = frag.childNodes.map((k) => emit(k, 3)).join('');
+const code = `// GENERATED by scripts/html-to-jsx.mjs from ${path.relative(process.cwd(), src)}. Do not edit: change spec/ and regenerate.
+${usesLinks ? 'import { links } from "@/lib/links";\n' : ''}
+export default function ${name}() {
+  return (
+    <>
+${body}    </>
+  );
 }
-export function convert(html, name = 'Page') {
-  const frag = parseFragment(html);
-  const body = frag.childNodes.map(c => node(c, 0)).join('\n');
-  return `// Generated from spec/markup by scripts/html-to-jsx.mjs. Do not restyle: change the markup in spec/ first.\nexport default function ${name}() {\n  return (\n    <>\n${body}\n    </>\n  );\n}\n`;
-}
-if (process.argv[1] && process.argv[1].endsWith('html-to-jsx.mjs') && process.argv[2]) {
-  const [, , src, out, name] = process.argv;
-  fs.mkdirSync(out.replace(/\/[^/]*$/, '') || '.', { recursive: true });
-  fs.writeFileSync(out, convert(fs.readFileSync(src, 'utf8'), name || 'Page'));
-  console.log('wrote', out);
-}
+`;
+fs.mkdirSync(path.dirname(path.resolve(out)), { recursive: true });
+fs.writeFileSync(out, code);
+console.log(`wrote ${out} (${code.length} bytes)${usesLinks ? ', uses lib/links.ts' : ''}`);
