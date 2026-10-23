@@ -1,3 +1,5 @@
+import { links } from "@/lib/links";
+
 const FOOTER_COLS = [
   {
     head: "Product",
@@ -11,10 +13,10 @@ const FOOTER_COLS = [
   {
     head: "Work with us",
     links: [
-      { href: "/solutions", label: "Solutions"   },
-      { href: "/solutions#hire", label: "Hire us" },
-      { href: "/book",      label: "Book time"   },
-      { href: "/app",       label: "Start free"  },
+      { href: "/solutions",      label: "Solutions",  external: false },
+      { href: "/solutions#hire", label: "Hire us",    external: false },
+      { href: "/book",           label: "Book time",  external: false },
+      { href: links.START_FREE,  label: "Start free", external: true  },
     ],
   },
   {

@@ -19,30 +19,12 @@ async function readFlag(key: string): Promise<boolean> {
   }
 }
 
-/** `/app/:path*` proxy to the platform. Off → 404 with maintenance message. */
-export const appProxy = flag<boolean>({
-  key: "app_proxy",
-  defaultValue: false,
-  async decide() {
-    return readFlag("app_proxy");
-  },
-});
-
 /** Contact form and early-access form. Off → static copy only. */
 export const formsLive = flag<boolean>({
   key: "forms_live",
   defaultValue: false,
   async decide() {
     return readFlag("forms_live");
-  },
-});
-
-/** "Start free" CTA points to /app. Off → CTA points to early-access form. */
-export const platformOpen = flag<boolean>({
-  key: "platform_open",
-  defaultValue: false,
-  async decide() {
-    return readFlag("platform_open");
   },
 });
 
