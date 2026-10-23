@@ -39,3 +39,5 @@ Connected to Vercel (`ismaelgs-projects` / `thediligence-app`), auto-deploys on 
 ## License
 
 [CC BY-NC 4.0](./LICENSE).
+
+<!-- deploy test by Mazen, 2026-10-23; reverted next commit -->
