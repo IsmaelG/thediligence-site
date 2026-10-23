@@ -8,20 +8,20 @@ Why it exists: the first Intent build re-drew the v3 prototype and reached about
 
 | Artefact | What it is | Changes |
 |---|---|---|
-| `spec/pages.json` | The two pages (Main `/`, Team `/team`), their titles, the section selector and the widths. | Ismael, with a Decisions-log line |
+| `spec/pages.json` | The two pages (Main `/`, Team `/team`), their titles, the section selector and the widths. | Ismael or Mazen, with a Decisions-log line |
 | `spec/markup/<Page>.html` | The rendered DOM of each page (initial state, € prices, first FAQ answer open), copy overrides applied, flag-off blocks removed, images at `/images/…`. Root: `<div data-page="<Page>">`. The single source for structure, classes, inline styles and copy. | Same |
 | `spec/markup/_logos-strip.<Page>.html` | The fund-names blocks, off until flag `logos_visible` (consent of the four funds). | Same |
 | `spec/states/Main/*.html` | The section after each control: `01-pound.html` (prices in £), `02` to `07` (each FAQ answer toggled). | Regenerated |
-| `spec/styles/Main.css`, `Team.css` | Each page's stylesheet, copied verbatim from the design. | Ismael |
+| `spec/styles/Main.css`, `Team.css` | Each page's stylesheet, copied verbatim from the design. | Ismael or Mazen |
 | `spec/styles/fonts.css`, `spec/fonts/*.woff2` | The exact font files the design loads from Google Fonts (Newsreader with italic and the optical-size axis, Overpass 400 to 700, Overpass Mono 400 and 500; latin and latin-ext), self-hosted under the same family names. | Regenerated |
-| `spec/assets/*.jpg` | The six photos, renamed (`assets.json`). | Ismael |
+| `spec/assets/*.jpg` | The six photos, renamed (`assets.json`). | Ismael or Mazen |
 | `spec/redlines/<Page>.<1280\|768\|390>.json` | Measured sections, text runs (font, size, weight, style, leading, tracking, colour, transform, rectangle) and decorated boxes. | Regenerated, never edited |
 | `spec/reference/<Page>-<1280\|390>.png` | Full-page reference screenshots. | Regenerated |
 | `spec/behaviour.json` | Each control: label, occurrence, section, ARIA before and after, text before and after the click. | Regenerated |
-| `spec/copy-overrides.json` | Design sentences that the claims register replaces, with the reason and the flag-on text. | Ismael |
-| `spec/seams.json` | Blocks removed by a flag. | Ismael |
-| `spec/links.json` | Where the design's links go in the site (hrefs are not measured). | Ismael or an agent, with a Decisions-log line |
-| `spec/thresholds.json` | The gates of section 3. | Ismael |
+| `spec/copy-overrides.json` | Design sentences that the claims register replaces, with the reason and the flag-on text. | Ismael or Mazen |
+| `spec/seams.json` | Blocks removed by a flag. | Ismael or Mazen |
+| `spec/links.json` | Where the design's links go in the site (hrefs are not measured). | Ismael, Mazen or an agent, with a Decisions-log line |
+| `spec/thresholds.json` | The gates of section 3. | Ismael or Mazen |
 | `spec/SHA256SUMS` | Hash of every file above. `pnpm spec:verify` runs in CI. | Rewritten only with a reference change |
 
 ## 2. How a page is built (the port)
@@ -80,7 +80,7 @@ Other scripts: `pnpm spec:css` (CSS, fonts, images), `pnpm spec:verify` (hashes)
 
 | Seam | Where | Rule |
 |---|---|---|
-| Fund names row | Main (under the hero), Team (top of the closing section) | Rendered only when `logos_visible` is on, from `spec/markup/_logos-strip.<Page>.html`; absent from the reference. When consent is in, Ismael puts it back into the golden markup and regenerates the reference (section 7). |
+| Fund names row | Main (under the hero), Team (top of the closing section) | Rendered only when `logos_visible` is on, from `spec/markup/_logos-strip.<Page>.html`; absent from the reference. When consent is in, Ismael or Mazen puts it back into the golden markup and regenerates the reference (section 7). |
 | Repository wording | Main, footer line and the "The method" price line | Golden text is the flag-off text (`spec/copy-overrides.json`). With `repo_public` on, the flag-on text of the same file is shown; regenerate the reference when the flag is on for good. |
 | Currency switch | Main, section 5 | Client component, section 2.5. |
 | Theme toggle, cookie banner, preview notices, skip link | anywhere | Wrapped in `data-conformity-skip="<reason>"`, at most five per page, must not move the golden markup when hidden. A skip link must be visually hidden until focused. |
@@ -93,7 +93,7 @@ Other scripts: `pnpm spec:css` (CSS, fonts, images), `pnpm spec:verify` (hashes)
 1. Edit the design on the canvas (or `spec/copy-overrides.json`, `spec/seams.json`), then copy the pages into `prototypes/site-v5/`.
 2. `node scripts/conformity/serve.mjs prototypes/site-v5 8766 &` then `DESIGN_URL=http://localhost:8766 pnpm conformity:freeze`.
 3. `pnpm conformity:ref`, `pnpm conformity:docs`, `pnpm conformity:prove`, review the diff of `spec/redlines` and the screenshots.
-4. `node scripts/verify-spec.mjs --write`, and one dated line in the SPEC Decisions log with Ismael's approval. A change to `spec/` without that line is refused in review.
+4. `node scripts/verify-spec.mjs --write`, and one dated line in the SPEC Decisions log with Ismael's or Mazen's approval. A change to `spec/` without that line is refused in review.
 
 ## 8. What this cannot guarantee
 
