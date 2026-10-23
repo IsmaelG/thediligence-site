@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { MobileNav, MobileNavTrigger } from "./mobile-nav";
 import { ThemeToggle } from "./theme-toggle";
+import { links } from "@/lib/links";
 
 /**
  * NavShell — the client wrapper that owns the mobile drawer open/close state.
@@ -17,7 +18,7 @@ export function NavShell() {
         <ThemeToggle />
         <MobileNavTrigger onClick={() => setDrawerOpen(true)} />
         {/* Desktop CTAs (hidden on mobile via CSS) */}
-        <a href="/platform" className="btn btn-p" style={{ fontSize: "14px", padding: "8px 20px" }}>
+        <a href={links.START_FREE} className="btn btn-p" style={{ fontSize: "14px", padding: "8px 20px" }}>
           Start free
         </a>
         <a href="/book" className="btn btn-s" style={{ fontSize: "14px", padding: "8px 20px" }}>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { links } from "@/lib/links";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
@@ -97,9 +98,9 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         </nav>
 
         <div className="drawer-actions">
-          <Link href="/platform" className="btn btn-p" onClick={onClose}>
+          <a href={links.START_FREE} className="btn btn-p" onClick={onClose}>
             Start free
-          </Link>
+          </a>
           <Link href="/contact" className="btn btn-s" onClick={onClose}>
             Book time with us
           </Link>

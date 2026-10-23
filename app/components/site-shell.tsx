@@ -1,5 +1,6 @@
 // Generated from spec/markup golden files. Do not restyle: change the markup in spec/ first.
 // Shared nav + footer shell used by composed interactive pages.
+import { links } from "@/lib/links";
 
 type Page = "products" | "solutions" | "method" | "security" | "about" | "platform" | "insights" | "book";
 
@@ -45,7 +46,7 @@ export function SiteShell({
             <a className="btn btn-s btn-sm" href="/book">
               Book time
             </a>
-            <a className="btn btn-p btn-sm" href="/platform#start">
+            <a className="btn btn-p btn-sm" href={links.START_FREE}>
               Start free
             </a>
             <details className="menu">
@@ -130,7 +131,7 @@ export function SiteShell({
                   <a href="/book">Book time</a>
                 </li>
                 <li>
-                  <a href="/platform#start">Start free</a>
+                  <a href={links.START_FREE}>Start free</a>
                 </li>
               </ul>
             </div>
