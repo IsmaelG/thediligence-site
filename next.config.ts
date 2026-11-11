@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
   // Build-time redirects — v3 routes → V5 equivalents (SPEC S1)
   async redirects() {
     return [
+      // WIP site (2026-11-11): every route except the landing and its assets goes to `/`,
+      // temporarily (307), until the MVP and pricing are done. Remove to restore V1 (branch v1-site).
+      {
+        source: "/:path((?!_next|_vercel|images|fonts|logos|favicon\\.ico).+)",
+        destination: "/",
+        permanent: false,
+      },
       // Pricing / platform → ways section
       { source: "/pricing",  destination: "/#ways",    permanent: true },
       { source: "/platform", destination: "/#ways",    permanent: true },
