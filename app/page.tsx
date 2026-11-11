@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import MainPage from "./(site)/main-golden";
+import WipPage from "./(site)/wip";
 
 export const metadata: Metadata = {
   title: "TheDiligence: investment diligence by investor-operators",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <MainPage />;
+  return <WipPage />;
 }

@@ -18,4 +18,6 @@ export const links = {
   APP_URL,
   START_FREE: APP_URL,
   REPO_URL: process.env.REPO_URL ?? "#",
+  CONTACT_EMAIL: "hello@thediligence.app",
+  CONTACT: "mailto:hello@thediligence.app",
 } as const;
